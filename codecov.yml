@@ -1,7 +1,0 @@
-comment: off
-parsers:
-  javascript:
-    enable_partials: yes
-coverage:
-  status:
-    patch: off
