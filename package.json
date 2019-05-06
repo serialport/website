@@ -1,31 +1,23 @@
 {
-  "name": "serialport-monorepo",
+  "name": "serialport-website",
   "private": true,
   "version": "0.0.0",
-  "description": "Node.js packages to access serial ports, process data from them and speak many protocols",
+  "description": "Serialport Website",
   "engines": {
     "node": ">=8.6.0"
   },
   "license": "MIT",
   "scripts": {
-    "rebuild": "lerna run --stream rebuild",
-    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "start": "cd packages/website && npm run start",
+    "build": "cd packages/website && npm run build",
     "docs": "cd packages/website && npm run build",
     "docs:dev": "cd packages/website && npm run start",
-    "format": "eslint packages test --fix",
-    "generate": "plop",
-    "lint": "eslint packages test && lerna run --stream lint",
     "outdated": "lerna exec --no-bail npm outdated && npm outdated",
-    "postinstall": "lerna bootstrap --no-ci",
-    "prebuild": "lerna run --stream prebuild",
-    "publish": "lerna publish",
-    "test": "nyc --reporter=html --reporter=text --reporter lcovonly mocha",
-    "test:arduino": "TEST_PORT=$(./bin/find-arduino.js) npm test",
-    "test:watch": "mocha -w"
+    "postinstall": "lerna bootstrap --no-ci"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/node-serialport/node-serialport.git"
+    "url": "git://github.com/node-serialport/website.git"
   },
   "maintainers": [
     {
@@ -36,24 +28,14 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "cc": "^1.0.1",
-    "chai": "^4.0.2",
-    "chai-subset": "^1.5.0",
-    "codecov": "^3.1.0",
     "eslint": "^5.13.0",
     "eslint-config-prettier": "^4.0.0",
     "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-node": "^9.0.1",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-react": "^7.12.4",
     "lerna": "^3.10.7",
-    "mocha": "^6.1.4",
-    "nyc": "^14.0.0",
-    "plop": "^2.2.0",
-    "prebuild": "^8.1.2",
-    "prettier": "^1.16.4",
-    "proxyquire": "^2.1.0",
-    "sinon": "^7.2.3"
+    "prettier": "^1.16.4"
   }
 }

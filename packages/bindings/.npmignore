@@ -1,5 +1,0 @@
-*.test.js
-lib/mocks
-build/
-prebuilds
-CHANGELOG.md
