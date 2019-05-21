@@ -73,6 +73,75 @@
       },
       "guide-usage": {
         "title": "SerialPort Usage"
+      },
+      "version-7.0.0/version-7.0.0-api-binding-abstract": {
+        "title": "Abstract Binding"
+      },
+      "version-7.0.0/version-7.0.0-api-binding-mock": {
+        "title": "Mock Bindings"
+      },
+      "version-7.0.0/version-7.0.0-api-bindings": {
+        "title": "Bindings"
+      },
+      "version-7.0.0/version-7.0.0-api-parser-byte-length": {
+        "title": "ByteLength Parser"
+      },
+      "version-7.0.0/version-7.0.0-api-parser-cctalk": {
+        "title": "ccTalk Parser"
+      },
+      "version-7.0.0/version-7.0.0-api-parser-delimiter": {
+        "title": "Delimiter Parser"
+      },
+      "version-7.0.0/version-7.0.0-api-parser-inter-byte-timeout": {
+        "title": "InterByteTimeout Parser"
+      },
+      "version-7.0.0/version-7.0.0-api-parser-readline": {
+        "title": "Readline Parser"
+      },
+      "version-7.0.0/version-7.0.0-api-parser-ready": {
+        "title": "Ready Parser"
+      },
+      "version-7.0.0/version-7.0.0-api-parser-regex": {
+        "title": "Regex Parser"
+      },
+      "version-7.0.0/version-7.0.0-api-parser-slip-encoder": {
+        "title": "Slip Encoder Parser"
+      },
+      "version-7.0.0/version-7.0.0-api-parsers-overview": {
+        "title": "What are Parsers?"
+      },
+      "version-7.0.0/version-7.0.0-api-serialport": {
+        "title": "SerialPort"
+      },
+      "version-7.0.0/version-7.0.0-api-stream": {
+        "title": "Stream Interface"
+      },
+      "version-7.0.0/version-7.0.0-code-of-conduct": {
+        "title": "Code of Conduct"
+      },
+      "version-7.0.0/version-7.0.0-guide-about": {
+        "title": "About SerialPort"
+      },
+      "version-7.0.0/version-7.0.0-guide-cli": {
+        "title": "Command Line Tools"
+      },
+      "version-7.0.0/version-7.0.0-guide-debugging": {
+        "title": "Debugging"
+      },
+      "version-7.0.0/version-7.0.0-guide-errors": {
+        "title": "Error Handling"
+      },
+      "version-7.0.0/version-7.0.0-guide-installation": {
+        "title": "Installing SerialPort"
+      },
+      "version-7.0.0/version-7.0.0-guide-platform-support": {
+        "title": "Support Environments"
+      },
+      "version-7.0.0/version-7.0.0-guide-testing": {
+        "title": "Testing"
+      },
+      "version-7.0.0/version-7.0.0-guide-usage": {
+        "title": "SerialPort Usage"
       }
     },
     "links": {

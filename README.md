@@ -10,12 +10,12 @@ Working with serial ports can be hard, this is a collection of projects that mak
 You can develop the docs by running
 
 ```bash
-npm run docs:dev
+npm run start
 ```
 
 And build them by running
 ```bash
-npm run docs
+npm run build
 ```
 
 Docs are automatically built with [netlify](https://www.netlify.com/pricing/) including previews on branches. The master branch is deployed to https://serialport.io

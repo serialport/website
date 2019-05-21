@@ -1,6 +1,7 @@
 ---
-id: guide-about
+id: version-7.0.0-guide-about
 title: About SerialPort
+original_id: guide-about
 ---
 
 ## Quick Answers to Important Questions
