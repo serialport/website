@@ -1,6 +1,6 @@
 ---
 id: guide-platform-support
-title: Support Environments
+title: Supported Environments
 ---
 
 ## Node.js Support

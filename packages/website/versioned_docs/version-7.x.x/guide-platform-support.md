@@ -1,6 +1,6 @@
 ---
 id: version-7.x.x-guide-platform-support
-title: Support Environments
+title: Supported Environments
 original_id: guide-platform-support
 ---
 
