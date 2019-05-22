@@ -1,5 +1,5 @@
 ---
-id: version-7.0.0-api-binding-abstract
+id: version-7.x.x-api-binding-abstract
 title: Abstract Binding
 original_id: api-binding-abstract
 ---

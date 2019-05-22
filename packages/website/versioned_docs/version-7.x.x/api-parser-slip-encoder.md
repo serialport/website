@@ -1,5 +1,5 @@
 ---
-id: version-7.0.0-api-parser-slip-encoder
+id: version-7.x.x-api-parser-slip-encoder
 title: Slip Encoder Parser
 original_id: api-parser-slip-encoder
 ---

@@ -1,5 +1,5 @@
 ---
-id: version-7.0.0-guide-errors
+id: version-7.x.x-guide-errors
 title: Error Handling
 original_id: guide-errors
 ---

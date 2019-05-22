@@ -1,5 +1,5 @@
 ---
-id: version-7.0.0-api-parsers-overview
+id: version-7.x.x-api-parsers-overview
 title: What are Parsers?
 original_id: api-parsers-overview
 ---

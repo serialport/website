@@ -1,5 +1,5 @@
 ---
-id: version-7.0.0-guide-about
+id: version-7.x.x-guide-about
 title: About SerialPort
 original_id: guide-about
 ---

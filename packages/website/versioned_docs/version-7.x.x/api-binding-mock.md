@@ -1,5 +1,5 @@
 ---
-id: version-7.0.0-api-binding-mock
+id: version-7.x.x-api-binding-mock
 title: Mock Bindings
 original_id: api-binding-mock
 ---

@@ -1,5 +1,5 @@
 ---
-id: version-7.0.0-code-of-conduct
+id: version-7.x.x-code-of-conduct
 title: Code of Conduct
 original_id: code-of-conduct
 ---

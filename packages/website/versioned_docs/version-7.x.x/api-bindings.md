@@ -1,5 +1,5 @@
 ---
-id: version-7.0.0-api-bindings
+id: version-7.x.x-api-bindings
 title: Bindings
 original_id: api-bindings
 ---

@@ -1,5 +1,5 @@
 ---
-id: version-7.0.0-api-parser-cctalk
+id: version-7.x.x-api-parser-cctalk
 title: ccTalk Parser
 original_id: api-parser-cctalk
 ---

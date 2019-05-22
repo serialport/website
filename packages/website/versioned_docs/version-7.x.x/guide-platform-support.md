@@ -1,5 +1,5 @@
 ---
-id: version-7.0.0-guide-platform-support
+id: version-7.x.x-guide-platform-support
 title: Support Environments
 original_id: guide-platform-support
 ---

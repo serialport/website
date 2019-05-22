@@ -1,5 +1,5 @@
 ---
-id: version-7.0.0-api-stream
+id: version-7.x.x-api-stream
 title: Stream Interface
 original_id: api-stream
 ---

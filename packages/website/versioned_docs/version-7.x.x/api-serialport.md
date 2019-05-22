@@ -1,5 +1,5 @@
 ---
-id: version-7.0.0-api-serialport
+id: version-7.x.x-api-serialport
 title: SerialPort
 original_id: api-serialport
 ---

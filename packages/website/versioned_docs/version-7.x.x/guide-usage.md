@@ -1,5 +1,5 @@
 ---
-id: version-7.0.0-guide-usage
+id: version-7.x.x-guide-usage
 title: SerialPort Usage
 original_id: guide-usage
 ---

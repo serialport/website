@@ -1,5 +1,5 @@
 ---
-id: version-7.0.0-api-parser-inter-byte-timeout
+id: version-7.x.x-api-parser-inter-byte-timeout
 title: InterByteTimeout Parser
 original_id: api-parser-inter-byte-timeout
 ---

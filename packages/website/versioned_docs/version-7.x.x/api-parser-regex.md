@@ -1,5 +1,5 @@
 ---
-id: version-7.0.0-api-parser-regex
+id: version-7.x.x-api-parser-regex
 title: Regex Parser
 original_id: api-parser-regex
 ---

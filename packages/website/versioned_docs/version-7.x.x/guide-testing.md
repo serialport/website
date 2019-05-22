@@ -1,5 +1,5 @@
 ---
-id: version-7.0.0-guide-testing
+id: version-7.x.x-guide-testing
 title: Testing
 original_id: guide-testing
 ---

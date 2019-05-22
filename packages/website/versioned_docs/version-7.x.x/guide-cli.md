@@ -1,5 +1,5 @@
 ---
-id: version-7.0.0-guide-cli
+id: version-7.x.x-guide-cli
 title: Command Line Tools
 original_id: guide-cli
 ---

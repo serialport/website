@@ -1,5 +1,5 @@
 ---
-id: version-7.0.0-guide-installation
+id: version-7.x.x-guide-installation
 title: Installing SerialPort
 original_id: guide-installation
 ---

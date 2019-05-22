@@ -1,5 +1,5 @@
 ---
-id: version-7.0.0-api-parser-delimiter
+id: version-7.x.x-api-parser-delimiter
 title: Delimiter Parser
 original_id: api-parser-delimiter
 ---

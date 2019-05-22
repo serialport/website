@@ -1,5 +1,5 @@
 ---
-id: version-7.0.0-api-parser-byte-length
+id: version-7.x.x-api-parser-byte-length
 title: ByteLength Parser
 original_id: api-parser-byte-length
 ---

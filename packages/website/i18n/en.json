@@ -74,73 +74,73 @@
       "guide-usage": {
         "title": "SerialPort Usage"
       },
-      "version-7.0.0/version-7.0.0-api-binding-abstract": {
+      "version-7.x.x/version-7.x.x-api-binding-abstract": {
         "title": "Abstract Binding"
       },
-      "version-7.0.0/version-7.0.0-api-binding-mock": {
+      "version-7.x.x/version-7.x.x-api-binding-mock": {
         "title": "Mock Bindings"
       },
-      "version-7.0.0/version-7.0.0-api-bindings": {
+      "version-7.x.x/version-7.x.x-api-bindings": {
         "title": "Bindings"
       },
-      "version-7.0.0/version-7.0.0-api-parser-byte-length": {
+      "version-7.x.x/version-7.x.x-api-parser-byte-length": {
         "title": "ByteLength Parser"
       },
-      "version-7.0.0/version-7.0.0-api-parser-cctalk": {
+      "version-7.x.x/version-7.x.x-api-parser-cctalk": {
         "title": "ccTalk Parser"
       },
-      "version-7.0.0/version-7.0.0-api-parser-delimiter": {
+      "version-7.x.x/version-7.x.x-api-parser-delimiter": {
         "title": "Delimiter Parser"
       },
-      "version-7.0.0/version-7.0.0-api-parser-inter-byte-timeout": {
+      "version-7.x.x/version-7.x.x-api-parser-inter-byte-timeout": {
         "title": "InterByteTimeout Parser"
       },
-      "version-7.0.0/version-7.0.0-api-parser-readline": {
+      "version-7.x.x/version-7.x.x-api-parser-readline": {
         "title": "Readline Parser"
       },
-      "version-7.0.0/version-7.0.0-api-parser-ready": {
+      "version-7.x.x/version-7.x.x-api-parser-ready": {
         "title": "Ready Parser"
       },
-      "version-7.0.0/version-7.0.0-api-parser-regex": {
+      "version-7.x.x/version-7.x.x-api-parser-regex": {
         "title": "Regex Parser"
       },
-      "version-7.0.0/version-7.0.0-api-parser-slip-encoder": {
+      "version-7.x.x/version-7.x.x-api-parser-slip-encoder": {
         "title": "Slip Encoder Parser"
       },
-      "version-7.0.0/version-7.0.0-api-parsers-overview": {
+      "version-7.x.x/version-7.x.x-api-parsers-overview": {
         "title": "What are Parsers?"
       },
-      "version-7.0.0/version-7.0.0-api-serialport": {
+      "version-7.x.x/version-7.x.x-api-serialport": {
         "title": "SerialPort"
       },
-      "version-7.0.0/version-7.0.0-api-stream": {
+      "version-7.x.x/version-7.x.x-api-stream": {
         "title": "Stream Interface"
       },
-      "version-7.0.0/version-7.0.0-code-of-conduct": {
+      "version-7.x.x/version-7.x.x-code-of-conduct": {
         "title": "Code of Conduct"
       },
-      "version-7.0.0/version-7.0.0-guide-about": {
+      "version-7.x.x/version-7.x.x-guide-about": {
         "title": "About SerialPort"
       },
-      "version-7.0.0/version-7.0.0-guide-cli": {
+      "version-7.x.x/version-7.x.x-guide-cli": {
         "title": "Command Line Tools"
       },
-      "version-7.0.0/version-7.0.0-guide-debugging": {
+      "version-7.x.x/version-7.x.x-guide-debugging": {
         "title": "Debugging"
       },
-      "version-7.0.0/version-7.0.0-guide-errors": {
+      "version-7.x.x/version-7.x.x-guide-errors": {
         "title": "Error Handling"
       },
-      "version-7.0.0/version-7.0.0-guide-installation": {
+      "version-7.x.x/version-7.x.x-guide-installation": {
         "title": "Installing SerialPort"
       },
-      "version-7.0.0/version-7.0.0-guide-platform-support": {
+      "version-7.x.x/version-7.x.x-guide-platform-support": {
         "title": "Support Environments"
       },
-      "version-7.0.0/version-7.0.0-guide-testing": {
+      "version-7.x.x/version-7.x.x-guide-testing": {
         "title": "Testing"
       },
-      "version-7.0.0/version-7.0.0-guide-usage": {
+      "version-7.x.x/version-7.x.x-guide-usage": {
         "title": "SerialPort Usage"
       }
     },

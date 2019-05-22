@@ -1,5 +1,5 @@
 ---
-id: version-7.0.0-api-parser-readline
+id: version-7.x.x-api-parser-readline
 title: Readline Parser
 original_id: api-parser-readline
 ---

@@ -1,5 +1,5 @@
 ---
-id: version-7.0.0-guide-debugging
+id: version-7.x.x-guide-debugging
 title: Debugging
 original_id: guide-debugging
 ---

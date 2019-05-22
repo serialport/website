@@ -1,5 +1,5 @@
 ---
-id: version-7.0.0-api-parser-ready
+id: version-7.x.x-api-parser-ready
 title: Ready Parser
 original_id: api-parser-ready
 ---
