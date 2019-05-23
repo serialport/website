@@ -1,21 +1,26 @@
 # Node Serialport Website
 [![Netlify Status](https://api.netlify.com/api/v1/badges/8a75bc09-2cea-4b0b-80ed-cb16b2fa2c9c/deploy-status)](https://app.netlify.com/sites/serene-wescoff-3305e5/deploys)
 
-Working with serial ports can be hard, this is a collection of projects that make it easier.
+Working with serial ports can be hard, this is a collection of docs that make it easier.
 
 > Go to https://serialport.io/ to learn more, find guides and api documentation.
+
+### Documentation Strategy
+To provide api docs, guides and explanations to make using serial ports easier.
+
+Versioned docs are for major versions of serialport and should be kept up to date with the latest version of the package.
 
 ### Developing Docs
 
 You can develop the docs by running
 
 ```bash
-npm run docs:dev
+npm run start
 ```
 
 And build them by running
 ```bash
-npm run docs
+npm run build
 ```
 
 Docs are automatically built with [netlify](https://www.netlify.com/pricing/) including previews on branches. The master branch is deployed to https://serialport.io

@@ -66,12 +66,81 @@
         "title": "Installing SerialPort"
       },
       "guide-platform-support": {
-        "title": "Support Environments"
+        "title": "Supported Environments"
       },
       "guide-testing": {
         "title": "Testing"
       },
       "guide-usage": {
+        "title": "SerialPort Usage"
+      },
+      "version-7.x.x/version-7.x.x-api-binding-abstract": {
+        "title": "Abstract Binding"
+      },
+      "version-7.x.x/version-7.x.x-api-binding-mock": {
+        "title": "Mock Bindings"
+      },
+      "version-7.x.x/version-7.x.x-api-bindings": {
+        "title": "Bindings"
+      },
+      "version-7.x.x/version-7.x.x-api-parser-byte-length": {
+        "title": "ByteLength Parser"
+      },
+      "version-7.x.x/version-7.x.x-api-parser-cctalk": {
+        "title": "ccTalk Parser"
+      },
+      "version-7.x.x/version-7.x.x-api-parser-delimiter": {
+        "title": "Delimiter Parser"
+      },
+      "version-7.x.x/version-7.x.x-api-parser-inter-byte-timeout": {
+        "title": "InterByteTimeout Parser"
+      },
+      "version-7.x.x/version-7.x.x-api-parser-readline": {
+        "title": "Readline Parser"
+      },
+      "version-7.x.x/version-7.x.x-api-parser-ready": {
+        "title": "Ready Parser"
+      },
+      "version-7.x.x/version-7.x.x-api-parser-regex": {
+        "title": "Regex Parser"
+      },
+      "version-7.x.x/version-7.x.x-api-parser-slip-encoder": {
+        "title": "Slip Encoder Parser"
+      },
+      "version-7.x.x/version-7.x.x-api-parsers-overview": {
+        "title": "What are Parsers?"
+      },
+      "version-7.x.x/version-7.x.x-api-serialport": {
+        "title": "SerialPort"
+      },
+      "version-7.x.x/version-7.x.x-api-stream": {
+        "title": "Stream Interface"
+      },
+      "version-7.x.x/version-7.x.x-code-of-conduct": {
+        "title": "Code of Conduct"
+      },
+      "version-7.x.x/version-7.x.x-guide-about": {
+        "title": "About SerialPort"
+      },
+      "version-7.x.x/version-7.x.x-guide-cli": {
+        "title": "Command Line Tools"
+      },
+      "version-7.x.x/version-7.x.x-guide-debugging": {
+        "title": "Debugging"
+      },
+      "version-7.x.x/version-7.x.x-guide-errors": {
+        "title": "Error Handling"
+      },
+      "version-7.x.x/version-7.x.x-guide-installation": {
+        "title": "Installing SerialPort"
+      },
+      "version-7.x.x/version-7.x.x-guide-platform-support": {
+        "title": "Supported Environments"
+      },
+      "version-7.x.x/version-7.x.x-guide-testing": {
+        "title": "Testing"
+      },
+      "version-7.x.x/version-7.x.x-guide-usage": {
         "title": "SerialPort Usage"
       }
     },

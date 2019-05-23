@@ -10,8 +10,7 @@
   "scripts": {
     "start": "cd packages/website && npm run start",
     "build": "cd packages/website && npm run build",
-    "docs": "cd packages/website && npm run build",
-    "docs:dev": "cd packages/website && npm run start",
+    "docs": "npm run build",
     "outdated": "lerna exec --no-bail npm outdated && npm outdated",
     "postinstall": "lerna bootstrap --no-ci"
   },
@@ -29,13 +28,13 @@
   "dependencies": {},
   "devDependencies": {
     "eslint": "^5.13.0",
-    "eslint-config-prettier": "^4.0.0",
+    "eslint-config-prettier": "^4.3.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-node": "^9.0.1",
-    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-react": "^7.12.4",
-    "lerna": "^3.10.7",
-    "prettier": "^1.16.4"
+    "lerna": "^3.14.1",
+    "prettier": "^1.17.1"
   }
 }

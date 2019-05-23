@@ -2,14 +2,13 @@
   "name": "@serialport/website",
   "private": true,
   "scripts": {
-    "examples": "docusaurus-examples",
-    "start": "docusaurus-start",
     "build": "docusaurus-build",
-    "write-translations": "docusaurus-write-translations",
     "doc-version": "docusaurus-version",
+    "examples": "docusaurus-examples",
     "rename-version": "docusaurus-rename-version",
-    "crowdin-upload": "crowdin --config ../../crowdin.yaml upload sources --auto-update -b master",
-    "crowdin-download": "crowdin --config ../../crowdin.yaml download -b master"
+    "start": "docusaurus-start",
+    "version": "docusaurus-version",
+    "write-translations": "docusaurus-write-translations"
   },
   "devDependencies": {
     "docusaurus": "^1.8.3"
