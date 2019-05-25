@@ -16,7 +16,14 @@ In addition to reading the [article mentioned above](http://www.voodootikigod.co
 
 
 ## Packages
+
+:::tip
 Chances are you're looking for the [`serialport`](api-serialport.md) package which provides a good set of defaults for most projects. However it is quite easy to mix and match the parts of serialport you need.
+:::
+
+### Serialport
+
+The [`serialport`](api-serialport.md) package which provides a good set of defaults for most projects with the node stream api.
 
 ### Bindings
 The Bindings provide a low level interface to work with your serialport. It is possible to use them alone but it's usually easier to use them with an interface.

@@ -70,6 +70,11 @@ const siteConfig = {
     // 'https://buttons.github.io/buttons.js'
   ],
 
+  markdownPlugins: [
+    // Highlight admonitions.
+    require('remarkable-admonitions')({ icon: 'svg-inline' }),
+  ],
+
   // On page navigation for the current documentation page.
   onPageNav: 'separate',
   // No .html extensions for paths.

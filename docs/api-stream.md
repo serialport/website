@@ -83,7 +83,9 @@ The `SerialPort` class delegates this function to the provided `Binding` on [`Se
 
 We make an effort to identify the hardware attached and have consistent results between systems. Linux and OS X are mostly consistent. Windows relies on 3rd party device drivers for the information and is unable to guarantee the information. On windows If you have a USB connected device can we provide a serial number otherwise it will be `undefined`. The `pnpId` and `locationId` are not the same or present on all systems. The examples below were run with the same Arduino Uno.
 
-__Note__: In `serialport@8` and `@serialport/bindings@3` We renamed `PortInfo.comName` to `PortInfo.path` if you use comName you'll get a warning until the next major release.
+:::note
+In `serialport@8` and `@serialport/bindings@3` We renamed `PortInfo.comName` to `PortInfo.path` if you use comName you'll get a warning until the next major release.
+:::
 
 ```js
 // OSX example port
