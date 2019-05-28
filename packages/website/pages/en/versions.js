@@ -36,7 +36,7 @@ function Versions(props) {
                 <td>
                   {/* You are supposed to change this href where appropriate
                         Example: href="<baseUrl>/docs(/:language)/:id" */}
-                  <a href={`${siteConfig.baseUrl}${siteConfig.docsUrl}/${props.language ? `${props.language}/` : ''}/guide-about`}>Documentation</a>
+                  <a href={`${siteConfig.baseUrl}${siteConfig.docsUrl}/${props.language ? `${props.language}/` : ''}guide-about`}>Documentation</a>
                 </td>
                 <td>
                   <a href="">Release Notes</a>
