@@ -1,7 +1,14 @@
 {
   "guides": {
     "Getting Started": ["guide-about", "guide-platform-support", "guide-installation"],
-    "Usage": ["guide-usage", "guide-cli", "guide-debugging", "guide-errors", "guide-testing"],
+    "Usage": [
+      "guide-usage",
+      "guide-cli",
+      "guide-debugging",
+      "guide-errors",
+      "guide-testing",
+      "guide-virtual-serial-ports"
+    ],
     "API Core": ["api-serialport"],
     "API Bindings": ["api-bindings", "api-binding-mock", "api-binding-abstract"],
     "API Interfaces": ["api-stream"],
