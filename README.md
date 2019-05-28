@@ -10,6 +10,8 @@ To provide api docs, guides and explanations to make using serial ports easier.
 
 Versioned docs are for major versions of serialport and should be kept up to date with the latest version of the package.
 
+New docs should be added to the `/docs` directory.
+
 ### Developing Docs
 
 You can develop the docs by running
