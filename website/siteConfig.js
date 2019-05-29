@@ -28,7 +28,7 @@ const siteConfig = {
   // Used for publishing and more
   projectName: 'node-serialport',
   organizationName: 'node-serialport',
-  customDocsPath: '../docs',
+  // customDocsPath: 'docs',
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
