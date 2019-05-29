@@ -6,14 +6,12 @@
  */
 
 const React = require('react')
-// eslint-disable-next-line node/no-missing-require
 const CompLibrary = require('../../core/CompLibrary.js')
 
 const Container = CompLibrary.Container
 const GridBlock = CompLibrary.GridBlock
 
 const siteConfig = require(`${process.cwd()}/siteConfig.js`)
-// eslint-disable-next-line node/no-missing-require
 const translate = require('../../server/translate.js').translate
 
 function docUrl(doc, language) {

@@ -3,7 +3,7 @@
     "default": {
       "packages": [
         "package.json",
-        "packages/website/package.json"
+        "website/package.json"
       ]
     }
   }
