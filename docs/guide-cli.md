@@ -3,7 +3,7 @@ id: guide-cli
 title: Command Line Tools
 ---
 
-(These cli tools were formally part of the `serialport` package and have now been moved to their own packages for ease of use.)
+(These cli tools were formerly part of the `serialport` package and have now been moved to their own packages for ease of use.)
 
 All cli tools can be run via [`npx`](https://www.npmjs.com/package/npx) or installed globally.
 

@@ -11,7 +11,7 @@ This package provides everything you need to start talking over your serialport.
 
 > Most of the api is covered in the [Stream Interface](api-stream.md) docs.
 
-Historically this was the only package involved and it contained everything. Since version 7 the internals have been split into their own modules and be required separately allowing a user to only install what they require.
+Historically this was the only package involved and it contained everything. Since version 7 the internals have been split into their own modules and can be required separately, allowing a user to only install what they need.
 
 This allows for smaller installs and alternative interfaces, bindings and parsers.
 

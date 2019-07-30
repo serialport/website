@@ -7,9 +7,9 @@ title: Stream Interface
 const SerialPort = require('@serialport/stream')
 ```
 
-This is the Node.js Stream Interface for SerialPort. For more information on Node.js Streams please see their [Stream API docs](https://nodejs.org/api/stream.html) and google for a large number of tutorials on Node.js streams. This stream is a Duplex Stream allowing for reading and writing. It has additional methods for managing the SerialPort connection.
+This is the Node.js Stream Interface for SerialPort (for more information on Node.js Streams, please see the [Stream API docs](https://nodejs.org/api/stream.html) or one of the numerous independent tutorials). This stream is a Duplex Stream allowing for reading and writing. It has additional methods for managing the SerialPort connection.
 
-You also get the stream interface by requiring the [`serialport`](api-serialport.md) package which comes with a default set of Bindings and Parsers.
+You also get the stream interface by requiring the [`serialport`](api-serialport.md) package, which comes with a default set of Bindings and Parsers.
 
 ```js
 // To get a default set of Bindings and Parsers
@@ -69,7 +69,7 @@ SerialPort.Binding: Binding
 
 The hardware access binding. `Bindings` are how Node-Serialport talks to the underlying system. This static property is used to set the default binding for any new port created with this constructor. It is also used for `Serialport.list`.
 
-If you're using the `serialport` package this defaults to `require('@serialport/bindings')`.
+If you're using the `serialport` package, this defaults to `require('@serialport/bindings')`.
 
 ## Static Methods
 
@@ -77,14 +77,14 @@ If you're using the `serialport` package this defaults to `require('@serialport/
 ```typescript
 SerialPort.list(): Promise<PortInfo[]>
 ```
-Retrieves a list of available serial ports with metadata. Only the `path` is guaranteed. If unavailable the other fields will be undefined. The `path` is either the path or an identifier (eg `COM1`) used to open the SerialPort.
+Retrieves a list of available serial ports with metadata. Only the `path` is guaranteed (other fields will be undefined if unavailable). The `path` is either the path or an identifier (eg `COM1`) used to open the SerialPort.
 
 The `SerialPort` class delegates this function to the provided `Binding` on [`SerialPort.Binding`](#serialportbinding-binding).
 
-We make an effort to identify the hardware attached and have consistent results between systems. Linux and OS X are mostly consistent. Windows relies on 3rd party device drivers for the information and is unable to guarantee the information. On windows If you have a USB connected device can we provide a serial number otherwise it will be `undefined`. The `pnpId` and `locationId` are not the same or present on all systems. The examples below were run with the same Arduino Uno.
+We make an effort to identify the hardware attached and have consistent results between systems. Linux and OS X are mostly consistent. Windows relies on 3rd-party device drivers for this information and is unable to guarantee the accuracy. If you have a USB-connected device, we provide a serial number - otherwise it will be `undefined`. The `pnpId` and `locationId` are not the same or present on all systems. The examples below were run with the same Arduino Uno.
 
 :::note
-In `serialport@8` and `@serialport/bindings@3` We renamed `PortInfo.comName` to `PortInfo.path` if you use comName you'll get a warning until the next major release.
+In `serialport@8` and `@serialport/bindings@3` we renamed `PortInfo.comName` to `PortInfo.path`. If you use comName you'll get a warning until the next major release.
 :::
 
 ```js
@@ -167,10 +167,10 @@ The `open` event happens when the port is opened and ready for writing. This hap
 The `error` provides an error object whenever there is an unhandled error. You can usually handle an error with a callback to the method that produced it.
 
 ### `close`
-The `close` event's is emitted when the port is closed. In the case of a disconnect it will be called with a Disconnect Error object (`err.disconnected == true`). In the event of a close error (unlikely), an error event is triggered.
+The `close` event is emitted when the port is closed. In the case of a disconnect, it will be called with a Disconnect Error object (`err.disconnected == true`). In the event of an error while closing (unlikely), an error event is triggered.
 
 ### `data`
-Listening for the `data` event puts the port in flowing mode. Data is emitted as soon as it's received. Data is a `Buffer` object with any amount of data in it. It's only guaranteed to have at least one byte. See the [parsers](api-parsers-overview.md) section for more information on how to work with the data, and the [Node.js stream documentation](https://nodejs.org/api/stream.html#stream_event_data) for more information on the data event.
+Listening for the `data` event puts the port in flowing mode. Data is emitted as soon as it's received. Data is a `Buffer` object with any amount of data in it. The buffer is only guaranteed to have at least one byte. See the [parsers](api-parsers-overview.md) section for more information on how to work with the data, and the [Node.js stream documentation](https://nodejs.org/api/stream.html#stream_event_data) for more information on the data event.
 
 ### `drain`
 The `drain` event is emitted when it is performant to write again if a `write()` call has returned `false`. For more info see the [Node.js `drain` documentation](https://nodejs.org/api/stream.html#stream_event_drain) for more info.
@@ -201,16 +201,16 @@ serialport.write(data: string|Buffer|Array<number>, encoding?: string, callback?
 
 Writes data to the given serial port. Buffers written data if the port is not open and writes it after the port opens. The write operation is non-blocking. When it returns, data might still not have been written to the serial port. See `drain()`.
 
-> Some devices, like the Arduino, reset when you open a connection to them. In such cases, immediately writing to the device will cause lost data as they wont be ready to receive the data. This is often worked around by having the Arduino send a "ready" byte that your Node program waits for before writing. You can also often get away with waiting around 400ms. See the `ReadyParser` for a solution to this.
+> Some devices, like the Arduino, reset when you open a connection to them. In such cases, immediately writing to the device will cause transmitted data to be lost as the devices won't be ready to receive the data. This is often worked around by having the Arduino send a "ready" byte that your Node program awaits before writing. You can also often get away with waiting a set amount, around 400ms. See the `ReadyParser` for a solution to this.
 
-If a port is disconnected during a write, the write will error in addition to the `close` event.
+If a port is disconnected during a write, the write will produce an error in addition to the `close` event.
 
-From the [stream docs](https://nodejs.org/api/stream.html#stream_writable_write_chunk_encoding_callback) write errors don't always provide the error in the callback, sometimes they use the error event.
+According to the [stream docs](https://nodejs.org/api/stream.html#stream_writable_write_chunk_encoding_callback), write errors don't always provide the error in the callback; sometimes they use the error event.
 > If an error occurs, the callback may or may not be called with the error as its first argument. To reliably detect write errors, add a listener for the 'error' event.
 
-While this is in the stream docs, this hasn't been observed.
+While this is in the stream docs, it hasn't been observed.
 
-In addition to the usual `stream.write` arguments (`String` and `Buffer`), `write()` can accept arrays of bytes (positive numbers under 256) which is passed to `Buffer.from([])` for conversion. This extra functionality is pretty sweet.
+In addition to the usual `stream.write` arguments (`String` and `Buffer`), `write()` can accept an array of bytes (positive numbers under 256) which is passed to `Buffer.from([])` for conversion.
 
 Arguments:
 
@@ -218,7 +218,7 @@ Arguments:
 - `encoding?: string` The encoding, if chunk is a string. Defaults to `'utf8'`. Also accepts `'ascii'`, `'base64'`, `'binary'`, and `'hex'` See [Buffers and Character Encodings](https://nodejs.org/api/buffer.html#buffer_buffers_and_character_encodings) for all available options.
 - `callback?: error => {}` Called once the write operation finishes. Data may not yet be drained to the underlying port.
 
-Returns a boolean `false` if the stream wishes for the calling code to wait for the `drain` event to be emitted before continuing to write additional data; otherwise `true`.
+Returns `false` if the stream wishes for the calling code to wait for the `drain` event to be emitted before continuing to write additional data; otherwise `true`.
 
 ### `SerialPort#read`
 ```js
@@ -234,7 +234,7 @@ Arguments:
 ```js
 serialport.close(callback?: error => {}): void
 ```
-Closes an open connection. If there are in progress writes when the port is closed the writes will error.
+Closes an open connection. If there are in-progress writes when the port is closed the writes will error.
 
 Arguments:
 - `callback?: (error => {}: void) Called once a connection is closed.
@@ -246,7 +246,7 @@ serialport.set(options: setOptions, callback?: error => {}): void
 Set control flags on an open port. Uses [`SetCommMask`](https://msdn.microsoft.com/en-us/library/windows/desktop/aa363257(v=vs.85).aspx) for Windows and [`ioctl`](http://linux.die.net/man/4/tty_ioctl) for OS X and Linux.
 
 Arguments:
-- `options: setOptions` All options are operating system default when the port is opened. Every flag is set on each call to the provided or default values. If options isn't provided default options are used.
+- `options: setOptions` All options default to the operating system defaults when the port is opened. Every flag is set on each call to the provided or default values.
 - `callback: error => {}` Called once the port's flags have been set.
 
 `setOptions`
@@ -280,7 +280,7 @@ Returns the control flags (CTS, DSR, DCD) on the open port. Uses [`GetCommModemS
 ```typescript
 serialport.flush(callback? error => {}):void
 ```
-Flush discards data received but not read, and written but not transmitted by the operating system. For more technical details, see [`tcflush(fd, TCIOFLUSH)`](http://linux.die.net/man/3/tcflush) for Mac/Linux and [`FlushFileBuffers`](http://msdn.microsoft.com/en-us/library/windows/desktop/aa364439) for Windows.
+Flush discards data that has been received but not read, or written but not transmitted by the operating system. For more technical details, see [`tcflush(fd, TCIOFLUSH)`](http://linux.die.net/man/3/tcflush) for Mac/Linux and [`FlushFileBuffers`](http://msdn.microsoft.com/en-us/library/windows/desktop/aa364439) for Windows.
 
 - `callback? error => {}` Called once the flush operation finishes.
 
@@ -289,7 +289,7 @@ Flush discards data received but not read, and written but not transmitted by th
 ```typescript
 serialport.drain(callback? error => {}):void
 ```
-Waits until all output data is transmitted to the serial port. After any pending write has completed it calls [`tcdrain()`](http://linux.die.net/man/3/tcdrain) or [FlushFileBuffers()](https://msdn.microsoft.com/en-us/library/windows/desktop/aa364439(v=vs.85).aspx) to ensure it has been written to the device.
+Waits until all output data is transmitted to the serial port. After any pending write has completed, it calls [`tcdrain()`](http://linux.die.net/man/3/tcdrain) or [FlushFileBuffers()](https://msdn.microsoft.com/en-us/library/windows/desktop/aa364439(v=vs.85).aspx) to ensure it has been written to the device.
 
 - `callback? error => {}` Called once the drain operation returns.
 
