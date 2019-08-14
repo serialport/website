@@ -74,6 +74,9 @@
       "guide-usage": {
         "title": "SerialPort Usage"
       },
+      "guide-virtual-serial-ports": {
+        "title": "Virtual Serial Ports"
+      },
       "version-7.x.x/version-7.x.x-api-binding-abstract": {
         "title": "Abstract Binding"
       },
