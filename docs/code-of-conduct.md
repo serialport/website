@@ -3,7 +3,7 @@ id: code-of-conduct
 title: Code of Conduct
 ---
 
-SerialPort follows the Nodebots Code of Conduct. The full text can be found at [nodebots.io](http://nodebots.io/conduct.html).
+SerialPort follows the NodeBots Code of Conduct. The full text can be found at [nodebots.io](http://nodebots.io/conduct.html).
 
 ## TLDR
 - Be respectful.

@@ -8,7 +8,7 @@ new MockBinding(options: OpenOptions)
 ```
 
 
-Testing is an important feature of any library. To aid in our own tests we've developed a `MockBinding` a fake hardware binding that doesn't actually need any hardware to run. This class passes all of the same tests as our hardware based bindings and provides a few additional test related interfaces.
+Testing is an important feature of any library. To aid in our own tests, we've developed a `MockBinding`, a fake hardware binding that doesn't actually need any hardware to run. This class passes all of the same tests as our hardware based bindings and provides a few additional test related interfaces.
 
 ### Example
 
@@ -56,7 +56,7 @@ class MockBinding extends AbstractBinding {
   // Emit data on a mock port
   emitData(data: Buffer | string | number[])
 
-// Standard bindings interface
+  // Standard bindings interface
   open(path: string, opt: OpenOpts): Promise<void>
   close(): Promise<void>
   read(buffer: Buffer, offset: number, length: number): Promise<Buffer>

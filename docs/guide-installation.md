@@ -161,4 +161,4 @@ npm install serialport --build-from-source
 
 Node-gyp's documentation doesn't mention it, but it sometimes helps to create a C++ project in [Visual Studio](https://www.visualstudio.com/) so that it will install any necessary components not already installed during the past two hours of setup. This will solve some instances of `Failed to locate: "CL.exe"`.
 
-An old issue that you may still run into. When working with multiple Serial Ports you can set the `UV_THREADPOOL_SIZE` environment variable to be set to 1 + the number of ports you wish to open at a time. (Defaults to `4` which supports 3 open ports).
+An old issue that you may still run into: when working with multiple Serial Ports you can set the `UV_THREADPOOL_SIZE` environment variable to be set to 1 + the number of ports you wish to open at a time. Defaults to `4` which supports 3 open ports.

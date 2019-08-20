@@ -15,7 +15,7 @@ When opening a serial port, specify (in this order)
 1. Path to Serial Port - required.
 1. Options - optional and described below.
 
-Constructing a `SerialPort` object immediately opens a port. While you can read and write at any time (it will be queued until the port is open), most port functions require an open port. There are three ways to detect when a port is opened.
+Constructing a `SerialPort` object immediately opens a port. While you can read and write at any time (actions will be queued until the port is open), most port functions require an open port. There are three ways to detect when a port is opened.
 
 - The `open` event is always emitted when the port is opened.
 - The constructor's openCallback is passed to `.open()`, if you haven't disabled the `autoOpen` option. If you have disabled it, the callback is ignored.
@@ -38,7 +38,7 @@ port.on('error', function(err) {
 })
 ```
 
-Detecting open errors can be moved to the constructor's callback.
+Detecting open-related errors can be moved to the constructor's callback.
 ```js
 const SerialPort = require('serialport')
 const port = new SerialPort('/dev/tty-usbserial1', function (err) {
@@ -58,7 +58,7 @@ port.write('main screen turn on', function(err) {
 
 ## Auto Open
 
-When disabling the `autoOpen` option you'll need to open the port on your own.
+If you disable the `autoOpen` option, you'll need to open the port on your own.
 
 ```js
 const SerialPort = require('serialport')
@@ -81,7 +81,7 @@ port.on('open', function() {
 
 ## Reading Data
 
-Get updates of new data from the serial port as follows:
+Get updates about new data arriving through the serial port as follows:
 
 ```js
 // Read data that is available but keep the stream in "paused mode"
@@ -98,7 +98,7 @@ port.on('data', function (data) {
 const lineStream = port.pipe(new Readline())
 ```
 
-You can write to the serial port by sending a string or buffer to the write method:
+You can write to the serial port by sending a string or buffer to the `write` method:
 
 ```js
 port.write('Hi Mom!')
