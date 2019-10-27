@@ -74,12 +74,12 @@ function Versions(props) {
                       <td>
                         {/* You are supposed to change this href where appropriate
                         Example: href="<baseUrl>/docs(/:language)/:version/:id" */}
-                        <a href={`${siteConfig.baseUrl}${siteConfig.docsUrl}/${props.language ? `${props.language}/` : ''}${version}/doc1`}>
+                        <a href={`${siteConfig.baseUrl}${siteConfig.docsUrl}/${props.language ? `${props.language}/` : ''}${version}/guide-about`}>
                           Documentation
                         </a>
                       </td>
                       <td>
-                        <a href={`${repoUrl}/releases/tag/v${version}`}>Release Notes</a>
+                        <a href={`${repoUrl}/blob/master/CHANGELOG.md`}>Release Notes</a>
                       </td>
                     </tr>
                   )
@@ -87,7 +87,7 @@ function Versions(props) {
             </tbody>
           </table>
           <p>
-            You can find past versions of this project on <a href={repoUrl}>GitHub</a>.
+            You can find past versions of serialport on <a href={repoUrl}>GitHub</a>.
           </p>
         </div>
       </Container>
