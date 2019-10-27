@@ -11,7 +11,7 @@
     "write-translations": "docusaurus-write-translations"
   },
   "devDependencies": {
-    "docusaurus": "^1.8.3"
+    "docusaurus": "^1.14.0"
   },
   "version": "0.0.0",
   "dependencies": {
