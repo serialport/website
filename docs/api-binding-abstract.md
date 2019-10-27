@@ -6,7 +6,6 @@ title: Abstract Binding
 Typescript signature of Abstract Binding
 
 ```typescript
-
 class AbstractBinding {
   static list(): Promise<PortInfo[]>
 
@@ -39,7 +38,7 @@ class AbstractBinding {
    * @param {integer} length Specifies the maximum number of bytes to read.
    * @returns {Promise} Resolves with the number of bytes read after a read operation.
    */
-  read(buffer: Buffer, offset: number, length: number): Promise<Buffer>
+  read(buffer: Buffer, offset: number, length: number): Promise<{ bytesRead: number, buffer: Buffer }>
 
   /**
    * Write bytes to the SerialPort. Only called when there is no pending write operation.
@@ -60,7 +59,7 @@ class AbstractBinding {
 
   /**
    * Set control flags on an open port.
-   * @param {object=} options All options are operating system default when the port is opened. 
+   * @param {object=} options All options are operating system default when the port is opened.
    * Every flag is set on each call to the provided or default values. All options are always provided.
    * @param {Boolean} [options.brk=false] flag for brk
    * @param {Boolean} [options.cts=false] flag for cts
@@ -95,5 +94,4 @@ class AbstractBinding {
    */
   drain(): Promise<void>
 }
-
 ```

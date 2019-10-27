@@ -33,6 +33,10 @@ $ serialport-list [options]
 
 The package `@serialport/list` will install the `serialport-list` cli tool which lists all available serial ports in different formats.
 
+:::note
+In `@serialport/list@8` we renamed `comName` to `path`.
+:::
+
 ```bash
 $ serialport-list -h
 
@@ -68,6 +72,10 @@ $ serialport-repl <port>
 ```
 
 The package `@serialport/repl` will install the `serialport-repl` cli tool which provides a nodejs repl for working with serialport. This is valuable when debugging.
+
+:::note
+In `@serialport/repl@8` we renamed `comName` to `path`.
+:::
 
 You can make use of the `serialport-repl` command with;
 ```bash
@@ -110,24 +118,27 @@ $ serialport-terminal  -p <port> [options]
 
 The package `@serialport/terminal` will install the `serialport-terminal` cli tool which provides a basic terminal interface for communicating over a serial port. `ctrl+c` will exit.
 
-```bash
+:::note
+In `@serialport/terminal@8` we renamed `echo` to `no-echo` and changed the default behavior to locally print what you type to the terminal by default.
+:::
+
+```
 $ serialport-terminal -h
 
-  Usage: serialport-terminal -p <port> [options]
+  Usage: serialport-terminal -p <path> [options]
 
   A basic terminal interface for communicating over a serial port. Pressing ctrl+c exits.
 
   Options:
-
-    -h, --help                     output usage information
-    -V, --version                  output the version number
-    -l --list                      List available ports then exit
-    -p, --port, --portname <port>  Path or name of serial port
-    -b, --baud <baudrate>          Baud rate default: 9600
-    --databits <databits>          Data bits default: 8
-    --parity <parity>              Parity default: none
-    --stopbits <bits>              Stop bits default: 1
-    --echo --localecho             Print characters as you type them
+  -l --list              List available ports then exit
+  -p, --path <path>      Path of the serial port
+  -b, --baud <baudrate>  Baud rate default: 9600 (default: 9600)
+  --databits <databits>  Data bits default: 8 (default: 8)
+  --parity <parity>      Parity default: none (default: "none")
+  --stopbits <bits>      Stop bits default: 1 (default: 1)
+  --no-echo              Don't print characters as you type them.
+  -V, --version          output the version number
+  -h, --help             output usage information
 
 $ serialport-terminal -l
 /dev/tty.Bluetooth-Incoming-Port
