@@ -87,6 +87,11 @@ We make an effort to identify the hardware attached and have consistent results 
 In `serialport@8` and `@serialport/bindings@3` we renamed `PortInfo.comName` to `PortInfo.path`. If you use comName you'll get a warning until the next major release.
 :::
 
+:::note
+In `serialport@8` and `@serialport/bindings@3` we removed the optional callback to `list()`. You now have to use the promise it returns and if you provide a callback you will get an error.
+:::
+
+
 ```js
 // OSX example port
 {
@@ -123,7 +128,7 @@ In `serialport@8` and `@serialport/bindings@3` we renamed `PortInfo.comName` to 
 ```
 
 ```js
-var SerialPort = require('serialport')
+const SerialPort = require('serialport')
 SerialPort.list().then(
   ports => ports.forEach(console.log),
   err => console.error(err)
