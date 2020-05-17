@@ -80,7 +80,7 @@ class HomeSplash extends React.Component {
         <div className="inner">
           <ProjectTitle />
           <PromoSection>
-            <Button href={docUrl('guide-about', language)}>Documentation</Button>
+            <Button href={docUrl('guide-installation', language)}>Get Started</Button>
           </PromoSection>
         </div>
       </SplashContainer>
@@ -142,6 +142,9 @@ const FeatureCallout = () => (
 
 // eslint-disable-next-line no-unused-vars
 const LearnHow = () => (
+  <Container padding={['bottom', 'top']} id={props.id} background={props.background}>
+    <GridBlock align="center" contents={props.children} layout={props.layout} />
+  </Container>
   <Block background="light">
     {[
       {

@@ -145,6 +145,60 @@
       },
       "version-7.x.x/version-7.x.x-guide-usage": {
         "title": "SerialPort Usage"
+      },
+      "version-8.x.x/version-8.x.x-api-binding-abstract": {
+        "title": "Abstract Binding"
+      },
+      "version-8.x.x/version-8.x.x-api-binding-mock": {
+        "title": "Mock Bindings"
+      },
+      "version-8.x.x/version-8.x.x-api-bindings": {
+        "title": "Bindings"
+      },
+      "version-8.x.x/version-8.x.x-api-parser-delimiter": {
+        "title": "Delimiter Parser"
+      },
+      "version-8.x.x/version-8.x.x-api-parser-inter-byte-timeout": {
+        "title": "InterByteTimeout Parser"
+      },
+      "version-8.x.x/version-8.x.x-api-parser-ready": {
+        "title": "Ready Parser"
+      },
+      "version-8.x.x/version-8.x.x-api-parser-regex": {
+        "title": "Regex Parser"
+      },
+      "version-8.x.x/version-8.x.x-api-parsers-overview": {
+        "title": "What are Parsers?"
+      },
+      "version-8.x.x/version-8.x.x-api-serialport": {
+        "title": "SerialPort"
+      },
+      "version-8.x.x/version-8.x.x-api-stream": {
+        "title": "Stream Interface"
+      },
+      "version-8.x.x/version-8.x.x-code-of-conduct": {
+        "title": "Code of Conduct"
+      },
+      "version-8.x.x/version-8.x.x-guide-about": {
+        "title": "About SerialPort"
+      },
+      "version-8.x.x/version-8.x.x-guide-cli": {
+        "title": "Command Line Tools"
+      },
+      "version-8.x.x/version-8.x.x-guide-installation": {
+        "title": "Installing SerialPort"
+      },
+      "version-8.x.x/version-8.x.x-guide-usage": {
+        "title": "SerialPort Usage"
+      },
+      "version-8.x.x/version-8.x.x-guide-virtual-serial-ports": {
+        "title": "Virtual Serial Ports"
+      },
+      "version-9.x.x/version-9.x.x-guide-errors": {
+        "title": "Error Handling"
+      },
+      "version-9.x.x/version-9.x.x-guide-platform-support": {
+        "title": "Supported Environments"
       }
     },
     "links": {
