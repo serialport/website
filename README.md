@@ -1,4 +1,5 @@
 # Node Serialport Website
+In computing, a serial port is a serial communication interface through which information transfers in or out sequentially one bit at a time.Here is my documentation about the project,its extremely useful project,read thorough to understand the project.
 [![Netlify Status](https://api.netlify.com/api/v1/badges/8a75bc09-2cea-4b0b-80ed-cb16b2fa2c9c/deploy-status)](https://app.netlify.com/sites/serene-wescoff-3305e5/deploys)
 
 Working with serial ports can be hard, this is a collection of docs that make it easier.
