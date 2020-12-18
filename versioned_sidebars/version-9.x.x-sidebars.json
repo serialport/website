@@ -1,0 +1,138 @@
+{
+  "version-9.x.x/guides": [
+    {
+      "type": "category",
+      "label": "Getting Started",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-9.x.x/guide-about"
+        },
+        {
+          "type": "doc",
+          "id": "version-9.x.x/guide-platform-support"
+        },
+        {
+          "type": "doc",
+          "id": "version-9.x.x/guide-installation"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Usage",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-9.x.x/guide-usage"
+        },
+        {
+          "type": "doc",
+          "id": "version-9.x.x/guide-cli"
+        },
+        {
+          "type": "doc",
+          "id": "version-9.x.x/guide-debugging"
+        },
+        {
+          "type": "doc",
+          "id": "version-9.x.x/guide-errors"
+        },
+        {
+          "type": "doc",
+          "id": "version-9.x.x/guide-testing"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "API Core",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-9.x.x/api-serialport"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "API Bindings",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-9.x.x/api-bindings"
+        },
+        {
+          "type": "doc",
+          "id": "version-9.x.x/api-binding-mock"
+        },
+        {
+          "type": "doc",
+          "id": "version-9.x.x/api-binding-abstract"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "API Interfaces",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-9.x.x/api-stream"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "API Parsers",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-9.x.x/api-parsers-overview"
+        },
+        {
+          "type": "doc",
+          "id": "version-9.x.x/api-parser-byte-length"
+        },
+        {
+          "type": "doc",
+          "id": "version-9.x.x/api-parser-cctalk"
+        },
+        {
+          "type": "doc",
+          "id": "version-9.x.x/api-parser-delimiter"
+        },
+        {
+          "type": "doc",
+          "id": "version-9.x.x/api-parser-inter-byte-timeout"
+        },
+        {
+          "type": "doc",
+          "id": "version-9.x.x/api-parser-readline"
+        },
+        {
+          "type": "doc",
+          "id": "version-9.x.x/api-parser-ready"
+        },
+        {
+          "type": "doc",
+          "id": "version-9.x.x/api-parser-regex"
+        },
+        {
+          "type": "doc",
+          "id": "version-9.x.x/api-parser-slip-encoder"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Community",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-9.x.x/code-of-conduct"
+        }
+      ]
+    }
+  ]
+}
