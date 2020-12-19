@@ -1,4 +1,4 @@
 [build]
-base = "website"
+base = ""
 command = "npm install && npm run build"
-publish = "website/build/node-serialport"
+publish = "build/node-serialport"

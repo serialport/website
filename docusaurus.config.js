@@ -1,6 +1,6 @@
 module.exports = {
   title: 'Node Serialport',
-  tagline: 'The tagline of my site',
+  tagline: 'Talk to your Serial devices',
   url: 'https://serialport.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -10,10 +10,10 @@ module.exports = {
   projectName: 'website', // Usually your repo name.
   themeConfig: {
     navbar: {
-      title: 'My Site',
+      title: 'Node SerialPort',
       logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        alt: 'Node SerialPort Logo',
+        src: 'img/nodebots-logo.svg',
       },
       items: [
         {
