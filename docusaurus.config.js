@@ -10,6 +10,10 @@ module.exports = {
   projectName: 'website', // Usually your repo name.
   themeConfig: {
     sidebarCollapsible: false,
+    colorMode: {
+      defaultMode: 'light',
+      disableSwitch: true,
+    },
     navbar: {
       title: 'Node SerialPort',
       logo: {
