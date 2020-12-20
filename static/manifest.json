@@ -1,0 +1,24 @@
+{
+  "short_name": "SerialPort Docs",
+  "name": "Node SerialPort Docs",
+  "description": "Documentation for Node SerialPort",
+  "icons": [
+    {
+      "src": "/img/serialport-logo-small.png",
+      "type": "image/png",
+      "sizes": "400x400"
+    },
+    {
+      "src": "/img/serialport-logo.png",
+      "type": "image/png",
+      "sizes": "630x630"
+    }
+  ],
+  "start_url": "/docs",
+  "background_color": "#3367D6",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#f7df1e",
+  "shortcuts": [
+  ]
+}
