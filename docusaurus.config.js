@@ -174,4 +174,8 @@ module.exports = {
       ]
     }]
   ],
+  scripts: ['/js/asciinema-player.js'],
+  clientModules: [
+    require.resolve('./static/css/asciinema-player.css'),
+  ],
 };

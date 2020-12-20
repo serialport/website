@@ -65,6 +65,7 @@ function Home() {
         <div className="container">
           <h1 className="hero__title">{siteConfig.title}</h1>
           <p className="hero__subtitle">{siteConfig.tagline}</p>
+          <asciinema-player src="/demo-short.cast" theme="solarized-dark" autoplay="true" preload="true"></asciinema-player>
           <div className={styles.buttons}>
             <Link
               className={clsx(
