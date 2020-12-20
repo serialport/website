@@ -9,6 +9,7 @@ module.exports = {
   organizationName: 'serialport', // Usually your GitHub org/user name.
   projectName: 'website', // Usually your repo name.
   themeConfig: {
+    sidebarCollapsible: false,
     navbar: {
       title: 'Node SerialPort',
       logo: {

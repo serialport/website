@@ -1,5 +1,5 @@
 module.exports = {
-  "guides": {
+  "docs": {
     "Getting Started": ["guide-about", "guide-platform-support", "guide-installation"],
     "Usage": ["guide-usage", "guide-cli", "guide-debugging", "guide-errors", "guide-testing"],
     "API Core": ["api-serialport"],
