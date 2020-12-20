@@ -25,7 +25,7 @@ And build them by running
 npm run build
 ```
 
-Note: Search doesn't work in development mode
+Note: Search doesn't work in development mode, neither does asciinema
 
 Docs are automatically built with [netlify](https://www.netlify.com/pricing/) including previews on branches. The master branch is deployed to https://serialport.io
 

@@ -8,34 +8,21 @@ import styles from './styles.module.css';
 
 const features = [
   {
-    title: 'Easy to Use',
-    imageUrl: 'img/undraw_docusaurus_mountain.svg',
-    description: (
-      <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
-      </>
-    ),
+    title: 'Powers NodeBots',
+    description: 'Nodebots uses SerialPort as the bridge between your javascript and the firmware on thousands of devices from Arduinos to drones.',
+    imageUrl: 'img/nodebots-logo.svg',
+    imageLink: 'http://nodebots.io',
   },
   {
-    title: 'Focus on What Matters',
-    imageUrl: 'img/undraw_docusaurus_tree.svg',
-    description: (
-      <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
-      </>
-    ),
+    title: 'Consumer Devices',
+    description: 'SerialPort is used in consumer devices ranging from IOT Devices, to pancake printing robots to homebrew games. When used with Electron you have fast and easy path from prototype to production.',
+    imageUrl: 'img/pancake-bot-300px.jpg',
+    imageLink: 'http://www.pancakebot.com/',
   },
   {
-    title: 'Powered by React',
-    imageUrl: 'img/undraw_docusaurus_react.svg',
-    description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
-      </>
-    ),
+    title: 'Commercial Applications',
+    description: 'Used in underwater sensors, drones, ATMs, fork lift diagnostics, and medical devices. SerialPort has found its way into many industries. With an Open Source MIT license and the ability to submit fixes back to the project, SerialPort is an obvious choice for your next project.',
+    imageUrl: 'img/open-rov-300px.jpg',
   },
 ];
 
@@ -69,7 +56,7 @@ function Home() {
           <div className={styles.buttons}>
             <Link
               className={clsx(
-                'button button--outline button--secondary button--lg',
+                'button button--secondary button--lg',
                 styles.getStarted,
               )}
               to={useBaseUrl('docs/')}>
