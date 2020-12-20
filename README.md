@@ -25,6 +25,8 @@ And build them by running
 npm run build
 ```
 
+Note: Search doesn't work in development mode
+
 Docs are automatically built with [netlify](https://www.netlify.com/pricing/) including previews on branches. The master branch is deployed to https://serialport.io
 
 ## License

@@ -160,5 +160,14 @@ module.exports = {
     ],
   ],
   plugins: [
+    [ require.resolve('docusaurus-lunr-search'), {
+      languages: ['en'], // language codes,
+      excludeRoutes: [
+        'docs/8.x.x/**/*',
+        'docs/8.x.x/',
+        'docs/7.x.x/**/*',
+        'docs/7.x.x/',
+      ]
+    }]
   ],
 };
