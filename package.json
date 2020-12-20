@@ -1,18 +1,15 @@
 {
   "name": "serialport-website",
-  "private": true,
   "version": "0.0.0",
-  "description": "Serialport Website",
-  "engines": {
-    "node": ">=8.6.0"
-  },
-  "license": "MIT",
+  "private": true,
   "scripts": {
-    "build": "cd website && npm run build",
-    "lint": "eslint ./",
-    "outdated": "npm outdated && cd website && npm outdated",
-    "postinstall": "cd website && npm install",
-    "start": "cd website && npm run start"
+    "docusaurus": "docusaurus",
+    "start": "docusaurus start",
+    "build": "docusaurus build",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "serve": "docusaurus serve",
+    "clear": "docusaurus clear"
   },
   "repository": {
     "type": "git",
@@ -25,15 +22,25 @@
       "url": "https://www.roborooter.com"
     }
   ],
-  "dependencies": {},
-  "devDependencies": {
-    "eslint": "^5.13.0",
-    "eslint-config-prettier": "^4.3.0",
-    "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-node": "^9.0.1",
-    "eslint-plugin-prettier": "^3.1.0",
-    "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-react": "^7.12.4",
-    "prettier": "^1.17.1"
+  "dependencies": {
+    "@docusaurus/core": "2.0.0-alpha.70",
+    "@docusaurus/preset-classic": "2.0.0-alpha.70",
+    "@mdx-js/react": "^1.6.21",
+    "clsx": "^1.1.1",
+    "docusaurus-lunr-search": "^2.1.9",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

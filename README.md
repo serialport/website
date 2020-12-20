@@ -25,10 +25,9 @@ And build them by running
 npm run build
 ```
 
-Docs are automatically built with [netlify](https://www.netlify.com/pricing/) including previews on branches. The master branch is deployed to https://serialport.io
+Note: Search doesn't work in development mode, neither does asciinema
 
-## Remarkable Admonitions
-We use [Remarkable Admonitions](https://github.com/favoloso/remarkable-admonitions) to add easy to notice asides for tips, warnings and other admonitions. Give it a try.
+Docs are automatically built with [netlify](https://www.netlify.com/pricing/) including previews on branches. The master branch is deployed to https://serialport.io
 
 ## License
 SerialPort packages are all [MIT licensed](LICENSE) and all it's dependencies are MIT licensed.
