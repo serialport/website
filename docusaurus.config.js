@@ -103,7 +103,7 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/serialport/serialport-website/edit/master/website/',
+          editUrl: 'https://github.com/serialport/website/edit/master/',
           /**
            * Whether to display the author who last updated the doc.
            */
@@ -154,8 +154,7 @@ module.exports = {
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
-          editUrl:
-            'https://github.com/serialport/serialport-website/edit/master/website/blog/',
+          editUrl: 'https://github.com/serialport/website/edit/master/blog/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
