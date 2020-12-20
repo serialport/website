@@ -121,7 +121,11 @@
         {
           "type": "doc",
           "id": "version-9.x.x/api-parser-slip-encoder"
-        }
+        },
+        {
+          "type": "doc",
+          "id": "version-9.x.x/api-parser-spacepacket"
+        },
       ]
     },
     {
