@@ -5,7 +5,7 @@ module.exports = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/nodebots-logo.svg',
   organizationName: 'serialport', // Usually your GitHub org/user name.
   projectName: 'website', // Usually your repo name.
   themeConfig: {
@@ -27,10 +27,9 @@ module.exports = {
           label: 'Docs',
           position: 'left',
         },
-        // {to: 'blog', label: 'Blog', position: 'left'},
         {
           type: 'docsVersionDropdown',
-          position: 'right',
+          position: 'left',
           dropdownActiveClassDisabled: true,
           dropdownItemsAfter: [
             {
@@ -38,6 +37,11 @@ module.exports = {
               label: 'All versions',
             },
           ],
+        },
+        {
+          href: 'https://opencollective.com/serialport/updates',
+          label: 'Blog',
+          position: 'right'
         },
         {
           href: 'https://github.com/serialport/node-serialport',
@@ -78,10 +82,10 @@ module.exports = {
         {
           title: 'More',
           items: [
-            // {
-            //   label: 'Blog',
-            //   to: 'blog',
-            // },
+            {
+              href: 'https://opencollective.com/serialport/updates',
+              label: 'Blog'
+            },
             {
               label: 'GitHub',
               href: 'https://github.com/serialport/node-serialport',
