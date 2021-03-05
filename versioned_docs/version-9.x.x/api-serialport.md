@@ -30,7 +30,7 @@ serialport.write('ROBOT POWER ON')
 This package includes the [`@serialport/bindings`](api-bindings.md) package already attached to the stream interface.
 
 ```js
-SerialPort.Binding = require('@serialport/bindings)
+SerialPort.Binding = require('@serialport/bindings')
 ```
 
 ## `SerialPort.parsers`
