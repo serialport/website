@@ -262,6 +262,7 @@ Arguments:
  * {Boolean} [setOptions.dsr=false] sets the dsr flag
  * {Boolean} [setOptions.dtr=true] sets the dtr flag
  * {Boolean} [setOptions.rts=true] sets the rts flag
+ * {Boolean} [setOptions.lowLatency=true] enables low latency mode (linux specific - admin rights may be required) 
  */
 ```
 
@@ -277,6 +278,7 @@ Returns the control flags (CTS, DSR, DCD) on the open port. Uses [`GetCommModemS
  * {boolean} [ModemStatus.cts=false]
  * {boolean} [ModemStatus.dsr=false]
  * {boolean} [ModemStatus.dcd=false]
+ * {boolean} [ModemStatus.lowLatency=false] (Linux Specific)
  */
 ```
 
