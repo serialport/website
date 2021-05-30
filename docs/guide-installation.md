@@ -40,17 +40,43 @@ npm install serialport --build-from-source
 
 [Electron](https://electron.atom.io/) is a framework for creating cross-platform desktop applications. It comes with its own version of the Node.js runtime.
 
-If you require `serialport` as a dependency for an Electron project, you must compile it for the version of Electron your project's using.
+If you require `serialport` as a dependency for an Electron project, you should check the version of Electron you are using.  Each release of Serialport is published with prebuilt support for a large number of environments, you can see the supported environments in the [`assets for our latest release`](https://github.com/serialport/node-serialport/releases/latest).  If you are using an Electron version without a prebuild available then you will need to recompile it.
 
-When you first install `serialport` it will compile against the version of Node.js on your machine, not against the Node.js runtime bundled with Electron.
+To recompile `serialport` (or any native Node.js module) for Electron, you can use `electron-rebuild`; You may need to install additional build tools in order to use electron-rebuild in your environment; more info at [Electron's README](https://github.com/electron/electron-rebuild/blob/master/README.md).
 
-To recompile `serialport` (or any native Node.js module) for Electron, you can use `electron-rebuild`; more info at Electron's [README](https://github.com/electron/electron-rebuild/blob/master/README.md).
-
-1. `npm install --save-dev electron-rebuild`
+1. Run `npm install --save-dev electron-rebuild`
 2. Add `electron-rebuild` to your project's package.json's install hook
 3. Run `npm install`
 
-For an example project, check out [`electron-serialport`](https://github.com/johnny-five-io/electron-serialport).
+Alternativly, if you are already using Electron-Builder then you can have it recompile Serialport:
+
+1. Add `"buildDependenciesFromSource": true,"npmRebuild": false,` to your project.json's build configuration; more info at [Electron-builder](https://www.electron.build/configuration/configuration).
+
+
+#### Invoking SerialPort within the renderer processes
+If you wish to invoke serialport within your renderer processes then you will need to override some of the Electron default settings.
+
+1. Add 'app.allowRendererProcessReuse = false' within your main process - [Required since Electron V9](https://github.com/electron/electron/issues/18397)
+2. Add 'contextIsolation: false' to your BrowserWindow webPreferences within your main process - [Required since Electron V12](https://www.electronjs.org/docs/tutorial/context-isolation)
+
+For example:
+```
+app.allowRendererProcessReuse = false
+
+import { app, BrowserWindow } from "electron"
+
+async function createMainWindow() {
+    const window = new BrowserWindow({
+      webPreferences: {
+        nodeIntegration: true,
+        contextIsolation: false
+    }
+}
+```
+
+Over time we should migrate away from invokation within the renderer process, but many existing projects still rely on these workarounds.
+
+For an example Electron project, check out [`electron-serialport`](https://github.com/johnny-five-io/electron-serialport).
 
 ### NW.js
 
