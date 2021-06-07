@@ -169,7 +169,7 @@ A SerialPort Stream object is a [Node.js transform stream](https://nodejs.org/ap
 The `open` event happens when the port is opened and ready for writing. This happens if you have the constructor open immediately (which opens in the next tick) or if you open the port manually with `open()`. See [Usage/Auto Open](guide-usage.md#auto-open) for more information.
 
 ### `error`
-The `error` provides an error object whenever there is an unhandled error. You can usually handle an error with a callback to the method that produced it.
+The `error` provides an error object whenever there is an unhandled error. You can usually handle an error with a callback to the method that produced it. NOTE: If you do not provide a callback, you should have an error handler attached because an unhandled error will cause the process to exit. Please refer to [the node documentation](https://nodejs.org/api/events.html#events_error_events) for more details.
 
 ### `close`
 The `close` event is emitted when the port is closed. In the case of a disconnect, it will be called with a Disconnect Error object (`err.disconnected == true`). In the event of an error while closing (unlikely), an error event is triggered.
@@ -184,10 +184,10 @@ The `drain` event is emitted when it is performant to write again if a `write()`
 
 ### `SerialPort#open`
 ```js
-serialport.open(() => {}): void
+serialport.open(callback?: () => {} | err => {}): void
 ```
 
-Opens the connection of the given serial port. Emits an [`open`](api-stream.md#open) event when the port is open.
+Opens the connection of the given serial port. Emits an [`open`](api-stream.md#open) event when the port is open, and if provided, calls the callback function after emitting. If the serial port's path does not exist, the callback is invoked with an error message. If no callback handler is provied, the `SerialPort` object will emit an [`error`](api-stream.md#error) event.
 
 ### `SerialPort#update`
 ```js
