@@ -13,7 +13,7 @@ npm install serialport
 
 ## Compilation Problems
 
-We use [prebuild](https://github.com/prebuild/prebuild) to compile and post binaries of the library for most common use cases (Linux, Mac, Windows on standard processor platforms). If you have a special case, Node SerialPort will work, but it will compile the binary during the install. Compiling with nodejs is done via `node-gyp` which requires Python 2.x, so please ensure you have it installed and in your path for all operating systems. Python 3.x will not work.
+We use [prebuild](https://github.com/prebuild/prebuild) to compile and post binaries of the library for most common use cases (Linux, Mac, Windows on standard processor platforms). If you have a special case, Node SerialPort will work, but it will compile the binary during the install. Compiling with nodejs is done via [node-gyp](https://github.com/nodejs/node-gyp) which requires Python 3.x, so please ensure you have it installed and in your path for all operating systems.
 
 This assumes you have everything on your system necessary to compile ANY native module for Node.js. If you don't, then please ensure the following are true for your system before filing a "Does not install" issue.
 
@@ -28,7 +28,7 @@ This assumes you have everything on your system necessary to compile ANY native 
 sudo apk add --no-cache nodejs
 
 # Add the necessary build and runtime dependencies
-sudo apk add --no-cache make gcc g++ python linux-headers udev
+sudo apk add --no-cache make gcc g++ python3 linux-headers udev
 
 # Then we can install serialport, forcing it to compile
 npm install serialport --build-from-source
