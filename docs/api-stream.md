@@ -287,7 +287,7 @@ Returns the control flags (CTS, DSR, DCD) on the open port. Uses [`GetCommModemS
 ```typescript
 serialport.flush(callback? error => {}):void
 ```
-Flush discards data that has been received but not read, or written but not transmitted by the operating system. For more technical details, see [`tcflush(fd, TCIOFLUSH)`](http://linux.die.net/man/3/tcflush) for Mac/Linux and [`FlushFileBuffers`](http://msdn.microsoft.com/en-us/library/windows/desktop/aa364439) for Windows.
+Flush discards data that has been received but not read, or written but not transmitted by the operating system. For more technical details, see [`tcflush(fd, TCIOFLUSH)`](http://linux.die.net/man/3/tcflush) for Mac/Linux and [`PurgeComm`](https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-purgecomm) for Windows.
 
 - `callback? error => {}` Called once the flush operation finishes.
 
