@@ -48,7 +48,7 @@ To recompile `serialport` (or any native Node.js module) for Electron, you can u
 2. Add `electron-rebuild` to your project's package.json's install hook
 3. Run `npm install`
 
-Alternativly, if you are already using Electron-Builder then you can have it recompile Serialport:
+Alternatively, if you are already using Electron-Builder then you can have it recompile Serialport:
 
 1. Add `"buildDependenciesFromSource": true,"npmRebuild": false,` to your project.json's build configuration; more info at [Electron-builder](https://www.electron.build/configuration/configuration).
 
@@ -74,7 +74,7 @@ async function createMainWindow() {
 }
 ```
 
-Over time we should migrate away from invokation within the renderer process, but many existing projects still rely on these workarounds.
+Over time we should migrate away from invocation within the renderer process, but many existing projects still rely on these workarounds.
 
 For an example Electron project, check out [`electron-serialport`](https://github.com/johnny-five-io/electron-serialport).
 
