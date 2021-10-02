@@ -10,17 +10,37 @@ new MockBinding(options: OpenOptions)
 
 Testing is an important feature of any library. To aid in our own tests, we've developed a `MockBinding`, a fake hardware binding that doesn't actually need any hardware to run. This class passes all of the same tests as our hardware based bindings and provides a few additional test related interfaces.
 
+To simulate incoming data on a mock port, use `port.binding.emitData`.
+
 ### Example
 
 ```js
 const SerialPort = require('@serialport/stream')
 const MockBinding = require('@serialport/binding-mock')
+const Readline = require('@serialport/parser-readline')
 
 SerialPort.Binding = MockBinding
 
 // Create a port and enable the echo and recording.
 MockBinding.createPort('/dev/ROBOT', { echo: true, record: true })
 const port = new SerialPort('/dev/ROBOT')
+
+/* Add some action for incoming data. For example,
+** print each incoming line in uppercase */
+const parser = new Readline()
+port.pipe(parser).on('data', line => {
+  console.log(line.toUpperCase())
+})
+
+// wait for port to open...
+port.on('open', () => {
+  // ...then test by simulating incoming data
+  port.binding.emitData("Hello, world!\n")
+})
+
+/* Expected output:
+HELLO, WORLD!
+*/
 ```
 
 ```typescript
