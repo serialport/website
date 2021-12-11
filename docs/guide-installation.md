@@ -48,7 +48,7 @@ Electron has a different [application binary interface (ABI)](https://en.wikiped
 
 If you have trouble on Windows, try: `.\node_modules\.bin\electron-rebuild.cmd`
 
-Each release of Serialport is published with prebuilt support for a large number of environments (and ABI combinations), you can see the supported environments in the [`assets for our latest release`](https://github.com/serialport/node-serialport/releases/latest).  If you are using an environment which doesn't have a prebuild available then you will need to recompile it.
+Each release of SerialPort is published with prebuilt support for a large number of environments (and ABI combinations), you can see the supported environments in the [`assets for our latest release`](https://github.com/serialport/node-serialport/releases/latest).  If you are using an environment which doesn't have a prebuild available then you will need to recompile it.
 
 To recompile `serialport` (or any native Node.js module) for Electron, you can use `electron-rebuild`.  You may need to install additional build tools in order to use electron-rebuild to recompile for your environment; more info can be found at [Electron's README](https://github.com/electron/electron-rebuild/blob/master/README.md).
 

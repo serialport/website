@@ -1,6 +1,6 @@
 module.exports = {
-  title: 'Node Serialport',
-  tagline: 'Talk to your Serial devices',
+  title: 'Node SerialPort',
+  tagline: 'Talk to your Serial devices with JavaScript',
   url: 'https://serialport.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
