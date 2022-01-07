@@ -28,7 +28,7 @@ The [`serialport`](api-serialport.md) package which provides a good set of defau
 
 ### Bindings
 The Bindings provide a low level interface to work with your serialport. It is possible to use them alone but it's usually easier to use them with an interface.
-- [`@serialport/bindings`](api-bindings.md) bindings for Linux, Mac and Windows
+- [`@serialport/bindings-cpp`](api-bindings.md) bindings for Linux, Mac and Windows
 - [`@serialport/binding-abstract`](api-binding-abstract.md) as an abstract class to use if you're making your own bindings
 - [`@serialport/binding-mock`](api-binding-mock.md) for a mock binding package for testing
 
