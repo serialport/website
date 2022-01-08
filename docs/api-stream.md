@@ -69,7 +69,7 @@ SerialPort.Binding: Binding
 
 The hardware access binding. `Bindings` are how Node-Serialport talks to the underlying system. This static property is used to set the default binding for any new port created with this constructor. It is also used for `Serialport.list`.
 
-If you're using the `serialport` package, this defaults to `require('@serialport/bindings')`.
+If you're using the `serialport` package, this defaults to `require('@serialport/bindings-cpp')`.
 
 ## Static Methods
 
@@ -262,7 +262,7 @@ Arguments:
  * {Boolean} [setOptions.dsr=false] sets the dsr flag
  * {Boolean} [setOptions.dtr=true] sets the dtr flag
  * {Boolean} [setOptions.rts=true] sets the rts flag
- * {Boolean} [setOptions.lowLatency=true] enables low latency mode (linux specific - admin rights may be required) 
+ * {Boolean} [setOptions.lowLatency=true] enables low latency mode (linux specific - admin rights may be required)
  */
 ```
 
