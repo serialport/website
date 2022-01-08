@@ -174,11 +174,12 @@ The `drain` event is emitted when it is performant to write again if a `write()`
 ## Methods
 
 ### `SerialPort#open`
+
 ```js
-serialport.open(() => {}): void
+serialport.open(callback?: (err: Error | null) => {}): void
 ```
 
-Opens the connection of the given serial port. Emits an [`open`](api-stream.md#open) event when the port is open.
+Opens the connection of the given serial port. Emits an [`open`](api-stream.md#open) event when the port is open, and if provided, calls the callback function after emitting. If the serial port's path does not exist, the callback is invoked with an error message. If no callback handler is provided, the `SerialPort` object will emit an [`error`](api-stream.md#error) event.
 
 ### `SerialPort#update`
 ```js
