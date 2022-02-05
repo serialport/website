@@ -6,20 +6,13 @@
  */
 
 import React from 'react';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
-
-import {useVersions, useLatestVersion} from '@theme/hooks/useDocs';
+import { usePluginData } from '@docusaurus/useGlobalData';
 
 function Version() {
-  const {siteConfig} = useDocusaurusContext();
-  const versions = useVersions();
-  const latestVersion = useLatestVersion();
-  const pastVersions = versions.filter(version => version !== latestVersion);
-  const repoUrl = `https://github.com/${siteConfig.organizationName}/${siteConfig.projectName}`;
+  const { versions: [latestVersion, ...pastVersions ] } = usePluginData('docusaurus-plugin-content-docs')
 
-  console.log({ versions, latestVersion, pastVersions, versions, pastVersions})
   return (
     <Layout
       title="Versions"
@@ -29,10 +22,9 @@ function Version() {
         <h1>SerialPort documentation versions</h1>
 
         <div className="margin-bottom--lg">
-          <h3 id="latest">Next version (Unreleased)</h3>
+          <h3 id="latest">Current Version</h3>
           <p>
-            Here you can find the documentation for work-in-process unreleased
-            version.
+            Here you can find the documentation for the current version of
           </p>
           <table>
             <tbody>

@@ -9,7 +9,6 @@ module.exports = {
   organizationName: 'serialport', // Usually your GitHub org/user name.
   projectName: 'website', // Usually your repo name.
   themeConfig: {
-    sidebarCollapsible: false,
     colorMode: {
       defaultMode: 'light',
       disableSwitch: true,
@@ -150,6 +149,7 @@ module.exports = {
            * Tip: limit to 2 or 3 versions to improve startup and build time in dev and deploy previews
            */
           onlyIncludeVersions: undefined, // ex: ["current", "1.0.0", "2.0.0"]
+          sidebarCollapsible: false,
         },
         blog: {
           showReadingTime: true,
