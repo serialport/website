@@ -75,3 +75,7 @@ DEBUG=serialport* serialport-repl /path/name # to connect to a specific port
 ```
 
 and it will load a serialport object with debugging turned on.
+
+## Multiple ports
+
+An old issue that you may still run into: when working with multiple Serial Ports you can set the `UV_THREADPOOL_SIZE` environment variable to be set to 1 + the number of ports you wish to open at a time. Defaults to `4` which supports 3 open ports.
