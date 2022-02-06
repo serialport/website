@@ -9,9 +9,9 @@ A transform stream that emits [ccTalk](https://en.wikipedia.org/wiki/CcTalk) pac
 
 ## Example
 ```js
-const SerialPort = require('serialport')
+const { SerialPort } = require('serialport')
 const CCTalk = require('@serialport/parser-cctalk')
-const port = new SerialPort('/dev/ttyUSB0')
+const port = new SerialPort({ path: '/dev/ROBOT', baudRate: 14400 })
 
 const parser = port.pipe(new CCTalk())
 parser.on('data', console.log)

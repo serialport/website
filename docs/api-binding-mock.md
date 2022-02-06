@@ -61,7 +61,7 @@ const { MockBinding } = require('@serialport/binding-mock')
 
 // Create a port and enable the echo and recording.
 MockBinding.createPort('/dev/ROBOT', { echo: true, record: true })
-const port = new SerialPort('/dev/ROBOT')
+const port = new SerialPort({ path: '/dev/ROBOT', baudRate: 14400 })
 
 /* Add some action for incoming data. For example,
 ** print each incoming line in uppercase */

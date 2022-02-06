@@ -25,7 +25,7 @@ Most parsers are [Transform streams](https://nodejs.org/api/stream.html#stream_c
 ```ts
 const { SerialPort } = require('serialport')
 const { ReadlineParser } = require('@serialport/parser-readline')
-const port = new SerialPort('/dev/tty-usbserial1')
+const port = new SerialPort({ path: '/dev/ROBOT', baudRate: 14400 })
 const parser = new ReadlineParser()
 port.pipe(parser)
 parser.on('data', console.log)

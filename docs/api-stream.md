@@ -13,7 +13,7 @@ You also get the stream interface by requiring the [`serialport`](api-serialport
 
 ```js
 // To get a default set of Bindings and Parsers
-const SerialPort = require('serialport')
+const { SerialPort } = require('serialport')
 ```
 
 ## Constructor
@@ -57,7 +57,7 @@ Called after a connection is opened. If this is not provided and an error occurs
 
 
 ```js
-const serialport = new SerialPort('/dev/foo-bar', { autoOpen: false })
+const serialport = new SerialPort({ path: '/dev/foo-bar', baudRate: 9600, autoOpen: false })
 ```
 
 ## Static Properties
@@ -119,7 +119,7 @@ We make an effort to identify the hardware attached and have consistent results 
 ```
 
 ```js
-const SerialPort = require('serialport')
+const { SerialPort } = require('serialport')
 SerialPort.list().then(
   ports => ports.forEach(console.log),
   err => console.error(err)
