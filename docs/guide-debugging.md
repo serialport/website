@@ -67,11 +67,11 @@ fprintf(stdout, "Hellow World num=%d str=%s\n", 4, "hi");
 
 ## Repl
 
-You can make use of the [`serialport-repl`](guide-cli.md#serialport-repl) command with;
+You can make use of the [`serialport-repl`](bin-repl.md) command with;
 
 ```bash
-serialport-repl # to auto detect an arduino
-serialport-repl /path/name # to connect to a specific port
+DEBUG=serialport* serialport-repl # to auto detect an arduino
+DEBUG=serialport* serialport-repl /path/name # to connect to a specific port
 ```
 
-It will load a serialport object with debugging turned on.
+and it will load a serialport object with debugging turned on.

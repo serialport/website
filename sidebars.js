@@ -5,9 +5,9 @@ module.exports = {
       "guide-platform-support",
       "guide-installation",
     ],
-    "Usage": [
+    "Guides": [
       "guide-usage",
-      "guide-cli",
+      "guide-electron",
       "guide-debugging",
       "guide-errors",
       "guide-testing",
@@ -33,7 +33,7 @@ module.exports = {
       "api-parser-slip-encoder",
       "api-parser-spacepacket",
     ],
-    "Binary Packages": [
+    "Command Line Packages": [
       "bin-list",
       "bin-terminal",
       "bin-repl",

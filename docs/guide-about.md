@@ -58,11 +58,11 @@ Parsers are traditionally Transform streams, but Duplex streams and other non st
 
 ### Command Line Tools
 
-The [Command Line Tools](guide-cli.md) provide helpful utilities for working with serial ports.
+The Command Line Tools provide helpful utilities for working with serial ports.
 
-- [`@serialport/list`](guide-cli.md#serialport-list)
-- [`@serialport/repl`](guide-cli.md#serialport-repl)
-- [`@serialport/terminal`](guide-cli.md#serialport-terminal)
+- [`@serialport/list`](bin-list.md)
+- [`@serialport/repl`](bin-repl.md)
+- [`@serialport/terminal`](bin-terminal.md)
 
 ## License
 
