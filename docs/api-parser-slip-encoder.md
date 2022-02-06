@@ -1,8 +1,8 @@
 ---
 id: api-parser-slip-encoder
-title: Slip Encoder Parser
+title: 📦 Slip Encoder Parser
 ---
-```typescript
+```ts
 new SlipEncoder(options)
 ```
 

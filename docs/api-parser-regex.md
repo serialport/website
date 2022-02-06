@@ -1,8 +1,8 @@
 ---
 id: api-parser-regex
-title: Regex Parser
+title: 📦 Regex Parser
 ---
-```typescript
+```ts
 new Regex(options)
 ```
 A transform stream that uses a regular expression to split the incoming text upon.

@@ -1,8 +1,8 @@
 ---
 id: api-parser-inter-byte-timeout
-title: InterByteTimeout Parser
+title: 📦 InterByteTimeout Parser
 ---
-```typescript
+```ts
 new InterByteTimeout(options)
 ```
 Emits data if there is a pause between packets for the specified amount of time.

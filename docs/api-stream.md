@@ -1,6 +1,6 @@
 ---
 id: api-stream
-title: Stream Interface
+title: 📦 @serialport/stream
 ---
 
 ```js
@@ -49,7 +49,7 @@ Create a new serial port object for the `path`. In the case of invalid arguments
 ```
 
 ### `openCallback`
-```typescript
+```ts
 type openCallback = (Error|null) = {}
 ```
 
@@ -63,7 +63,7 @@ const serialport = new SerialPort('/dev/foo-bar', { autoOpen: false })
 ## Static Properties
 
 ### `SerialPort.Binding`
-```typescript
+```ts
 SerialPort.Binding: Binding
 ```
 
@@ -74,7 +74,7 @@ If you're using the `serialport` package, this defaults to `require('@serialport
 ## Static Methods
 
 ### `SerialPort.list()`
-```typescript
+```ts
 SerialPort.list(): Promise<PortInfo[]>
 ```
 Retrieves a list of available serial ports with metadata. Only the `path` is guaranteed (other fields will be undefined if unavailable). The `path` is either the path or an identifier (eg `COM1`) used to open the SerialPort.
@@ -82,15 +82,6 @@ Retrieves a list of available serial ports with metadata. Only the `path` is gua
 The `SerialPort` class delegates this function to the provided `Binding` on [`SerialPort.Binding`](#serialportbinding-binding).
 
 We make an effort to identify the hardware attached and have consistent results between systems. Linux and OS X are mostly consistent. Windows relies on 3rd-party device drivers for this information and is unable to guarantee the accuracy. If you have a USB-connected device, we provide a serial number - otherwise it will be `undefined`. The `pnpId` and `locationId` are not the same or present on all systems. The examples below were run with the same Arduino Uno.
-
-:::note
-In `serialport@8` and `@serialport/bindings@3` we renamed `PortInfo.comName` to `PortInfo.path`. If you use comName you'll get a warning until the next major release.
-:::
-
-:::note
-In `serialport@8` and `@serialport/bindings@3` we removed the optional callback to `list()`. You now have to use the promise it returns and if you provide a callback you will get an error.
-:::
-
 
 ```js
 // OSX example port
@@ -139,25 +130,25 @@ SerialPort.list().then(
 A `SerialPort` object has several properties.
 
 ### `SerialPort#baudRate`
-```typescript
+```ts
 serialport.baudRate: number
 ```
 The port's baudRate. Use `#update()` to change it. Read-only
 
 ### `SerialPort#binding`
-```typescript
+```ts
 serialport.binding: Binding
 ```
 The `Binding` object backing the port. Read-only.
 
 ### `SerialPort#isOpen`
-```typescript
+```ts
 serialport.isOpen: Boolean
 ```
 `true` if the port is open, `false` otherwise. Read-only. (`since 5.0.0`)
 
 ### `SerialPort#path`
-```typescript
+```ts
 serialport.path: string
 ```
 The path of the serial port. Read-only.
@@ -246,7 +237,7 @@ Arguments:
 - `callback?: (error => {}: void) Called once a connection is closed.
 
 ### `SerialPort#set`
-```typescript
+```ts
 serialport.set(options: setOptions, callback?: error => {}): void
 ```
 Set control flags on an open port. Uses [`SetCommMask`](https://msdn.microsoft.com/en-us/library/windows/desktop/aa363257(v=vs.85).aspx) for Windows and [`ioctl`](http://linux.die.net/man/4/tty_ioctl) for OS X and Linux.
@@ -268,7 +259,7 @@ Arguments:
 ```
 
 ### `SerialPort#get`
-```typescript
+```ts
 serialport.get(callback: (error, data: ModemStatus) => {}): void
 ```
 
@@ -285,7 +276,7 @@ Returns the control flags (CTS, DSR, DCD) on the open port. Uses [`GetCommModemS
 
 
 ### `SerialPort#flush`
-```typescript
+```ts
 serialport.flush(callback? error => {}):void
 ```
 Flush discards data that has been received but not read, or written but not transmitted by the operating system. For more technical details, see [`tcflush(fd, TCIOFLUSH)`](http://linux.die.net/man/3/tcflush) for Mac/Linux and [`PurgeComm`](https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-purgecomm) for Windows.
@@ -294,7 +285,7 @@ Flush discards data that has been received but not read, or written but not tran
 
 
 ### `SerialPort#drain`
-```typescript
+```ts
 serialport.drain(callback? error => {}):void
 ```
 Waits until all output data is transmitted to the serial port. After any pending write has completed, it calls [`tcdrain()`](http://linux.die.net/man/3/tcdrain) or [FlushFileBuffers()](https://msdn.microsoft.com/en-us/library/windows/desktop/aa364439(v=vs.85).aspx) to ensure it has been written to the device.

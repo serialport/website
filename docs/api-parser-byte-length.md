@@ -1,8 +1,8 @@
 ---
 id: api-parser-byte-length
-title: ByteLength Parser
+title: 📦 ByteLength Parser
 ---
-```typescript
+```ts
 new ByteLength(options)
 ```
 Emit data every number of bytes.

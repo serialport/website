@@ -1,6 +1,6 @@
 ---
 id: api-parser-cctalk
-title: ccTalk Parser
+title: 📦 ccTalk Parser
 ---
 ```js
 new CCTalk()

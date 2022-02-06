@@ -1,8 +1,8 @@
 ---
 id: api-parser-delimiter
-title: Delimiter Parser
+title: 📦 Delimiter Parser
 ---
-```typescript
+```ts
 new Delimiter(options: {
   delimiter: string | Buffer | number[],
   includeDelimiter: boolean

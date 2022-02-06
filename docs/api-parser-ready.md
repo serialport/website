@@ -1,8 +1,8 @@
 ---
 id: api-parser-ready
-title: Ready Parser
+title: 📦 Ready Parser
 ---
-```typescript
+```ts
 new Ready(options)
 ```
 A transform stream that waits for a sequence of "ready" bytes before emitting a ready event and emitting data events

@@ -1,9 +1,9 @@
 ---
 id: api-binding-mock
-title: Mock Bindings
+title: 📦 @serialport/binding-mock
 ---
 
-```typescript
+```ts
 new MockBinding(options: OpenOptions)
 ```
 
@@ -14,7 +14,7 @@ To simulate incoming data on a mock port, use `port.binding.emitData`.
 
 ### Example
 
-```js
+```ts
 const SerialPort = require('@serialport/stream')
 const MockBinding = require('@serialport/binding-mock')
 const Readline = require('@serialport/parser-readline')
@@ -43,7 +43,7 @@ HELLO, WORLD!
 */
 ```
 
-```typescript
+```ts
 const AbstractBinding = require('@serialport/binding-abstract')
 const debug = require('debug')('serialport/binding-mock')
 

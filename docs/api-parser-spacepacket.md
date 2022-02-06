@@ -1,8 +1,8 @@
 ---
 id: api-parser-spacepacket
-title: Space Packet Parser
+title: 📦 Space Packet Parser
 ---
-```typescript
+```ts
 new SpacePacketParser(options)
 ```
 
