@@ -3,7 +3,7 @@ id: api-serialport
 title: 📦 serialport
 ---
 
-```js
+```ts
 import { SerialPort } from 'serialport'
 ```
 
