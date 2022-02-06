@@ -7,11 +7,11 @@ title: Supported Environments
 
 Since v10 [`@serialport/bindings-cpp`](api-bindings-cpp.md) has used [Node-API](https://nodejs.org/api/n-api.html) (also known as `N-API`) to allow easy use with any recent NodeJS and Electron version. (And in theory any V8 based environment.) We target Node-API version 6 as it covers the current NodeJS and electron support requirements.
 
-## Node.js Support
+### Node.js Support
 
 SerialPort officially supports all Active, Maintenance and Current LTS releases of Node.js. For information on what versions this currently covers see the [Node.js Release Schedule](https://github.com/nodejs/Release#release-schedule).
 
-## Electron Support
+### Electron Support
 
 SerialPort officially supports the last 3 versions of Electron per it's [8 week release cadence](https://www.electronjs.org/blog/8-week-cadence). We sometimes lag a few weeks behind releases while build tools are updated.
 
