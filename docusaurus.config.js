@@ -116,7 +116,7 @@ module.exports = {
            * This will not generate HTML files in the production build for documents
            * in `/docs/next` directory, only versioned docs.
            */
-          includeCurrentVersion: false,
+          includeCurrentVersion: true,
           /**
            * The last version is the one we navigate to in priority on versioned sites
            * It is the one displayed by default in docs navbar items
@@ -166,6 +166,8 @@ module.exports = {
     [ require.resolve('docusaurus-lunr-search'), {
       languages: ['en'], // language codes,
       excludeRoutes: [
+        'docs/next',
+        'docs/next/**/*',
         'docs/8.x.x/**/*',
         'docs/8.x.x/',
         'docs/7.x.x/**/*',
