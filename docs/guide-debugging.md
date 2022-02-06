@@ -13,7 +13,7 @@ We use the [debug](https://www.npmjs.com/package/debug) package and log under th
 
 You can enable logging through environment variables. Check the [debug](https://www.npmjs.com/package/debug) docs for info.
 
-### linux, osx
+### Linux and OSX
 
 ```bash
 DEBUG=serialport/stream node myapp.js
@@ -21,7 +21,7 @@ DEBUG=serialport* node myapp.js
 DEBUG=* node myapp.js
 ```
 
-### Windows command prompt notes
+### Windows Command Prompts
 
 #### CMD
 

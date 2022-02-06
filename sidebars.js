@@ -9,7 +9,6 @@ module.exports = {
       "guide-usage",
       "guide-electron",
       "guide-debugging",
-      "guide-errors",
       "guide-testing",
     ],
     "Core Packages": [
