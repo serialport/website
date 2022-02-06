@@ -3,17 +3,16 @@ id: api-core-overview
 title: What are core packages?
 ---
 
-The `Binding` is how Node-SerialPort talks to the underlying system. By default, we auto-detect Windows, Linux and OS X, and load the appropriate module for your system. You can assign `SerialPort.Binding` to any binding you like. Find more bindings by searching ["serialport-binding" at npm](https://www.npmjs.com/search?q=serialport-binding).
+The core packages provide cross platform serial port hardware access to a javascript environment (eg, NodeJS and Electron). Chances are you're looking for the [`serialport`](api-serialport.md) package which provides a good set of defaults. However it is quite easy to mix and match the parts of serialport you need.
 
-You can prevent auto-loading of the default bindings by requiring the [SerialPort Stream](api-stream.md) package.
+- [`serialport`](api-serialport.md) provides a good set of defaults for most projects with a node stream api. It includes cross platform and mock bindings for testing.
 
-```js
-var SerialPort = require('@serialport/stream');
-SerialPort.Binding = MyBindingClass;
-```
+Interfaces take a binding interface and provide a different API on top of it. Currently we only ship a Node Stream Interface.
 
-You never have to use `Binding` objects directly. `@serialPort/stream` uses them to access the underlying hardware. This documentation is geared towards people who are making bindings for different platforms. The `AbstractBinding` class from the [`@serialport/binding-abstract`](api-bindings-interface.md) package can be inherited to get the base API.
+- [`@serialport/stream`](api-stream.md) a Node.js Stream interface for any binding
 
-There is also a [`MockBinding`](api-binding-mock.md) package to assist with testing.
+The Bindings provide a common interface to work with your serialport cross platform.
 
-To see the binding api take a look at [`@serialport/bindings-interface`](api-bindings-interface.md).
+- [`@serialport/bindings-cpp`](api-bindings-cpp.md) bindings for Linux, Mac and Windows supported in NodeJS and Electron.
+- [`@serialport/binding-mock`](api-binding-mock.md) for a mock binding package for testing
+- [`@serialport/bindings-interface`](api-bindings-interface.md) a typescript interface you need to use match if you're making your own bindings
