@@ -1,11 +1,11 @@
 ---
-id: api-binding-abstract
-title: Abstract Binding
+id: api-bindings-interface
+title: 📦 @serialport/bindings-interface
 ---
 
 Typescript signature of Abstract Binding
 
-```typescript
+```ts
 class AbstractBinding {
   static list(): Promise<PortInfo[]>
 

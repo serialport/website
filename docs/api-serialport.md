@@ -1,13 +1,13 @@
 ---
 id: api-serialport
-title: SerialPort
+title: 📦 serialport
 ---
 
-```js
-const SerialPort = require('serialport')
+```ts
+import { SerialPort } from 'serialport'
 ```
 
-This package provides everything you need to start talking over your serialport. It provides a high level [Stream Interface](api-stream.md), auto detecting [bindings](api-bindings.md), and a set of [parser streams](#serialportparsers).
+This package provides everything you need to start talking over your serialport. It provides a high level [Stream Interface](api-stream.md), auto detecting [bindings](api-bindings-cpp.md), and a set of [parser streams](#serialportparsers).
 
 > Most of the api is covered in the [Stream Interface](api-stream.md) docs.
 
@@ -24,49 +24,41 @@ const serialport = new SerialPort(path)
 serialport.write('ROBOT POWER ON')
 ```
 
+## `SerialPort` and `SerialPortMock`
 
-## `SerialPort.Binding`
+- The `SerialPort` export uses the [`@serialport/bindings-cpp`](api-bindings-cpp.md) binding.
+- The `SerialPortMock` export includes the [`@serialport/binding-mock`](api-binding-mock.md) binding.
 
-This package includes the [`@serialport/bindings-cpp`](api-bindings.md) package already attached to the stream interface.
+## Parsers
+
+This package exports the following parsers;
+
+- [ByteLengthParser](api-parser-byte-length.md)
+- [CCTalkParser](api-parser-cctalk.md)
+- [DelimiterParser](api-parser-delimiter.md)
+- [InterByteTimeoutParser](api-parser-inter-byte-timeout.md)
+- [PacketLengthParser](api-parser-packet-length.md)
+- [ReadlineParser](api-parser-readline.md)
+- [ReadyParser](api-parser-ready.md)
+- [RegexParser](api-parser-regex.md)
+- [SlipEncoder and SlipDecoder](api-parser-slip-encoder.md)
+- [SpacePacketParser](api-parser-spacepacket.md)
 
 ```js
-// This is done automatically
-SerialPort.Binding = require('@serialport/bindings-cpp')
+import { SerialPort, SpacePacketParser } from 'serialport'
 ```
 
-## `SerialPort.parsers`
-
-Comes with the following parsers available for use.
-
-- [ByteLength](api-parser-byte-length.md)
-- [CCTalk](api-parser-cctalk.md)
-- [Delimiter](api-parser-delimiter.md)
-- [Readline](api-parser-readline.md)
-- [Ready](api-parser-ready.md)
-- [Regex](api-parser-regex.md)
-
-```js
-SerialPort.parsers = {
-  ByteLength: require('@serialport/parser-byte-length'),
-  CCTalk: require('@serialport/parser-cctalk'),
-  Delimiter: require('@serialport/parser-delimiter'),
-  Readline: require('@serialport/parser-readline'),
-  Ready: require('@serialport/parser-ready'),
-  Regex: require('@serialport/parser-regex'),
-}
-```
 These `Parsers` are all [Transform streams](https://nodejs.org/api/stream.html#stream_class_stream_transform) that process incoming data. To use the parsers, you must create them and then pipe the Serialport to the parser. Be careful to only write to the SerialPort object and not the parser.
 
 ```js
-const SerialPort = require('serialport')
-const Readline = SerialPort.parsers.Readline
-const port = new SerialPort(path)
-const parser = new Readline()
+const { SerialPort, ReadlineParser } = require('serialport')
+const port = new SerialPort({ path, baudRate })
+const parser = new ReadlineParser()
 port.pipe(parser)
 parser.on('data', console.log)
 port.write('ROBOT PLEASE RESPOND\n')
 // ROBOT ONLINE
 
 // Creating the parser and piping can be shortened to
-const parser = port.pipe(new Readline())
+const parser = port.pipe(new ReadlineParser())
 ```

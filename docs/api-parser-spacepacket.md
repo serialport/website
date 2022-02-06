@@ -1,8 +1,8 @@
 ---
 id: api-parser-spacepacket
-title: Space Packet Parser
+title: 📦 Space Packet Parser
 ---
-```typescript
+```ts
 new SpacePacketParser(options)
 ```
 
@@ -14,9 +14,9 @@ Arguments
 - `options.ancillaryDataFieldLength: number` The length of the Ancillary Data Field in octets, if present
 
 ```js
-const SerialPort = require('serialport')
+const { SerialPort } = require('serialport')
 const SpacePacketParser = require('@serialport/parser-spacepacket')
-const port = new SerialPort('/dev/tty-usbserial1')
+const port = new SerialPort({ path: '/dev/ROBOT', baudRate: 14400 })
 
 const parser = port.pipe(new SpacePacketParser({ timeCodeFieldLength: 8 }))
 parser.on('data', console.log)

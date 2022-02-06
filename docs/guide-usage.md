@@ -3,17 +3,22 @@ id: guide-usage
 title: SerialPort Usage
 ---
 
-```js
-const SerialPort = require('serialport')
-const port = new SerialPort('/dev/tty-usbserial1', {
-  baudRate: 57600
+```ts
+const { SerialPort } = require('serialport')
+// or
+import { SerialPort } from 'serialport'
+
+// Create a port
+const port = new SerialPort({
+  path: '/dev/tty-usbserial1',
+  baudRate: 57600,
 })
 ```
 
-When opening a serial port, specify (in this order)
+When opening a serial port, specify;
 
-1. Path to Serial Port - required.
-1. Options - optional and described below.
+1. Path to serial port - required
+1. BaudRate of the port - required
 
 Constructing a `SerialPort` object immediately opens a port. While you can read and write at any time (actions will be queued until the port is open), most port functions require an open port. There are three ways to detect when a port is opened.
 
@@ -22,8 +27,8 @@ Constructing a `SerialPort` object immediately opens a port. While you can read 
 - The `.open()` function takes a callback that is called after the port is opened. You can use this if you've disabled the `autoOpen` option or have previously closed an open port.
 
 ```js
-const SerialPort = require('serialport')
-const port = new SerialPort('/dev/tty-usbserial1')
+const { SerialPort } = require('serialport')
+const port = new SerialPort({ path: '/dev/tty-usbserial1', baudRate: 57600 })
 
 port.write('main screen turn on', function(err) {
   if (err) {
@@ -39,9 +44,10 @@ port.on('error', function(err) {
 ```
 
 Detecting open-related errors can be moved to the constructor's callback.
+
 ```js
-const SerialPort = require('serialport')
-const port = new SerialPort('/dev/tty-usbserial1', function (err) {
+const { SerialPort } = require('serialport')
+const port = new SerialPort({ path: '/dev/tty-usbserial1', baudRate: 9600 }, function (err) {
   if (err) {
     return console.log('Error: ', err.message)
   }
@@ -61,8 +67,12 @@ port.write('main screen turn on', function(err) {
 If you disable the `autoOpen` option, you'll need to open the port on your own.
 
 ```js
-const SerialPort = require('serialport')
-const port = new SerialPort('/dev/tty-usbserial1', { autoOpen: false })
+const { SerialPort } = require('serialport')
+const port = new SerialPort({
+  path: '/dev/tty-usbserial1',
+  baudRate: 9600,
+  autoOpen: false,
+})
 
 port.open(function (err) {
   if (err) {

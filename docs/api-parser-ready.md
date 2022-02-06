@@ -1,8 +1,8 @@
 ---
 id: api-parser-ready
-title: Ready Parser
+title: 📦 Ready Parser
 ---
-```typescript
+```ts
 new Ready(options)
 ```
 A transform stream that waits for a sequence of "ready" bytes before emitting a ready event and emitting data events
@@ -14,9 +14,9 @@ Arguments
 
 ## Example
 ```js
-const SerialPort = require('serialport')
+const { SerialPort } = require('serialport')
 const Ready = require('@serialport/parser-ready')
-const port = new SerialPort('/dev/tty-usbserial1')
+const port = new SerialPort({ path: '/dev/ROBOT', baudRate: 14400 })
 
 const parser = port.pipe(new Ready({ delimiter: 'READY' }))
 parser.on('ready', () => console.log('the ready byte sequence has been received'))

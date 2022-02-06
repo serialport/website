@@ -1,8 +1,8 @@
 ---
 id: api-parser-regex
-title: Regex Parser
+title: 📦 Regex Parser
 ---
-```typescript
+```ts
 new Regex(options)
 ```
 A transform stream that uses a regular expression to split the incoming text upon.
@@ -14,9 +14,9 @@ Arguments
 - `options.encoding?: string` Text encoding for the stream
 
 ```js
-const SerialPort = require('serialport')
+const { SerialPort } = require('serialport')
 const Regex = require('@serialport/parser-regex')
-const port = new SerialPort('/dev/tty-usbserial1')
+const port = new SerialPort({ path: '/dev/ROBOT', baudRate: 14400 })
 
 const parser = port.pipe(new Regex({ regex: /[\r\n]+/ }))
 parser.on('data', console.log)

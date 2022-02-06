@@ -1,8 +1,8 @@
 ---
 id: api-parser-delimiter
-title: Delimiter Parser
+title: 📦 Delimiter Parser
 ---
-```typescript
+```ts
 new Delimiter(options: {
   delimiter: string | Buffer | number[],
   includeDelimiter: boolean
@@ -17,9 +17,9 @@ Arguments
 
 
 ```js
-const SerialPort = require('serialport')
+const { SerialPort } = require('serialport')
 const Delimiter = require('@serialport/parser-delimiter')
-const port = new SerialPort('/dev/tty-usbserial1')
+const port = new SerialPort({ path: '/dev/ROBOT', baudRate: 14400 })
 
 const parser = port.pipe(new Delimiter({ delimiter: '\n' }))
 parser.on('data', console.log) // emits data after every '\n'

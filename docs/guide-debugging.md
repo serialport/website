@@ -67,11 +67,15 @@ fprintf(stdout, "Hellow World num=%d str=%s\n", 4, "hi");
 
 ## Repl
 
-You can make use of the [`serialport-repl`](guide-cli.md#serialport-repl) command with;
+You can make use of the [`serialport-repl`](bin-repl.md) command with;
 
 ```bash
-serialport-repl # to auto detect an arduino
-serialport-repl /path/name # to connect to a specific port
+DEBUG=serialport* serialport-repl # to auto detect an arduino
+DEBUG=serialport* serialport-repl /path/name # to connect to a specific port
 ```
 
-It will load a serialport object with debugging turned on.
+and it will load a serialport object with debugging turned on.
+
+## Multiple Ports Slowdown
+
+When working with multiple Serial Ports you might see slowdowns in reading and writing. This is caused by thread pool exhaustion in NodeJS. You can set the `UV_THREADPOOL_SIZE` environment variable to be set to 1 + the number of ports you wish to open at a time. Defaults to `4` which supports 3 open ports. This might increase your performance.

@@ -5,15 +5,17 @@ title: Installing SerialPort
 
 ## Installation Instructions
 
-For most "standard" use cases (a supported Node.js on Mac, Linux, or Windows on a x64 processor), Node SerialPort will install nice and easy with:
+For most javascript enviornments you can run;
 
 ```bash
 npm install serialport
 ```
 
+And it will work from there.
+
 ## Compilation Problems
 
-We use [prebuild](https://github.com/prebuild/prebuild) to compile and post binaries of the library for most common use cases (Linux, Mac, Windows on standard processor platforms). If you have a special case, Node SerialPort will work, but it will compile the binary during the install. Compiling with nodejs is done via [node-gyp](https://github.com/nodejs/node-gyp) which requires Python 3.x, so please ensure you have it installed and in your path for all operating systems.
+The [`@serialport/bindings-cpp`](api-bindings-cpp.md) package uses [`prebuildify-cross`](https://www.npmjs.com/package/prebuildify-cross) to build binaries for a [number of platforms and C libraries](https://github.com/prebuild/docker-images#images). We ship these builds with the package and the appropriate one will be used. (See [Supported Environments](guide-platform-support) for more information.) If you need a binary for a different platform it will be compiled during the npm install via [node-gyp v7](https://github.com/nodejs/node-gyp) which requires Python 2.x, so please ensure you have it installed and in your path for your operating system.
 
 This assumes you have everything on your system necessary to compile ANY native module for Node.js. If you don't, then please ensure the following are true for your system before filing a "Does not install" issue.
 
@@ -21,65 +23,11 @@ This assumes you have everything on your system necessary to compile ANY native 
 
 ### Alpine Linux
 
-[Alpine](http://www.alpinelinux.org/) is a (very) small distro, but it uses the [musl](https://www.musl-libc.org/) standard library instead of [glibc](https://www.gnu.org/software/libc/) (used by most other Linux distros) so it requires compilation. It's commonly used with Docker. A user has confirmed that Node-Serialport works with [alpine-node](https://github.com/mhart/alpine-node).
-
-```bash
-# If you don't have node/npm already, add that first
-sudo apk add --no-cache nodejs
-
-# Add the necessary build and runtime dependencies
-sudo apk add --no-cache make gcc g++ python3 linux-headers udev
-
-# Then we can install serialport, forcing it to compile
-npm install serialport --build-from-source
-
-# If you're installing as root, you'll also need to use the --unsafe-perm flag
-```
+Historically [Alpine](http://www.alpinelinux.org/) linux had issues installing because it uses the [musl](https://www.musl-libc.org/) standard library instead of [glibc](https://www.gnu.org/software/libc/). We now build binaries for musl so you shouldn't have issues.
 
 ### Electron
 
-[Electron](https://electron.atom.io/) is a framework for creating cross-platform desktop applications. It comes with its own version of the Node.js runtime.
-
-Electron has a different [application binary interface (ABI)](https://en.wikipedia.org/wiki/Application_binary_interface) from Node.js, so it is necessary to make sure the correct ABI version is installed to match the electron version of your project, rather than the node.js version installed on your machine.  The easiest way to achieve this is to use electron-rebuild:
-
-1. Run `npm install --save-dev electron-rebuild`
-2. Add `electron-rebuild` to your project's package.json's install hook
-3. Run `npm install`
-
-If you have trouble on Windows, try: `.\node_modules\.bin\electron-rebuild.cmd`
-
-Each release of SerialPort is published with prebuilt support for a large number of environments (and ABI combinations), you can see the supported environments in the [`assets for our latest release`](https://github.com/serialport/node-serialport/releases/latest).  If you are using an environment which doesn't have a prebuild available then you will need to recompile it.
-
-To recompile `serialport` (or any native Node.js module) for Electron, you can use `electron-rebuild`.  You may need to install additional build tools in order to use electron-rebuild to recompile for your environment; more info can be found at [Electron's README](https://github.com/electron/electron-rebuild/blob/master/README.md).
-
-Once electron-rebuild, and the required build tools are installed you can configure the recompile process:
-
-1. Add `"buildDependenciesFromSource": true,"npmRebuild": false,` to your project.json's build configuration; more info at [Electron-builder](https://www.electron.build/configuration/configuration).
-
-Additional troubleshooting info for electron can be found within the [electron documentation](https://www.electronjs.org/docs/tutorial/using-native-node-modules#troubleshooting).
-
-#### Invoking SerialPort within the renderer processes
-If you wish to invoke serialport within your renderer processes then you will need to override some of the Electron default settings.
-
-1. Add 'app.allowRendererProcessReuse = false' within your main process - [Required since Electron V9](https://github.com/electron/electron/issues/18397)
-2. Add 'contextIsolation: false' to your BrowserWindow webPreferences within your main process - [Required since Electron V12](https://www.electronjs.org/docs/tutorial/context-isolation)
-
-For example:
-```
-app.allowRendererProcessReuse = false
-
-import { app, BrowserWindow } from "electron"
-
-async function createMainWindow() {
-    const window = new BrowserWindow({
-      webPreferences: {
-        nodeIntegration: true,
-        contextIsolation: false
-    }
-}
-```
-
-Over time we should migrate away from invocation within the renderer process, but many existing projects still rely on these workarounds.
+Historically [Electron](https://electron.atom.io/) which comes with its own version of the Node.js runtime. Was a huge headache and required a deep understanding of your build system. Since v10 we leverage N-API and the provided binaries for your platform should work without issue.
 
 For an example Electron project, check out [`electron-serialport`](https://github.com/serialport/electron-serialport).
 
@@ -99,21 +47,9 @@ target=<target_version>
 
 Where `<target_version>` is the NW.js version you are building against (for example, `0.26.6`).
 
-### Illegal Instruction
-
-The pre-compiled binaries assume a fully capable chip. Intel's [Galileo 2](https://software.intel.com/en-us/iot/hardware/galileo), for example, lacks a few instruction sets from the `ia32` architecture. A few other platforms have similar issues. If you get `Illegal Instruction` when trying to run Node-Serialport, you'll need to ask npm to rebuild the Serialport binary.
-
-```bash
-# Will ask npm to build serialport during install time
-npm install serialport --build-from-source
-
-# If you have a package that depends on serialport, you can ask npm to rebuild it specifically...
-npm rebuild serialport --build-from-source
-```
-
 ### Mac OS X
 
-Ensure that you have at a minimum the xCode Command Line Tools installed appropriate for your system configuration. If you recently upgraded the OS, it probably removed your installation of Command Line Tools, please verify before submitting a ticket. To compile `node-serialport` with Node.js 4.x+, you will need to use g++ v4.8 or higher.
+Ensure that you have at a minimum the xCode Command Line Tools installed appropriate for your system configuration. If you recently upgraded the OS, it probably removed your installation of Command Line Tools, please verify before submitting a ticket. To compile `node-serialport` with Node.js 12+, you will need to use g++ v4.8 or higher.
 
 ### Raspberry Pi Linux
 
@@ -169,27 +105,14 @@ gyp ERR! stack Error: `make` failed with exit code: 2
 
 ### Ubuntu/Debian Linux
 
-The best way to install any version of Node.js is to use the [NodeSource Node.js binary distributions](https://github.com/nodesource/distributions#installation-instructions). Older versions of Ubuntu install Node.js with the wrong version and binary name. If your Node binary is `nodejs` instead of `node`, or if your Node version is [`v0.10.29`](https://github.com/fivdi/onoff/wiki/Node.js-v0.10.29-and-native-addons-on-the-Raspberry-Pi), then you should follow these instructions.
-
-You'll need the package `build-essential` to compile `serialport`. If there's a binary for your platform, you won't need it. Keep rocking!
-
-```
-# Using Ubuntu and Node 6
-curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
-sudo apt-get install -y nodejs
-
-# Using Debian and Node 6 as root
-curl -sL https://deb.nodesource.com/setup_7.x | bash -
-apt-get install -y nodejs
-```
+You'll need the package `build-essential` to compile `serialport` if the provided binaries don't work for your system.
 
 ### Windows
-Node-Serialport supports Windows 7, 8.1, 10, and 10 IoT. Precompiled binaries are available, but if you want to build it from source you'll need to follow the [node-gyp installation](https://github.com/nodejs/node-gyp#installation) instructions. Once you've got things working, you can install Node-Serialport from source with:
+
+Node-Serialport supports Windows 10+. Precompiled binaries are available, but if you want to build it from source you'll need to follow the [node-gyp installation](https://github.com/nodejs/node-gyp#installation) instructions. Once you've got things working, you can install Node-Serialport from source with:
 
 ```powershell
-npm install serialport --build-from-source
+npm install serialport
 ```
 
 Node-gyp's documentation doesn't mention it, but it sometimes helps to create a C++ project in [Visual Studio](https://www.visualstudio.com/) so that it will install any necessary components not already installed during the past two hours of setup. This will solve some instances of `Failed to locate: "CL.exe"`.
-
-An old issue that you may still run into: when working with multiple Serial Ports you can set the `UV_THREADPOOL_SIZE` environment variable to be set to 1 + the number of ports you wish to open at a time. Defaults to `4` which supports 3 open ports.

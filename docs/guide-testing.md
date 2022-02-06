@@ -13,7 +13,7 @@ SerialPort.Binding = MockBinding
 
 // Create a port and enable the echo and recording.
 MockBinding.createPort('/dev/ROBOT', { echo: true, record: true })
-const port = new SerialPort('/dev/ROBOT')
+const port = new SerialPort({ path: '/dev/ROBOT', baudRate: 14400 })
 ```
 
 The code can be found in the [`@serialport/binding-mock`](api-binding-mock.md) package.
