@@ -1,9 +1,8 @@
 ---
 id: bin-list
-title: 📦 @serialport/list
+title: 📦 list
 ---
-
-## SerialPort List
+| [npm](https://www.npmjs.com/package/@serialport/list) | [github](https://github.com/serialport/node-serialport/tree/master/packages/list) |
 
 ```bash
 $ npx @serialport/list [options]

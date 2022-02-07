@@ -1,9 +1,8 @@
 ---
 id: bin-terminal
-title: 📦 @serialport/terminal
+title: 📦 terminal
 ---
-
-## SerialPort Terminal
+| [npm](https://www.npmjs.com/package/@serialport/terminal) | [github](https://github.com/serialport/node-serialport/tree/master/packages/terminal) |
 
 ```bash
 $ npx @serialport/terminal  -p <port> -b <baudRate> [options]

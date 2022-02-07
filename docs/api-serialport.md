@@ -2,9 +2,12 @@
 id: api-serialport
 title: 📦 serialport
 ---
+| [npm](https://www.npmjs.com/package/serialport) | [github](https://github.com/serialport/node-serialport/tree/master/packages/serialport) |
 
 ```ts
 import { SerialPort } from 'serialport'
+// or
+const { SerialPort } = require('serialport')
 ```
 
 This package provides everything you need to start talking over your serialport. It provides a high level [Stream Interface](api-stream.md), auto detecting [bindings](api-bindings-cpp.md), and a set of [parser streams](#serialportparsers).
