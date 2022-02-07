@@ -2,6 +2,7 @@
 id: api-binding-cpp
 title: 📦 @serialport/bindings-cpp
 ---
+| [npm](https://www.npmjs.com/package/@serialport/bindings-cpp) | [github](https://github.com/serialport/bindings-cpp) |
 
 The `Binding` is how Node-SerialPort talks to the underlying system. By default, we auto-detect Windows, Linux and OS X, and load the appropriate module for your system. You can assign `SerialPort.Binding` to any binding you like. Find more bindings by searching ["serialport-binding" at npm](https://www.npmjs.com/search?q=serialport-binding).
 

@@ -3,6 +3,8 @@ id: api-binding-mock
 title: 📦 @serialport/binding-mock
 ---
 
+| [npm](https://www.npmjs.com/package/@serialport/binding-mock) | [github](https://github.com/serialport/binding-mock) |
+
 ## Mock Binding
 
 ```ts
@@ -13,7 +15,7 @@ const { MockBinding } = require('@serialport/binding-mock')
 
 Testing is an important feature of any library. To aid in our own tests, we've developed a `MockBinding`, a fake hardware binding that doesn't actually need any hardware to run. This class passes all of the same tests as our hardware based bindings and provides a few additional test related interfaces.
 
-This class is ued in the [`SerialPortMock`](api-serialport.md) class if you wish to test the stream interface.
+This class is used in the [`SerialPortMock`](api-serialport.md) class if you wish to test the stream interface.
 
 ### `createPort(options: CreatePortOptions)`
 
@@ -49,6 +51,8 @@ Open a port and return it.
 ### `emitData(data: Buffer | string)`
 
 ### `serialNumber`
+
+A unique number for each port returned from `open()`
 
 ### `recording`
 
