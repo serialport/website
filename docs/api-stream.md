@@ -1,7 +1,8 @@
 ---
 id: api-stream
-title: 📦 @serialport/stream
+title: 📦 stream
 ---
+| [npm](https://www.npmjs.com/package/@serialport/stream) | [github](https://github.com/serialport/node-serialport/tree/master/packages/stream) |
 
 ```js
 const SerialPort = require('@serialport/stream')

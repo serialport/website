@@ -1,8 +1,7 @@
 ---
 id: api-binding-mock
-title: 📦 @serialport/binding-mock
+title: 📦 binding-mock
 ---
-
 | [npm](https://www.npmjs.com/package/@serialport/binding-mock) | [github](https://github.com/serialport/binding-mock) |
 
 ## Mock Binding

@@ -1,6 +1,6 @@
 ---
 id: api-binding-cpp
-title: 📦 @serialport/bindings-cpp
+title: 📦 bindings-cpp
 ---
 | [npm](https://www.npmjs.com/package/@serialport/bindings-cpp) | [github](https://github.com/serialport/bindings-cpp) |
 

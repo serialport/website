@@ -4,8 +4,6 @@ title: 📦 parser-delimiter
 ---
 | [npm](https://www.npmjs.com/package/@serialport/parser-delimiter) | [github](https://github.com/serialport/node-serialport/tree/master/packages/parser-delimiter) |
 
-## Delimiter Parser
-
 ```ts
 import { DelimiterParser } from '@serialport/parser-delimiter'
 // or

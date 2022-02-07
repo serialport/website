@@ -4,8 +4,6 @@ title: 📦 parser-byte-length
 ---
 | [npm](https://www.npmjs.com/package/@serialport/parser-byte-length) | [github](https://github.com/serialport/node-serialport/tree/master/packages/parser-byte-length) |
 
-## Byte Length Parser
-
 ```ts
 import { ByteLengthParser } from '@serialport/parser-byte-length'
 // or

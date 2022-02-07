@@ -1,8 +1,7 @@
 ---
 id: api-bindings-interface
-title: 📦 @serialport/bindings-interface
+title: 📦 bindings-interface
 ---
-
 | [npm](https://www.npmjs.com/package/@serialport/bindings-interface) | [github](https://github.com/serialport/bindings-interface) |
 
 Typescript interface for all bindings. At it's core a binding has two functions and a class. The types have been simplified for explanation. The actual types leverage generics to allow for different options for different platforms.

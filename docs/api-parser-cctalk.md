@@ -2,10 +2,7 @@
 id: api-parser-cctalk
 title: 📦 parser-cctalk
 ---
-
 | [npm](https://www.npmjs.com/package/@serialport/parser-cctalk) | [github](https://github.com/serialport/node-serialport/tree/master/packages/parser-cctalk) |
-
-## CCTalk Parser
 
 ```ts
 import { CCTalkParser } from '@serialport/parser-cctalk'

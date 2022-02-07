@@ -1,9 +1,8 @@
 ---
 id: bin-repl
-title: 📦 @serialport/repl
+title: 📦 repl
 ---
-
-## SerialPort Repl
+| [npm](https://www.npmjs.com/package/@serialport/repl) | [github](https://github.com/serialport/node-serialport/tree/master/packages/repl) |
 
 ```bash
 $ npx @serialport/repl <port>
