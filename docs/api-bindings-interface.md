@@ -3,95 +3,110 @@ id: api-bindings-interface
 title: 📦 @serialport/bindings-interface
 ---
 
-Typescript signature of Abstract Binding
+| [npm](https://www.npmjs.com/package/@serialport/bindings-interface) | [github](https://github.com/serialport/bindings-interface) |
+
+Typescript interface for all bindings. At it's core a binding has two functions and a class. The types have been simplified for explanation. The actual types leverage generics to allow for different options for different platforms.
 
 ```ts
-class AbstractBinding {
-  static list(): Promise<PortInfo[]>
-
-  constructor(opt: OpenOptions)
-
+interface BindingInterface {
   /**
-   * Opens a connection to the serial port referenced by the path. Promise resolves after the port
-   * is opened, configured and ready for use.
-   * @param {string} path the path or com port to open
-   * @param {openOptions} options openOptions for the serialport
-   * @returns {Promise} Resolves after the port is opened and configured.
+    Retrieves a list of available serial ports with metadata.
    */
-  open(path: string, options: OpenOptions): Promise<void>
+  list(): Promise<PortInfo>
+  /**
+   * Opens a connection to the serial port referenced by the path.
+   */
+  open(options: OpenOptions): Promise<BindingPortInterface>
+}
+
+```
+
+These functions are required. `list()` must resolve an array of ports and `open()` must return an open port object.
+
+The `PortInfo` interface is pretty simple, only the path is guaranteed.
+
+```ts
+interface PortInfo {
+  path: string
+  manufacturer: string | undefined
+  serialNumber: string | undefined
+  pnpId: string | undefined
+  locationId: string | undefined
+  productId: string | undefined
+  vendorId: string | undefined
+}
+```
+
+The `BindingPortInterface` is an open port. You can read and write to it, update a few settings and close it. Once it's closed it can't be opened again. (You can however open a new one.)
+
+```ts
+interface BindingPortInterface {
+  readonly openOptions: Required<OpenOptions>
+  /**
+   * Required property. `true` if the port is open, `false` otherwise. Should be read-only.
+   */
+  isOpen: boolean
 
   /**
-   * Closes an open port
+   * Closes an open connection
    */
   close(): Promise<void>
 
   /**
-   * Request a number of bytes from the SerialPort. This function is similar to Node's
-   * [`fs.read`](http://nodejs.org/api/fs.html#fs_fs_read_fd_buffer_offset_length_position_callback)
-   * except it will always return at least one byte.
+    Request a number of bytes from the SerialPort. This function is similar to Node's [`fs.read`](http://nodejs.org/api/fs.html#fs_fs_read_fd_buffer_offset_length_position_callback) as it will attempt to read up to `length` number of bytes. This function has a guarantee that it will always return at least one byte. This leverages os specific polling or async reads so you don't have to.
 
-   * The in progress reads must error when the port is closed with an error object that has the
-   * property `canceled` equal to `true`. Any other error will cause a disconnection.
+    The in progress reads must error when the port is closed with an error object that has the property `canceled` equal to `true`. Any other error will cause a disconnection.
 
-   * @param {buffer} buffer Accepts a [`Buffer`](http://nodejs.org/api/buffer.html) object.
-   * @param {integer} offset The offset in the buffer to start writing at.
-   * @param {integer} length Specifies the maximum number of bytes to read.
-   * @returns {Promise} Resolves with the number of bytes read after a read operation.
+   * @param buffer - The Buffer to read data into.
+   * @param offset - The offset in the buffer to start writing at.
+   * @param length - Specifies the maximum number of bytes to read.
+   * @returns Promise - Resolves with the number of bytes read after a read operation.
    */
-  read(buffer: Buffer, offset: number, length: number): Promise<{ bytesRead: number, buffer: Buffer }>
+  read(buffer: Buffer, offset: number, length: number): Promise<{ buffer: Buffer; bytesRead: number }>
 
   /**
-   * Write bytes to the SerialPort. Only called when there is no pending write operation.
+  Write bytes to the SerialPort. Only called when there is no pending write operation.
 
-   * The in-progress writes must error when the port is closed, with an error object that has the
-   * property `canceled` equal to `true`. Any other error will cause a disconnection.
+  The in progress writes must error when the port is closed with an error object that has the property `canceled` equal to `true`. Any other error will cause a disconnection.
 
-   * @param {buffer} buffer - Accepts a [`Buffer`](http://nodejs.org/api/buffer.html) object.
-   * @returns {Promise} Resolves after the data is passed to the operating system for writing.
+  Resolves after the data is passed to the operating system for writing.
    */
   write(buffer: Buffer): Promise<void>
 
   /**
-   * Changes connection settings on an open port. Only `baudRate` is supported.
-   * @returns {Promise} Resolves once the port's baud rate changes.
+    Changes connection settings on an open port.
    */
-  update(options: { baudRate: number }): Promise<void>
+  update(options: UpdateOptions): Promise<void>
 
   /**
    * Set control flags on an open port.
-   * @param {object=} options All options are operating system default when the port is opened.
-   * Every flag is set on each call to the provided or default values. All options are always provided.
-   * @param {Boolean} [options.brk=false] flag for brk
-   * @param {Boolean} [options.cts=false] flag for cts
-   * @param {Boolean} [options.dsr=false] flag for dsr
-   * @param {Boolean} [options.dtr=true] flag for dtr
-   * @param {Boolean} [options.rts=true] flag for rts
-   * @returns {Promise} Resolves once the port's flags are set.
+   * All options are operating system default when the port is opened. Every flag is set on each call to the provided or default values.
    */
-  set(options): Promise<void>
+  set(options: SetOptions): Promise<void>
 
   /**
    * Get the control flags (CTS, DSR, DCD) on the open port.
-   * @returns {Promise} Resolves with the retrieved flags.
    */
-  get(): Promise<Flags>
+  get(): Promise<PortStatus>
 
   /**
-   * Get the OS reported baud rate for the open port. Used mostly for debugging custom baud rates.
+   * Get the OS reported baud rate for the open port.
+   * Used mostly for debugging custom baud rates.
    */
-  getBaudRate(): Promise<number>
+  getBaudRate(): Promise<{ baudRate: number }>
 
   /**
    * Flush (discard) data received but not read, and written but not transmitted.
-   * @returns {Promise} Resolves once the flush operation finishes.
+   * Resolves once the flush operation finishes.
    */
   flush(): Promise<void>
 
   /**
-   * Drain waits until all output data is transmitted to the serial port. An in-progress write
-   * should be completed before this returns.
-   * @returns {Promise} Resolves once the drain operation finishes.
+   * Drain waits until all output data is transmitted to the serial port. An in progress write should be completed before this returns.
+   * Resolves once the drain operation finishes.
    */
   drain(): Promise<void>
 }
 ```
+
+For the full types take a look at the package's [github](https://github.com/serialport/bindings-interface) repository.
