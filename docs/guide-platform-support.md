@@ -30,7 +30,7 @@ The platforms, architectures that `serialport` supports are the following;
 | Linux / ARM64   |  ☐  |  ☑  |
 | OSX / x64³      |  ☑  |  ☑  |
 | OSX M1³         |  ☑  |  ☑  |
-| Windows² / x86  |  ☑  |  ☑  |
+| Windows² / x86  |  ☐  |  ☑  |
 | Windows² / x64  |  ☑  |  ☑  |
 
 - ¹ NodeJS has dropped prebuilt binaries for NodeJS 10 and above for 32bit linux. As a result it's too difficult to maintain support. However if you build nodejs and serialport yourself it will probably work.
