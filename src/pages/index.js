@@ -1,10 +1,30 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
+import BrowserOnly from '@docusaurus/BrowserOnly';
+
+const AsciinemaPlayer = ({ src, theme, autoPlay, preload }) => {
+  const ref = useRef()
+
+  useEffect(() => {
+    let unload
+    if (ref.current) {
+      import('asciinema-player').then(({ create }) => {
+        if (!ref.current) {
+          return
+        }
+        const { dispose } = create(src, ref.current, { theme, autoPlay, preload })
+        unload = dispose
+      })
+    }
+    return () => unload && unload()
+  }, [ref.current])
+  return <div ref={ref} />
+}
 
 const features = [
   {
@@ -26,7 +46,7 @@ const features = [
   },
 ];
 
-function Feature({imageUrl, title, description}) {
+function Feature({ imageUrl, title, description }) {
   const imgUrl = useBaseUrl(imageUrl);
   return (
     <div className={clsx('col col--4', styles.feature)}>
@@ -43,7 +63,7 @@ function Feature({imageUrl, title, description}) {
 
 function Home() {
   const context = useDocusaurusContext();
-  const {siteConfig = {}} = context;
+  const { siteConfig = {} } = context;
   return (
     <Layout
       title={`Talk to your Serial devices with JavaScript`}
@@ -52,7 +72,7 @@ function Home() {
         <div className="container">
           <h1 className="hero__title">{siteConfig.title}</h1>
           <p className="hero__subtitle">{siteConfig.tagline}</p>
-          <asciinema-player src="/demo-short.cast" theme="solarized-dark" autoplay="true" preload="true"></asciinema-player>
+          <AsciinemaPlayer src="/demo-short.cast" theme="solarized-dark" autoPlay="true" preload="true"></AsciinemaPlayer>
           <div className={styles.buttons}>
             <Link
               className={clsx(
