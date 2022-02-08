@@ -12,7 +12,7 @@ const { CCTalkParser } = require('@serialport/parser-cctalk')
 
 A transform stream that emits [ccTalk](https://en.wikipedia.org/wiki/CcTalk) packets as they are received.
 
-### Constructor Argument
+### Constructor Arguments
 
 ```ts
 maxDelayBetweenBytesMs: number = 50
