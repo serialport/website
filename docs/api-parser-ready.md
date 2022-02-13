@@ -25,7 +25,7 @@ interface ReadyParserOptions extends TransformOptions {
 
 ## Example
 
-```js
+```ts
 const { SerialPort } = require('serialport')
 const { ReadyParser } = require('@serialport/parser-ready')
 const port = new SerialPort({ path: '/dev/ROBOT', baudRate: 14400 })

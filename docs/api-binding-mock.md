@@ -16,7 +16,7 @@ Testing is an important feature of any library. To aid in our own tests, we've d
 
 This class is used in the [`SerialPortMock`](api-serialport.md) class if you wish to test the stream interface.
 
-### `createPort(options: CreatePortOptions)`
+### createPort(options: CreatePortOptions)
 
 ```ts
 interface CreatePortOptions {
@@ -33,7 +33,7 @@ interface CreatePortOptions {
 MockBinding.createPort('/dev/ROBOT', { echo: true, record: true })
 ```
 
-### `reset()`
+### reset
 
 This removes all created ports.
 
@@ -41,30 +41,35 @@ This removes all created ports.
 MockBinding.reset()
 ```
 
-### `open(opt: OpenOptions): MockPortBinding`
+### open(opt: OpenOptions): MockPortBinding
 
 Open a port and return it.
 
 ## MockPortBinding
 
-### `emitData(data: Buffer | string)`
+### emitData
 
-### `serialNumber`
+```ts
+port.emitData(data: Buffer | string): void
+```
+
+### serialNumber
 
 A unique number for each port returned from `open()`
 
-### `recording`
+### recording
 
-### `lastWrite`
+### lastWrite
 
-### Example
+## Example
 
 ```ts
 const { MockBinding } = require('@serialport/binding-mock')
+const { SerialPortStream } = require('@serialport/stream')
 
 // Create a port and enable the echo and recording.
 MockBinding.createPort('/dev/ROBOT', { echo: true, record: true })
-const port = new SerialPort({ path: '/dev/ROBOT', baudRate: 14400 })
+const port = new SerialPortStream({ binding: MockBinding, path: '/dev/ROBOT', baudRate: 14400 })
 
 /* Add some action for incoming data. For example,
 ** print each incoming line in uppercase */
@@ -82,8 +87,4 @@ port.on('open', () => {
 /* Expected output:
 HELLO, WORLD!
 */
-```
-
-```ts
-
 ```

@@ -18,42 +18,42 @@ Historically this was the only package involved and it contained everything. Sin
 
 This allows for smaller installs and alternative interfaces, bindings and parsers.
 
-## `SerialPort`
+## SerialPort
 
-This is the [Stream Interface](api-stream) constructor. It comes pre-populated with `Binding` and `Parsers`
+This is the [Stream Interface](api-stream) class but it comes pre-populated with [`@serialport/bindings-cpp`](api-bindings-cpp).
 
-```js
-const serialport = new SerialPort(path)
+```ts
+const serialport = new SerialPort({ path, baudRate })
 serialport.write('ROBOT POWER ON')
 ```
 
-## `SerialPort` and `SerialPortMock`
+## SerialPort and SerialPortMock
 
 - The `SerialPort` export uses the [`@serialport/bindings-cpp`](api-bindings-cpp) binding.
-- The `SerialPortMock` export includes the [`@serialport/binding-mock`](api-binding-mock.md) binding.
+- The `SerialPortMock` export includes the [`@serialport/binding-mock`](api-binding-mock) binding.
 
 ## Parsers
 
 This package exports the following parsers;
 
-- [ByteLengthParser](api-parser-byte-length.md)
-- [CCTalkParser](api-parser-cctalk.md)
-- [DelimiterParser](api-parser-delimiter.md)
-- [InterByteTimeoutParser](api-parser-inter-byte-timeout.md)
-- [PacketLengthParser](api-parser-packet-length.md)
-- [ReadlineParser](api-parser-readline.md)
-- [ReadyParser](api-parser-ready.md)
-- [RegexParser](api-parser-regex.md)
-- [SlipEncoder and SlipDecoder](api-parser-slip-encoder.md)
-- [SpacePacketParser](api-parser-spacepacket.md)
+- [ByteLengthParser](api-parser-byte-length)
+- [CCTalkParser](api-parser-cctalk)
+- [DelimiterParser](api-parser-delimiter)
+- [InterByteTimeoutParser](api-parser-inter-byte-timeout)
+- [PacketLengthParser](api-parser-packet-length)
+- [ReadlineParser](api-parser-readline)
+- [ReadyParser](api-parser-ready)
+- [RegexParser](api-parser-regex)
+- [SlipEncoder and SlipDecoder](api-parser-slip-encoder)
+- [SpacePacketParser](api-parser-spacepacket)
 
-```js
+```ts
 import { SerialPort, SpacePacketParser } from 'serialport'
 ```
 
 These `Parsers` are all [Transform streams](https://nodejs.org/api/stream.html#stream_class_stream_transform) that process incoming data. To use the parsers, you must create them and then pipe the Serialport to the parser. Be careful to only write to the SerialPort object and not the parser.
 
-```js
+```ts
 const { SerialPort, ReadlineParser } = require('serialport')
 const port = new SerialPort({ path, baudRate })
 const parser = new ReadlineParser()

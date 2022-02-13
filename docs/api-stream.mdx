@@ -2,12 +2,11 @@
 id: api-stream
 title: 📦 stream
 ---
-import StreamAPIOpenOptions from './_shared/stream-api-open-options.mdx';
 
 
 | [npm](https://www.npmjs.com/package/@serialport/stream) | [github](https://github.com/serialport/node-serialport/tree/master/packages/stream) |
 
-```js
+```ts
 const { SerialPortStream } = require('@serialport/stream')
 ```
 
@@ -15,78 +14,122 @@ This is the Node.js Stream Interface for SerialPort (for more information on Nod
 
 You also get the stream interface by requiring the [`serialport`](api-serialport.md) package, which comes with a default set of Bindings and Parsers.
 
-```js
+```ts
 // To get a default set of Bindings and Parsers
 const { SerialPort } = require('serialport')
 ```
 
 ## Constructor
 
-```js
+```ts
 new SerialPortStream(openOptions, [openCallback])
 ```
 
 Create a new serial port object. In the case of invalid arguments or invalid options it will throw an error. The port will open automatically by default, which is the equivalent of calling `port.open(openCallback)` in a `process.nextTick`. You can disable this by setting the option `autoOpen` to `false` in the `options`.
 
-<StreamAPIOpenOptions />
+### openOptions
+
+```ts
+interface OpenOptions<T extends BindingInterface> extends BindingOpenOptions {
+  /**
+   * The hardware access binding. `Bindings` are how Node-Serialport talks to the underlying system. If you're using the `serialport` package, this defaults to `'@serialport/bindings-cpp'` which auto detects Windows (`WindowsBinding`), Linux (`LinuxBinding`) and OS X (`DarwinBinding`) and load the appropriate module for your system.
+   */
+  binding: T
+
+  /** Automatically opens the port defaults to true*/
+  autoOpen?: boolean
+
+  /**
+   * The size of the read and write buffers defaults to 64k
+   */
+  highWaterMark?: number
+
+  /**
+   * Emit 'end' on port close defaults false
+   */
+  endOnClose?: boolean
+}
+```
+
+### openCallback
+
+```ts
+type openCallback = (Error|null) = {}
+```
+
+Called after a connection is opened. If this is not provided and an error occurs, it will be emitted on the port's `error` event. The callback will NOT be called if `autoOpen` is set to `false` in the `openOptions` as the open will not be performed.
+
+```ts
+const serialport = new SerialPort({ path: '/dev/foo-bar', baudRate: 9600, autoOpen: false })
+```
 
 ## Properties
 A `SerialPort` object has several properties.
 
-### `SerialPort#baudRate`
+### baudRate
+
 ```ts
 serialport.baudRate: number
 ```
 The port's baudRate. Use `#update()` to change it. Read-only
 
-### `SerialPort#binding`
-```ts
-serialport.binding: Binding
-```
-The `Binding` object backing the port. Read-only.
+### port
 
-### `SerialPort#isOpen`
+```ts
+serialport.port: BindingPort
+```
+
+The `BindingPort` object backing the stream. Read-only.
+
+### isOpen
+
 ```ts
 serialport.isOpen: Boolean
 ```
+
 `true` if the port is open, `false` otherwise. Read-only. (`since 5.0.0`)
 
-### `SerialPort#path`
+### path
+
 ```ts
 serialport.path: string
 ```
+
 The path of the serial port. Read-only.
 
 ## Events
+
 A SerialPort Stream object is a [Node.js transform stream](https://nodejs.org/api/stream.html) and implements the standard `data` and `error` events in addition to a few others.
 
-### `open`
+### open
+
 The `open` event happens when the port is opened and ready for writing. This happens if you have the constructor open immediately (which opens in the next tick) or if you open the port manually with `open()`. See [Usage/Auto Open](guide-usage.md#auto-open) for more information.
 
-### `error`
+### error
+
 The `error` provides an error object whenever there is an unhandled error. You can usually handle an error with a callback to the method that produced it. NOTE: If you do not provide a callback, you should have an error handler attached because an unhandled error will cause the process to exit. Please refer to [the node documentation](https://nodejs.org/api/events.html#events_error_events) for more details.
 
-### `close`
+### close
 The `close` event is emitted when the port is closed. In the case of a disconnect, it will be called with a Disconnect Error object (`err.disconnected == true`). In the event of an error while closing (unlikely), an error event is triggered.
 
-### `data`
+### data
 Listening for the `data` event puts the port in flowing mode. Data is emitted as soon as it's received. Data is a `Buffer` object with any amount of data in it. The buffer is only guaranteed to have at least one byte. See the [parsers](api-parsers-overview.md) section for more information on how to work with the data, and the [Node.js stream documentation](https://nodejs.org/api/stream.html#stream_event_data) for more information on the data event.
 
-### `drain`
+### drain
 The `drain` event is emitted when it is performant to write again if a `write()` call has returned `false`. For more info see the [Node.js `drain` documentation](https://nodejs.org/api/stream.html#stream_event_drain) for more info.
 
 ## Methods
 
-### `SerialPort#open`
+### open
 
-```js
+```ts
 serialport.open(callback?: (err: Error | null) => {}): void
 ```
 
 Opens the connection of the given serial port. Emits an [`open`](api-stream#open) event when the port is open, and if provided, calls the callback function after emitting. If the serial port's path does not exist, the callback is invoked with an error message. If no callback handler is provided, the `SerialPort` object will emit an [`error`](api-stream#error) event.
 
-### `SerialPort#update`
-```js
+### update
+```ts
 serialport.update(options: updateOptions, callback?: err => {}): void
 ```
 Changes the baud rate for an open port. Throws if you provide a bad argument. Emits an error or calls the callback if the baud rate isn't supported.
@@ -95,8 +138,8 @@ Changes the baud rate for an open port. Throws if you provide a bad argument. Em
 
 > `callback: error => {}: void` Called once the port's baud rate changes. If `.update` is called without a callback, and there is an error, an error event is emitted.
 
-### `SerialPort#write`
-```js
+### write
+```ts
 serialport.write(data: string|Buffer|Array<number>, encoding?: string, callback?: error => {}): boolean
 ```
 
@@ -121,8 +164,8 @@ Arguments:
 
 Returns `false` if the stream wishes for the calling code to wait for the `drain` event to be emitted before continuing to write additional data; otherwise `true`.
 
-### `SerialPort#read`
-```js
+### read
+```ts
 serialport.read(size?: number): string|Buffer|null
 ```
 
@@ -131,8 +174,9 @@ Request a number of bytes from the SerialPort. The `read()` method pulls some da
 Arguments:
 - `size?: number` Specify how many bytes of data to return, if available
 
-### `SerialPort#close`
-```js
+### close
+
+```ts
 serialport.close(callback?: error => {}): void
 ```
 Closes an open connection. If there are in-progress writes when the port is closed the writes will error.
@@ -140,7 +184,7 @@ Closes an open connection. If there are in-progress writes when the port is clos
 Arguments:
 - `callback?: (error => {}: void) Called once a connection is closed.
 
-### `SerialPort#set`
+### set
 ```ts
 serialport.set(options: setOptions, callback?: error => {}): void
 ```
@@ -151,7 +195,8 @@ Arguments:
 - `callback: error => {}` Called once the port's flags have been set.
 
 `setOptions`
-```js
+
+```ts
 /**
  * {Boolean} [setOptions.brk=false] sets the brk flag
  * {Boolean} [setOptions.cts=false] sets the cts flag
@@ -162,14 +207,15 @@ Arguments:
  */
 ```
 
-### `SerialPort#get`
+### get
+
 ```ts
 serialport.get(callback: (error, data: ModemStatus) => {}): void
 ```
 
 Returns the control flags (CTS, DSR, DCD) on the open port. Uses [`GetCommModemStatus`](https://msdn.microsoft.com/en-us/library/windows/desktop/aa363258(v=vs.85).aspx) for Windows and [`ioctl`](http://linux.die.net/man/4/tty_ioctl) for mac and linux.
 
-```js
+```ts
 /*
  * {boolean} [ModemStatus.cts=false]
  * {boolean} [ModemStatus.dsr=false]
@@ -179,7 +225,8 @@ Returns the control flags (CTS, DSR, DCD) on the open port. Uses [`GetCommModemS
 ```
 
 
-### `SerialPort#flush`
+### flush
+
 ```ts
 serialport.flush(callback? error => {}):void
 ```
@@ -188,10 +235,12 @@ Flush discards data that has been received but not read, or written but not tran
 - `callback? error => {}` Called once the flush operation finishes.
 
 
-### `SerialPort#drain`
+### drain
+
 ```ts
 serialport.drain(callback? error => {}):void
 ```
+
 Waits until all output data is transmitted to the serial port. After any pending write has completed, it calls [`tcdrain()`](http://linux.die.net/man/3/tcdrain) or [FlushFileBuffers()](https://msdn.microsoft.com/en-us/library/windows/desktop/aa364439(v=vs.85).aspx) to ensure it has been written to the device.
 
 - `callback? error => {}` Called once the drain operation returns.
@@ -199,21 +248,25 @@ Waits until all output data is transmitted to the serial port. After any pending
 #### Drain Example
 A function to write `data` and wait until it has finished transmitting to the target serial port before calling the callback. This will wait until the port is open and writes are finished as determined by the operating system.
 
-```js
+```ts
 function writeAndDrain (data, callback) {
   port.write(data)
   port.drain(callback)
 }
 ```
 
-### `SerialPort#pause`
-```js
+### pause
+
+```ts
 serialport.pause(): this
 ```
+
 The `pause()` method causes a stream in flowing mode to stop emitting 'data' events, switching out of flowing mode. Any data that becomes available remains in the internal buffer.
 
-### `SerialPort#resume`
-```js
+### resume
+
+```ts
 serialport.resume(): this
 ```
+
 The `resume()` method causes an explicitly paused, `Readable` stream to resume emitting 'data' events, switching the stream into flowing mode.
