@@ -16,7 +16,7 @@ module.exports = {
       "api-core-overview",
       "api-serialport",
       "api-stream",
-      "api-binding-cpp",
+      "api-bindings-cpp",
       "api-binding-mock",
       "api-bindings-interface",
     ],

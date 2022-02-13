@@ -15,7 +15,7 @@ And it will work from there.
 
 ## Compilation Problems
 
-The [`@serialport/bindings-cpp`](api-bindings-cpp.md) package uses [`prebuildify-cross`](https://www.npmjs.com/package/prebuildify-cross) to build binaries for a [number of platforms and C libraries](https://github.com/prebuild/docker-images#images). We ship these builds with the package and the appropriate one will be used. (See [Supported Environments](guide-platform-support) for more information.) If you need a binary for a different platform it will be compiled during the npm install via [node-gyp v7](https://github.com/nodejs/node-gyp) which requires Python 2.x, so please ensure you have it installed and in your path for your operating system.
+The [`@serialport/bindings-cpp`](api-bindings-cpp) package uses [`prebuildify-cross`](https://www.npmjs.com/package/prebuildify-cross) to build binaries for a [number of platforms and C libraries](https://github.com/prebuild/docker-images#images). We ship these builds with the package and the appropriate one will be used. (See [Supported Environments](guide-platform-support) for more information.) If you need a binary for a different platform it will be compiled during the npm install via [node-gyp v7](https://github.com/nodejs/node-gyp) which requires Python 2.x, so please ensure you have it installed and in your path for your operating system.
 
 This assumes you have everything on your system necessary to compile ANY native module for Node.js. If you don't, then please ensure the following are true for your system before filing a "Does not install" issue.
 
