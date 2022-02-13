@@ -10,9 +10,9 @@ import { SerialPort } from 'serialport'
 const { SerialPort } = require('serialport')
 ```
 
-This package provides everything you need to start talking over your serialport. It provides a high level [Stream Interface](api-stream.md), auto detecting [bindings](api-bindings-cpp.md), and a set of [parser streams](#serialportparsers).
+This package provides everything you need to start talking over your serialport. It provides a high level [Stream Interface](api-stream), auto detecting [bindings](api-bindings-cpp), and a set of [parser streams](#serialportparsers).
 
-> Most of the api is covered in the [Stream Interface](api-stream.md) docs.
+> Most of the api is covered in the [Stream Interface](api-stream) docs.
 
 Historically this was the only package involved and it contained everything. Since version 7 the internals have been split into their own modules and can be required separately, allowing a user to only install what they need.
 
@@ -20,7 +20,7 @@ This allows for smaller installs and alternative interfaces, bindings and parser
 
 ## `SerialPort`
 
-This is the [Stream Interface](api-stream.md) constructor. It comes pre-populated with `Binding` and `Parsers`
+This is the [Stream Interface](api-stream) constructor. It comes pre-populated with `Binding` and `Parsers`
 
 ```js
 const serialport = new SerialPort(path)
@@ -29,7 +29,7 @@ serialport.write('ROBOT POWER ON')
 
 ## `SerialPort` and `SerialPortMock`
 
-- The `SerialPort` export uses the [`@serialport/bindings-cpp`](api-bindings-cpp.md) binding.
+- The `SerialPort` export uses the [`@serialport/bindings-cpp`](api-bindings-cpp) binding.
 - The `SerialPortMock` export includes the [`@serialport/binding-mock`](api-binding-mock.md) binding.
 
 ## Parsers

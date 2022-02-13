@@ -5,7 +5,7 @@ title: Supported Environments
 
 ## Node-API (N-API)
 
-Since v10 [`@serialport/bindings-cpp`](api-bindings-cpp.md) has used [Node-API](https://nodejs.org/api/n-api.html) (also known as `N-API`) to allow easy use with any recent NodeJS and Electron version. (And in theory any V8 based environment.) We target Node-API version 6 as it covers the current NodeJS and electron support requirements.
+Since v10 [`@serialport/bindings-cpp`](api-bindings-cpp) has used [Node-API](https://nodejs.org/api/n-api.html) (also known as `N-API`) to allow easy use with any recent NodeJS and Electron version. (And in theory any V8 based environment.) We target Node-API version 6 as it covers the current NodeJS and electron support requirements.
 
 ### Node.js Support
 
@@ -17,7 +17,7 @@ SerialPort officially supports the last 3 versions of Electron per it's [8 week 
 
 ## Supported Platforms and Architectures
 
-The [`@serialport/bindings-cpp`](api-bindings-cpp.md) package uses [`prebuildify-cross`](https://www.npmjs.com/package/prebuildify-cross) to build binaries for a [number of platforms and C libraries](https://github.com/prebuild/docker-images#images). We are able to run a CI for only the major platforms offered by GitHub Actions. Those platforms are fully supported while the others are a best effort.
+The [`@serialport/bindings-cpp`](api-bindings-cpp) package uses [`prebuildify-cross`](https://www.npmjs.com/package/prebuildify-cross) to build binaries for a [number of platforms and C libraries](https://github.com/prebuild/docker-images#images). We are able to run a CI for only the major platforms offered by GitHub Actions. Those platforms are fully supported while the others are a best effort.
 
 The platforms, architectures that `serialport` supports are the following;
 

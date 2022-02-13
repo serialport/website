@@ -109,3 +109,11 @@ interface BindingPortInterface {
 ```
 
 For the full types take a look at the package's [github](https://github.com/serialport/bindings-interface) repository.
+
+### List I guess
+
+## `SerialPort.list()`
+
+```ts
+SerialPort.list(): Promise<PortInfo[]>
+```

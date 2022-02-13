@@ -9,10 +9,10 @@ The core packages provide cross platform serial port hardware access to a javasc
 
 Interfaces take a binding interface and provide a different API on top of it. Currently we only ship a Node Stream Interface.
 
-- [`@serialport/stream`](api-stream.md) a Node.js Stream interface for any binding
+- [`@serialport/stream`](api-stream) a Node.js Stream interface for any binding
 
 The Bindings provide a common interface to work with your serialport cross platform.
 
-- [`@serialport/bindings-cpp`](api-bindings-cpp.md) bindings for Linux, Mac and Windows supported in NodeJS and Electron.
+- [`@serialport/bindings-cpp`](api-bindings-cpp) bindings for Linux, Mac and Windows supported in NodeJS and Electron.
 - [`@serialport/binding-mock`](api-binding-mock.md) for a mock binding package for testing
 - [`@serialport/bindings-interface`](api-bindings-interface.md) a typescript interface you need to use match if you're making your own bindings

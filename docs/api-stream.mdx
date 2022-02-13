@@ -2,10 +2,13 @@
 id: api-stream
 title: 📦 stream
 ---
+import StreamAPIOpenOptions from './_shared/stream-api-open-options.mdx';
+
+
 | [npm](https://www.npmjs.com/package/@serialport/stream) | [github](https://github.com/serialport/node-serialport/tree/master/packages/stream) |
 
 ```js
-const SerialPort = require('@serialport/stream')
+const { SerialPortStream } = require('@serialport/stream')
 ```
 
 This is the Node.js Stream Interface for SerialPort (for more information on Node.js Streams, please see the [Stream API docs](https://nodejs.org/api/stream.html) or one of the numerous independent tutorials). This stream is a Duplex Stream allowing for reading and writing. It has additional methods for managing the SerialPort connection.
@@ -18,114 +21,14 @@ const { SerialPort } = require('serialport')
 ```
 
 ## Constructor
-```js
-new SerialPort(path [, openOptions] [, openCallback])
-```
-
-Create a new serial port object for the `path`. In the case of invalid arguments or invalid options it will throw an error. The port will open automatically by default, which is the equivalent of calling `port.open(openCallback)` in a `process.nextTick`. You can disable this by setting the option `autoOpen` to `false` in the `options`.
-
-### `path`
-`string` The system path of the serial port you want to open. For example, `/dev/tty.XXX` on Mac/Linux, or `COM1` on Windows
-
-### `openOptions`
-```js
-/**
- * @typedef {Object} openOptions
- * @property {boolean} [autoOpen=true] Automatically opens the port on `nextTick`.
- * @property {number=} [baudRate=9600] The baud rate of the port to be opened. This should match one of the commonly available baud rates, such as 110, 300, 1200, 2400, 4800, 9600, 14400, 19200, 38400, 57600, or 115200. Custom rates are supported best effort per platform. The device connected to the serial port is not guaranteed to support the requested baud rate, even if the port itself supports that baud rate.
- * @property {number} [dataBits=8] Must be one of these: 8, 7, 6, or 5.
- * @property {number} [highWaterMark=65536] The size of the read and write buffers defaults to 64k.
- * @property {boolean} [lock=true] Prevent other processes from opening the port. Windows does not currently support `false`.
- * @property {number} [stopBits=1] Must be one of these: 1 or 2.
- * @property {string} [parity=none] Must be one of these: 'none', 'even', 'mark', 'odd', 'space'.
- * @property {boolean} [rtscts=false] flow control setting
- * @property {boolean} [xon=false] flow control setting
- * @property {boolean} [xoff=false] flow control setting
- * @property {boolean} [xany=false] flow control setting
- * @property {object=} bindingOptions sets binding-specific options
- * @property {Binding=} Binding The hardware access binding. `Bindings` are how Node-Serialport talks to the underlying system. Will default to the static property `Serialport.Binding`.
- * @property {number} [bindingOptions.vmin=1] see [`man termios`](http://linux.die.net/man/3/termios) LinuxBinding and DarwinBinding
- * @property {number} [bindingOptions.vtime=0] see [`man termios`](http://linux.die.net/man/3/termios) LinuxBinding and DarwinBinding
- */
-```
-
-### `openCallback`
-```ts
-type openCallback = (Error|null) = {}
-```
-
-Called after a connection is opened. If this is not provided and an error occurs, it will be emitted on the port's `error` event. The callback will NOT be called if `autoOpen` is set to `false` in the `openOptions` as the open will not be performed.
-
 
 ```js
-const serialport = new SerialPort({ path: '/dev/foo-bar', baudRate: 9600, autoOpen: false })
+new SerialPortStream(openOptions, [openCallback])
 ```
 
-## Static Properties
+Create a new serial port object. In the case of invalid arguments or invalid options it will throw an error. The port will open automatically by default, which is the equivalent of calling `port.open(openCallback)` in a `process.nextTick`. You can disable this by setting the option `autoOpen` to `false` in the `options`.
 
-### `SerialPort.Binding`
-```ts
-SerialPort.Binding: Binding
-```
-
-The hardware access binding. `Bindings` are how Node-Serialport talks to the underlying system. This static property is used to set the default binding for any new port created with this constructor. It is also used for `Serialport.list`.
-
-If you're using the `serialport` package, this defaults to `require('@serialport/bindings-cpp')`.
-
-## Static Methods
-
-### `SerialPort.list()`
-```ts
-SerialPort.list(): Promise<PortInfo[]>
-```
-Retrieves a list of available serial ports with metadata. Only the `path` is guaranteed (other fields will be undefined if unavailable). The `path` is either the path or an identifier (eg `COM1`) used to open the SerialPort.
-
-The `SerialPort` class delegates this function to the provided `Binding` on [`SerialPort.Binding`](#serialportbinding-binding).
-
-We make an effort to identify the hardware attached and have consistent results between systems. Linux and OS X are mostly consistent. Windows relies on 3rd-party device drivers for this information and is unable to guarantee the accuracy. If you have a USB-connected device, we provide a serial number - otherwise it will be `undefined`. The `pnpId` and `locationId` are not the same or present on all systems. The examples below were run with the same Arduino Uno.
-
-```js
-// OSX example port
-{
-  path: '/dev/tty.usbmodem1421',
-  manufacturer: 'Arduino (www.arduino.cc)',
-  serialNumber: '752303138333518011C1',
-  pnpId: undefined,
-  locationId: '14500000',
-  productId: '0043',
-  vendorId: '2341'
-}
-
-// Linux example port
-{
-  path: '/dev/ttyACM0',
-  manufacturer: 'Arduino (www.arduino.cc)',
-  serialNumber: '752303138333518011C1',
-  pnpId: 'usb-Arduino__www.arduino.cc__0043_752303138333518011C1-if00',
-  locationId: undefined,
-  productId: '0043',
-  vendorId: '2341'
-}
-
-// Windows example port
-{
-  path: 'COM3',
-  manufacturer: 'Arduino LLC (www.arduino.cc)',
-  serialNumber: '752303138333518011C1',
-  pnpId: 'USB\\VID_2341&PID_0043\\752303138333518011C1',
-  locationId: 'Port_#0003.Hub_#0001',
-  productId: '0043',
-  vendorId: '2341'
-}
-```
-
-```js
-const { SerialPort } = require('serialport')
-SerialPort.list().then(
-  ports => ports.forEach(console.log),
-  err => console.error(err)
-)
-```
+<StreamAPIOpenOptions />
 
 ## Properties
 A `SerialPort` object has several properties.
@@ -180,7 +83,7 @@ The `drain` event is emitted when it is performant to write again if a `write()`
 serialport.open(callback?: (err: Error | null) => {}): void
 ```
 
-Opens the connection of the given serial port. Emits an [`open`](api-stream.md#open) event when the port is open, and if provided, calls the callback function after emitting. If the serial port's path does not exist, the callback is invoked with an error message. If no callback handler is provided, the `SerialPort` object will emit an [`error`](api-stream.md#error) event.
+Opens the connection of the given serial port. Emits an [`open`](api-stream#open) event when the port is open, and if provided, calls the callback function after emitting. If the serial port's path does not exist, the callback is invoked with an error message. If no callback handler is provided, the `SerialPort` object will emit an [`error`](api-stream#error) event.
 
 ### `SerialPort#update`
 ```js

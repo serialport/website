@@ -21,7 +21,7 @@ Interfaces take a binding interface and provide a different API on top of it. Cu
 
 The Bindings provide a common interface to work with your serialport cross platform.
 
-- [`@serialport/bindings-cpp`](api-bindings-cpp.md) bindings for Linux, Mac and Windows supported in NodeJS and Electron.
+- [`@serialport/bindings-cpp`](api-bindings-cpp) bindings for Linux, Mac and Windows supported in NodeJS and Electron.
 - [`@serialport/binding-mock`](api-binding-mock.md) for a mock binding package for testing
 - [`@serialport/bindings-interface`](api-bindings-interface.md) a typescript interface you need to use match if you're making your own bindings
 
