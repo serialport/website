@@ -7,16 +7,16 @@ Parsers are used to take raw binary data and transform them into usable messages
 
 Parsers are traditionally Transform streams, but Duplex streams and other non stream interfaces are acceptable.
 
-- [ByteLengthParser](api-parser-byte-length.md)
-- [CCTalkParser](api-parser-cctalk.md)
-- [DelimiterParser](api-parser-delimiter.md)
-- [InterByteTimeoutParser](api-parser-inter-byte-timeout.md)
-- [PacketLengthParser](api-parser-packet-length.md)
-- [ReadlineParser](api-parser-readline.md)
-- [ReadyParser](api-parser-ready.md)
-- [RegexParser](api-parser-regex.md)
-- [SlipEncoder and SlipDecoder](api-parser-slip-encoder.md)
-- [SpacePacketParser](api-parser-spacepacket.md)
+- [`@serialport/parser-byte-length`](api-parser-byte-length)
+- [`@serialport/parser-cctalk`](api-parser-cctalk)
+- [`@serialport/parser-delimiter`](api-parser-delimiter)
+- [`@serialport/parser-inter-byte-timeout`](api-parser-inter-byte-timeout)
+- [`@serialport/parser-packet-length`](api-parser-packet-length)
+- [`@serialport/parser-readline`](api-parser-readline)
+- [`@serialport/parser-ready`](api-parser-ready)
+- [`@serialport/parser-regex`](api-parser-regex)
+- [`@serialport/parser-slip-encoder`](api-parser-slip-encoder)
+- [`@serialport/parser-spacepacket`](api-parser-spacepacket)
 
 Most parsers are [Transform streams](https://nodejs.org/api/stream.html#stream_class_stream_transform) that process incoming data. To use the parsers, you must create them and then pipe the Serialport to the parser. Be careful to only write to the SerialPort object and not the parser.
 
@@ -33,6 +33,7 @@ port.write('ROBOT PLEASE RESPOND\n')
 ```
 
 Creating a stream based parser and piping can be shortened to
+
 ```ts
 const parser = port.pipe(new ReadlineParser());
 ```
