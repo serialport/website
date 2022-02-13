@@ -17,7 +17,7 @@ The core packages provide cross platform serial port hardware access to a javasc
 
 Interfaces take a binding interface and provide a different API on top of it. Currently we only ship a Node Stream Interface.
 
-- [`@serialport/stream`](api-stream.md) a Node.js Stream interface for any binding
+- [`@serialport/stream`](api-stream) a Node.js Stream interface for any binding
 
 The Bindings provide a common interface to work with your serialport cross platform.
 
@@ -31,16 +31,16 @@ Parsers are used to take raw binary data and transform them into usable messages
 
 Parsers are traditionally Transform streams, but Duplex streams and other non stream interfaces are acceptable.
 
-- [ByteLengthParser](api-parser-byte-length.md)
-- [CCTalkParser](api-parser-cctalk.md)
-- [DelimiterParser](api-parser-delimiter.md)
-- [InterByteTimeoutParser](api-parser-inter-byte-timeout.md)
-- [PacketLengthParser](api-parser-packet-length.md)
-- [ReadlineParser](api-parser-readline.md)
-- [ReadyParser](api-parser-ready.md)
-- [RegexParser](api-parser-regex.md)
-- [SlipEncoder and SlipDecoder](api-parser-slip-encoder.md)
-- [SpacePacketParser](api-parser-spacepacket.md)
+- [`@serialport/parser-byte-length`](api-parser-byte-length)
+- [`@serialport/parser-cctalk`](api-parser-cctalk)
+- [`@serialport/parser-delimiter`](api-parser-delimiter)
+- [`@serialport/parser-inter-byte-timeout`](api-parser-inter-byte-timeout)
+- [`@serialport/parser-packet-length`](api-parser-packet-length)
+- [`@serialport/parser-readline`](api-parser-readline)
+- [`@serialport/parser-ready`](api-parser-ready)
+- [`@serialport/parser-regex`](api-parser-regex)
+- [`@serialport/parser-slip-encoder`](api-parser-slip-encoder)
+- [`@serialport/parser-spacepacket`](api-parser-spacepacket)
 
 ### Command Line Tools
 
