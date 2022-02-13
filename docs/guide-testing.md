@@ -5,7 +5,7 @@ title: Testing
 
 Testing is an important feature of any library. To aid in our own tests we've developed a [`MockBinding`](api-binding-mock.md) a fake hardware binding that doesn't actually need any hardware to run. This class passes all of the same tests as our hardware based bindings and provides a few additional test related interfaces.
 
-```js
+```ts
 const { SerialPortStream } = require('@serialport/stream')
 const MockBinding = require('@serialport/binding-mock')
 

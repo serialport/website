@@ -26,7 +26,7 @@ Constructing a `SerialPort` object immediately opens a port. While you can read 
 - The constructor's openCallback is passed to `.open()`, if you haven't disabled the `autoOpen` option. If you have disabled it, the callback is ignored.
 - The `.open()` function takes a callback that is called after the port is opened. You can use this if you've disabled the `autoOpen` option or have previously closed an open port.
 
-```js
+```ts
 const { SerialPort } = require('serialport')
 const port = new SerialPort({ path: '/dev/tty-usbserial1', baudRate: 57600 })
 
@@ -45,7 +45,7 @@ port.on('error', function(err) {
 
 Detecting open-related errors can be moved to the constructor's callback.
 
-```js
+```ts
 const { SerialPort } = require('serialport')
 const port = new SerialPort({ path: '/dev/tty-usbserial1', baudRate: 9600 }, function (err) {
   if (err) {
@@ -66,7 +66,7 @@ port.write('main screen turn on', function(err) {
 
 If you disable the `autoOpen` option, you'll need to open the port on your own.
 
-```js
+```ts
 const { SerialPort } = require('serialport')
 const port = new SerialPort({
   path: '/dev/tty-usbserial1',
@@ -93,7 +93,7 @@ port.on('open', function() {
 
 Get updates about new data arriving through the serial port as follows:
 
-```js
+```ts
 // Read data that is available but keep the stream in "paused mode"
 port.on('readable', function () {
   console.log('Data:', port.read())
@@ -110,7 +110,7 @@ const lineStream = port.pipe(new Readline())
 
 You can write to the serial port by sending a string or buffer to the `write` method:
 
-```js
+```ts
 port.write('Hi Mom!')
 port.write(Buffer.from('Hi Mom!'))
 ```
