@@ -1,16 +1,18 @@
 # Node SerialPort Website
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/8a75bc09-2cea-4b0b-80ed-cb16b2fa2c9c/deploy-status)](https://app.netlify.com/sites/serene-wescoff-3305e5/deploys)
 
 Working with serial ports can be hard, this is a collection of docs that make it easier.
 
 > Go to https://serialport.io/ to learn more, find guides and api documentation.
 
-### Documentation Strategy
+## Documentation Strategy
+
 To provide api docs, guides and explanations to make using serial ports easier.
 
 Versioned docs are for major versions of serialport and should be kept up to date with the latest version of the package.
 
-New docs should be added to the `/docs` directory.
+New docs should be added to the `/docs` directory. Edit the versioned docs too if correcting mistakes.
 
 ### Developing Docs
 
@@ -21,21 +23,31 @@ npm run start
 ```
 
 And build them by running
+
 ```bash
 npm run build
 ```
 
-Note: Search doesn't work in development mode, neither does asciinema
+Note: Search doesn't work in development mode
 
 Docs are automatically built with [netlify](https://www.netlify.com/pricing/) including previews on branches. The master branch is deployed to https://serialport.io
 
+Cutting a new release will copy `next` to a version number.
+
+```bash
+npm run docusaurus docs:version 10.x.x
+```
+
 ## License
+
 SerialPort packages are all [MIT licensed](LICENSE) and all it's dependencies are MIT licensed.
 
 ## Code of Conduct
+
 SerialPort follows the [Nodebots Code of Conduct](http://nodebots.io/conduct.html). While the code is MIT licensed participation in the community has some rules to make this a good place to work and learn.
 
 ### TLDR
+
 - Be respectful.
 - Abusive behavior is never tolerated.
 - Data published to NodeBots is hosted at the discretion of the service administrators, and may be removed.
@@ -52,7 +64,7 @@ SerialPort is currently employees a [governance](https://medium.com/the-node-js-
 
 If you have a PR that improves the project people in any or all of the above people will help you land it.
 
-**Maintainers**
+### Maintainers
 
 - [Francis Gulotta](https://twitter.com/reconbot) | [reconbot](https://github.com/reconbot)
 - [Nick Hehr](https://twitter.com/hipsterbrown) | [hipsterbrown](https://github.com/hipsterbrown)
