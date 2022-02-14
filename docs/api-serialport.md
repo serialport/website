@@ -12,7 +12,11 @@ const { SerialPort } = require('serialport')
 
 This package provides everything you need to start talking over your serialport. It provides a high level [Stream Interface](api-stream), auto detecting [bindings](api-bindings-cpp), and a set of [parser streams](#serialportparsers).
 
-> Most of the api is covered in the [Stream Interface](api-stream) docs.
+:::tip
+
+Most of the api is covered in the [Stream Interface](api-stream) docs.
+
+:::
 
 Historically this was the only package involved and it contained everything. Since version 7 the internals have been split into their own modules and can be required separately, allowing a user to only install what they need.
 
@@ -20,17 +24,79 @@ This allows for smaller installs and alternative interfaces, bindings and parser
 
 ## SerialPort
 
-This is the [Stream Interface](api-stream) class but it comes pre-populated with [`@serialport/bindings-cpp`](api-bindings-cpp).
+The `SerialPort` class uses the [`@serialport/bindings-cpp`](api-bindings-cpp) binding with the [Stream Interface](api-stream) class.
 
 ```ts
-const serialport = new SerialPort({ path, baudRate })
+import { SerialPort } from 'serialport'
+
+const serialport = new SerialPort({ path: '/dev/example', baudRate: 9600 })
 serialport.write('ROBOT POWER ON')
 ```
 
-## SerialPort and SerialPortMock
+### list
 
-- The `SerialPort` export uses the [`@serialport/bindings-cpp`](api-bindings-cpp) binding.
-- The `SerialPortMock` export includes the [`@serialport/binding-mock`](api-binding-mock) binding.
+```ts
+SerialPort.list()
+```
+
+Calls the [bindings-cpp `list()`](api-bindings-cpp#list) function directly.
+
+### binding
+
+```ts
+SerialPort.binding
+```
+
+The detected platform binding.
+
+### port
+
+```ts
+const port = new SerialPort({ path: '/dev/robot', baudRate: 9600 })
+port.port // instance of platform specific bindings
+```
+
+The [PortBinding](api-bindings-cpp#bindingport) object opened for the port.
+
+
+## SerialPortMock
+
+The `SerialPortMock` class includes the [`@serialport/binding-mock`](api-binding-mock) binding with the [Stream Interface](api-stream) class.
+
+```ts
+import { SerialPortMock } from 'serialport'
+
+const path = '/dev/example'
+SerialPortMock.binding.createPort(path)
+const serialport = new SerialPortMock({ path, baudRate: 9600 })
+serialport.write('ROBOT POWER ON')
+```
+
+### list
+
+```ts
+SerialPortMock.list() // Promise<PortInfo[]>
+```
+
+Calls the [mock binding list](api-binding-mock#list) function directly which returns all created ports.
+
+### binding
+
+```ts
+SerialPortMock.binding
+```
+
+The `MockBinding` class being used by the port.
+
+### port
+
+```ts
+SerialPortMock.binding.createPort('/dev/robot')
+const port = new SerialPortMock({ path: '/dev/robot', baudRate: 9600 })
+port.port.emitData('data')
+```
+
+The [MockPortBinding](api-binding-mock#mockportbinding) object opened for the port.
 
 ## Parsers
 
@@ -48,6 +114,7 @@ This package exports the following parsers;
 - [SpacePacketParser](api-parser-spacepacket)
 
 ```ts
+// for example
 import { SerialPort, SpacePacketParser } from 'serialport'
 ```
 

@@ -4,6 +4,8 @@ title: About SerialPort
 slug: /
 ---
 
+Node SerialPort is a JavaScript library for connecting to serial ports that works in NodeJS and Electron.
+
 ## Quick Answers
 
 - **For support**, you're in the right place. Have a look around and if you're stuck open a [GitHub issue or Discussion](https://github.com/serialport/node-serialport/issues/new/choose).

@@ -7,13 +7,13 @@ title: Installing SerialPort
 
 For most javascript enviornments you can run;
 
-```bash
-npm install serialport
+```sh
+$ npm install serialport
 ```
 
 And it will work from there.
 
-## Compilation Problems
+## Compilation On Unsupported Systems
 
 The [`@serialport/bindings-cpp`](api-bindings-cpp) package uses [`prebuildify-cross`](https://www.npmjs.com/package/prebuildify-cross) to build binaries for a [number of platforms and C libraries](https://github.com/prebuild/docker-images#images). We ship these builds with the package and the appropriate one will be used. (See [Supported Environments](guide-platform-support) for more information.) If you need a binary for a different platform it will be compiled during the npm install via [node-gyp v7](https://github.com/nodejs/node-gyp) which requires Python 2.x, so please ensure you have it installed and in your path for your operating system.
 
@@ -27,7 +27,7 @@ Historically [Alpine](http://www.alpinelinux.org/) linux had issues installing b
 
 ### Electron
 
-Historically [Electron](https://electron.atom.io/) which comes with its own version of the Node.js runtime. Was a huge headache and required a deep understanding of your build system. Since v10 we leverage N-API and the provided binaries for your platform should work without issue.
+Historically [Electron](https://electron.atom.io/) which comes with its own version of the Node.js runtime. It was a huge headache and required a deep understanding of your build system. Since v10 we leverage N-API and the provided binaries for your platform should work without issue.
 
 For an example Electron project, check out [`electron-serialport`](https://github.com/serialport/electron-serialport).
 
@@ -46,10 +46,6 @@ target=<target_version>
 ```
 
 Where `<target_version>` is the NW.js version you are building against (for example, `0.26.6`).
-
-### Mac OS X
-
-Ensure that you have at a minimum the xCode Command Line Tools installed appropriate for your system configuration. If you recently upgraded the OS, it probably removed your installation of Command Line Tools, please verify before submitting a ticket. To compile `node-serialport` with Node.js 12+, you will need to use g++ v4.8 or higher.
 
 ### Raspberry Pi Linux
 
@@ -73,10 +69,11 @@ You must answer *No* to question 1 and *Yes* to question 2.  If the login shell 
 *DietPi* also has the ability to enable the serial port in `dietpi-config`; however, it doens't have a way to disable the login shell that we know of.
 
 ### sudo / root
+
 If you're going to use `sudo` or root to install Node-Serialport, `npm` will require you to use the unsafe parameters flag.
 
 ```bash
-sudo npm install serialport --unsafe-perm --build-from-source
+sudo npm install serialport --unsafe-perm
 ```
 
 Failure to use the flag results in an error like this:

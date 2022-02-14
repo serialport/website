@@ -17,8 +17,15 @@ const port = new SerialPort({
 
 When opening a serial port, specify;
 
-1. Path to serial port - required
-1. BaudRate of the port - required
+1. Path to serial port
+1. Baud Rate of the port
+
+
+:::tip
+
+Check [`serialport`](api-serialport)'s docs for the full api.
+
+:::
 
 Constructing a `SerialPort` object immediately opens a port. While you can read and write at any time (actions will be queued until the port is open), most port functions require an open port. There are three ways to detect when a port is opened.
 

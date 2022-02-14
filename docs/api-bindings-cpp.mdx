@@ -211,9 +211,7 @@ const port = await Binding.open(options)
 ### isOpen
 
 ```ts
-interface BindingPort {
-  isOpen: boolean
-}
+isOpen: boolean
 ```
 
 `true` if the port is open, `false` otherwise. Read Only.
@@ -221,9 +219,7 @@ interface BindingPort {
 ### close
 
 ```ts
-interface BindingPort {
-  close(): Promise<void>
-}
+close(): Promise<void>
 ```
 Closes an open port
 
