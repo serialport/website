@@ -7,15 +7,17 @@ Testing is an important feature of any library. To aid in our own tests we've de
 
 ```ts
 const { SerialPortStream } = require('@serialport/stream')
-const MockBinding = require('@serialport/binding-mock')
-
-SerialPort.Binding = MockBinding
+const { MockBinding } = require('@serialport/binding-mock')
 
 // Create a port and enable the echo and recording.
 MockBinding.createPort('/dev/ROBOT', { echo: true, record: true })
-const port = new SerialPort({ path: '/dev/ROBOT', baudRate: 14400 })
+const port = new SerialPortStream({ binding: MockBinding, path: '/dev/ROBOT', baudRate: 14400 })
 
-port.port.emitData('pretend data from device')
+port.on('open', () => {
+  port.port.emitData('pretend data from device')
+})
 ```
+
+It should also be noted that the [`SerialPortMock` class from the `serialport`](api-serialport#serialportmock) package has the `MockBinding` setup for you.
 
 The code can be found in the [`@serialport/binding-mock`](api-binding-mock) package.
