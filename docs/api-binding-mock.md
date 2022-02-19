@@ -49,6 +49,8 @@ Open a port and return it.
 
 ### emitData
 
+Emits data from an open port.
+
 ```ts
 port.emitData(data: Buffer | string): void
 ```
@@ -59,7 +61,19 @@ A unique number for each port returned from `open()`
 
 ### recording
 
+If the port was created with `record: true` this will contain all data written to the port. If recording is disabled it will be a 0 length buffer.
+
+```ts
+port.recording // Buffer
+```
+
 ### lastWrite
+
+Contains the contents of the last write to the port.
+
+```ts
+port.lastWrite // null | Buffer
+```
 
 ## Example
 
