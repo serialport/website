@@ -90,10 +90,14 @@ The `MockBinding` class being used by the port.
 
 ### port
 
+The port property only exists on an open port. You can't emit data when it's closed.
+
 ```ts
 SerialPortMock.binding.createPort('/dev/robot')
 const port = new SerialPortMock({ path: '/dev/robot', baudRate: 9600 })
-port.port.emitData('data')
+port.on('open', () => {
+  port.port.emitData('data')
+})
 ```
 
 The [MockPortBinding](api-binding-mock#mockportbinding) object opened for the port.
