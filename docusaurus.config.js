@@ -5,7 +5,7 @@ module.exports = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
-  favicon: 'img/nodebots-logo.svg',
+  favicon: 'img/serialport-logo.png',
   organizationName: 'serialport', // Usually your GitHub org/user name.
   projectName: 'website', // Usually your repo name.
   themeConfig: {
