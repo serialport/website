@@ -5,7 +5,6 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
-import BrowserOnly from '@docusaurus/BrowserOnly';
 
 const AsciinemaPlayer = ({ src, theme, autoPlay, preload }) => {
   const ref = useRef()
@@ -66,8 +65,8 @@ function Home() {
   const { siteConfig = {} } = context;
   return (
     <Layout
-      title={`Talk to your Serial devices with JavaScript`}
-      description="Description will go into a meta tag in <head />">
+      title="Home"
+      description="Talk to your Serial devices with JavaScript">
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container">
           <h1 className="hero__title">{siteConfig.title}</h1>
