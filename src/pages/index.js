@@ -1,29 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
-
-const AsciinemaPlayer = ({ src, theme, autoPlay, preload }) => {
-  const ref = useRef()
-
-  useEffect(() => {
-    let unload
-    if (ref.current) {
-      import('asciinema-player').then(({ create }) => {
-        if (!ref.current) {
-          return
-        }
-        const { dispose } = create(src, ref.current, { theme, autoPlay, preload })
-        unload = dispose
-      })
-    }
-    return () => unload && unload()
-  }, [ref.current])
-  return <div ref={ref} />
-}
+import { AsciinemaPlayer } from '../components/AsciinemaPlayer';
 
 const features = [
   {
