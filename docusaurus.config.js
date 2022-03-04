@@ -17,7 +17,7 @@ module.exports = {
       title: 'Node SerialPort',
       logo: {
         alt: 'Node SerialPort Logo',
-        src: 'img/nodebots-logo.svg',
+        src: 'img/serialport-logo.svg',
       },
       items: [
         {
