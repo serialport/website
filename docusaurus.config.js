@@ -17,7 +17,7 @@ module.exports = {
       title: 'Node SerialPort',
       logo: {
         alt: 'Node SerialPort Logo',
-        src: 'img/serialport-logo.svg',
+        src: 'img/serialport-logo-small.svg',
       },
       items: [
         {
