@@ -180,6 +180,8 @@ interface LinuxOpenOptions extends OpenOptions {
 interface WindowsOpenOptions extends OpenOptions {
   /** Device parity defaults to none */
   parity?: 'none' | 'even' | 'odd' | 'mark' | 'space'
+  /** RTS mode defaults to handshake */
+  rtsMode?: 'handshake' | 'enable' | 'toggle'
 }
 ```
 
