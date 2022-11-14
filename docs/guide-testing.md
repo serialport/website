@@ -6,15 +6,14 @@ title: Testing
 Testing is an important feature of any library. To aid in our own tests we've developed a [`MockBinding`](api-binding-mock) a fake hardware binding that doesn't actually need any hardware to run. This class passes all of the same tests as our hardware based bindings and provides a few additional test related interfaces.
 
 ```ts
-const { SerialPortStream } = require('@serialport/stream')
-const { MockBinding } = require('@serialport/binding-mock')
+const { SerialPortMock } = require('serialport');
 
 // Create a port and enable the echo and recording.
-MockBinding.createPort('/dev/ROBOT', { echo: true, record: true })
-const port = new SerialPortStream({ binding: MockBinding, path: '/dev/ROBOT', baudRate: 14400 })
+SerialPortMock.binding.createPort('/dev/ROBOT', { echo: true, record: true })
+const port = new SerialPortMock({ path: '/dev/ROBOT', baudRate: 14400 })
 
 port.on('open', () => {
-  port.port.emitData('pretend data from device')
+  port.port?.emitData('pretend data from device')
 })
 ```
 
