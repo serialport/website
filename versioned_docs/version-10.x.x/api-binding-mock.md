@@ -27,7 +27,7 @@ interface CreatePortOptions {
   manufacturer?: string;
   vendorId?: string;
   productId?: string;
-  friendlyName: string;
+  friendlyName?: string;
 }
 
 // Create a port and enable the echo and recording.
