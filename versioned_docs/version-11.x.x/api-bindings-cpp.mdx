@@ -1,0 +1,307 @@
+---
+id: api-bindings-cpp
+title: 📦 bindings-cpp
+---
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+| [npm](https://www.npmjs.com/package/@serialport/bindings-cpp) | [github](https://github.com/serialport/bindings-cpp) |
+
+The `Binding` is how Node-SerialPort talks to the underlying system. By default, we auto-detect Windows, Linux and OSX (OSX is called `Darwin` in most places), and load the appropriate module for your system. This is used in the [`serialport`](api-serialport) package but can easily be used by itself.
+
+This package (and [`api-binding-mock`](api-binding-mock)) uses a common interface provided by the [`@serialport/bindings-interface`](api-bindings-interface) package.
+
+## Auto Detect
+
+Exports
+
+```ts
+const { autoDetect } = require('@serialport/bindings-cpp')
+// or
+import { autoDetect } from '@serialport/bindings-cpp'
+```
+
+Type definition
+
+```ts
+function autoDetect(): DarwinBindingInterface | WindowsBindingInterface | LinuxBindingInterface
+```
+
+The `autoDetect()` function returns the appropriate bindings interface for the system. Each system has common options and system specific options.
+
+```ts
+const Binding = autoDetect()
+```
+
+## BindingInterface
+
+This interface is common among all bindings and is the interface required to work with `@serialport/stream` and other generic packages.
+
+```ts
+interface BindingInterface {
+  list(): Promise<PortInfo>
+  open(options: OpenOptions): Promise<BindingPort>
+}
+```
+
+### list
+
+Retrieves a list of available serial ports with metadata. Only the `path` is guaranteed. If unavailable the other fields will be undefined. The `path` is either the path or an identifier (eg `COM1`) used to open the SerialPort.
+
+We make an effort to identify the hardware attached and have consistent results between systems. Linux and OS X are mostly consistent. Windows relies on 3rd party device drivers for the information and is unable to guarantee the information. On windows If you have a USB connected device can we provide a serial number otherwise it will be `undefined`. The `pnpId` and `locationId` are not the same or present on all systems. The examples below were run with the same Arduino Uno.
+
+Types
+
+```ts
+interface PortInfo {
+    path: string;
+    manufacturer: string | undefined;
+    serialNumber: string | undefined;
+    pnpId: string | undefined;
+    locationId: string | undefined;
+    productId: string | undefined;
+    vendorId: string | undefined;
+}
+
+function list(): Promise<PortInfo>
+```
+
+<Tabs>
+<TabItem value="linux" label="Linux">
+
+```ts
+const ports = await LinuxBinding.list()
+// [{
+//   path: '/dev/ttyACM0',
+//   manufacturer: 'Arduino (www.arduino.cc)',
+//   serialNumber: '752303138333518011C1',
+//   pnpId: 'usb-Arduino__www.arduino.cc__0043_752303138333518011C1-if00',
+//   locationId: undefined,
+//   productId: '0043',
+//   vendorId: '2341'
+// }]
+```
+
+</TabItem>
+<TabItem value="windows" label="Windows">
+
+```ts
+const ports = await WindowsBinding.list()
+// [{
+//   path: 'COM3',
+//   manufacturer: 'Arduino LLC (www.arduino.cc)',
+//   serialNumber: '752303138333518011C1',
+//   pnpId: 'USB\\VID_2341&PID_0043\\752303138333518011C1',
+//   locationId: 'Port_#0003.Hub_#0001',
+//   productId: '0043',
+//   vendorId: '2341'
+// }]
+```
+
+</TabItem>
+<TabItem value="osx" label="OSX">
+
+```ts
+const ports = await DarwinBinding.list()
+// [{
+//   path: '/dev/tty.usbmodem1421',
+//   manufacturer: 'Arduino (www.arduino.cc)',
+//   serialNumber: '752303138333518011C1',
+//   pnpId: undefined,
+//   locationId: '14500000',
+//   productId: '0043',
+//   vendorId: '2341'
+// }]
+```
+
+</TabItem>
+</Tabs>
+
+
+### open
+
+Opens an open port and returns a `BindingPort` object for your platform. There's a common set of options (eg, `path`, `baudRate`) and then platform specific options for your operating system.
+
+Types
+
+```ts
+function open(options: OpenOptions): Promise<BindingPort>
+```
+
+<Tabs>
+<TabItem value="general" label="General">
+
+```ts
+interface OpenOptions {
+  /** The system path of the serial port you want to open. For example, `/dev/tty.XXX` on Mac/Linux, or `COM1` on Windows */
+  path: string
+  /**
+    * The baud rate of the port to be opened. This should match one of the commonly available baud rates, such as 110, 300, 1200, 2400, 4800, 9600, 14400, 19200, 38400, 57600, or 115200. Custom rates are supported best effort per platform. The device connected to the serial port is not guaranteed to support the requested baud rate, even if the port itself supports that baud rate.
+    */
+  baudRate: number
+  /** Must be one of these: 5, 6, 7, or 8 defaults to 8 */
+  dataBits?: 5 | 6 | 7 | 8
+  /** Prevent other processes from opening the port. Windows does not currently support `false`. Defaults to true */
+  lock?: boolean
+  /** Must be 1, 1.5 or 2 defaults to 1 */
+  stopBits?: 1 | 1.5 | 2
+  parity?: string
+  /** Flow control Setting. Defaults to false */
+  rtscts?: boolean
+  /** Flow control Setting. Defaults to false */
+  xon?: boolean
+  /** Flow control Setting. Defaults to false */
+  xoff?: boolean
+  /** Flow control Setting defaults to false*/
+  xany?: boolean
+  /** drop DTR on close. Defaults to true */
+  hupcl?: boolean
+}
+```
+
+</TabItem>
+<TabItem value="linux" label="Linux">
+
+```ts
+interface LinuxOpenOptions extends OpenOptions {
+  /** Defaults to none */
+  parity?: 'none' | 'even' | 'odd'
+  /** see [`man termios`](http://linux.die.net/man/3/termios) defaults to 1 */
+  vmin?: number
+  /** see [`man termios`](http://linux.die.net/man/3/termios) defaults to 0 */
+  vtime?: number
+}
+```
+
+</TabItem>
+<TabItem value="windows" label="Windows">
+
+```ts
+interface WindowsOpenOptions extends OpenOptions {
+  /** Device parity defaults to none */
+  parity?: 'none' | 'even' | 'odd' | 'mark' | 'space'
+  /** RTS mode defaults to handshake */
+  rtsMode?: 'handshake' | 'enable' | 'toggle'
+}
+```
+
+</TabItem>
+<TabItem value="darwin" label="OSX">
+
+```ts
+interface DarwinOpenOptions extends OpenOptions {
+  /** Defaults to none */
+  parity?: 'none' | 'even' | 'odd';
+  /** see [`man termios`](http://linux.die.net/man/3/termios) defaults to 1 */
+  vmin?: number;
+  /** see [`man termios`](http://linux.die.net/man/3/termios) defaults to 0 */
+  vtime?: number;
+}
+```
+
+</TabItem>
+</Tabs>
+
+## BindingPort
+
+This object is an open serialport. You can read from it, write to it, change settings and close it. Once it's closed it can't be opened again. You can however make a new one by calling [`open()`](#open).
+
+```ts
+const port = await Binding.open(options)
+```
+
+### isOpen
+
+```ts
+isOpen: boolean
+```
+
+`true` if the port is open, `false` otherwise. Read Only.
+
+### close
+
+```ts
+close(): Promise<void>
+```
+Closes an open port
+
+
+### read
+
+```ts
+read(buffer: Buffer, offset: number, length: number): Promise<{
+  buffer: Buffer
+  bytesRead: number
+}>
+```
+
+ Request a number of bytes (`length`) from the port to be read into the `buffer` at the `offset`. This function is similar to Node's [`fs.read`](http://nodejs.org/api/fs.html#fs_fs_read_fd_buffer_offset_length_position_callback) as it will attempt to read up to `length` number of bytes. This function has a guarantee that it will always return at least one byte. This leverages os specific polling or async reads so you don't have to.
+
+The in progress reads error when the port is closed with an error object that has the property `canceled` equal to `true`.
+
+### write
+
+```ts
+write(buffer: Buffer): Promise<void>
+```
+
+Write bytes to the SerialPort. The in progress writes error when the port is closed with an error object that has the property `canceled` equal to `true`.
+
+Resolves after the data is passed to the operating system for writing.
+
+### update
+
+```ts
+interface UpdateOptions {
+  /** If provided a baud rate that the bindings do not support, it should reject */
+  baudRate: number;
+}
+
+update(options: UpdateOptions): Promise<void>
+```
+
+Changes connection settings on an open port. Only supports `baudRate`.
+
+### set
+
+```ts
+interface SetOptions {
+  brk?: boolean;
+  cts?: boolean;
+  dsr?: boolean;
+  dtr?: boolean;
+  rts?: boolean;
+}
+set(options: SetOptions): Promise<void>
+```
+
+Set control flags on an open port. All options are operating system default when the port is opened. Every flag is set on each call to the provided or default values.
+
+
+### get
+```ts
+interface PortStatus {
+    cts: boolean;
+    dsr: boolean;
+    dcd: boolean;
+}
+
+get(): Promise<PortStatus>
+```
+
+Get the control flags (CTS, DSR, DCD) on the open port.
+
+### flush
+```ts
+flush(): Promise<void>
+```
+
+Flush (discard) data received but not read, and written but not transmitted. Resolves once the flush operation finishes.
+
+### drain
+
+```ts
+drain(): Promise<void>
+```
+Drain waits until all output data is transmitted to the serial port. An in progress write complete before this returns. Resolves once the drain operation finishes.
+
