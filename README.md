@@ -14,7 +14,7 @@ New docs should be added to the `/docs` directory. Edit the versioned docs too i
 
 ### Developing Docs
 
-You can develop the docs by running
+You can develop the docs by running with node v18
 
 ```bash
 npm run start

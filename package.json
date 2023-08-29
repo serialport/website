@@ -11,6 +11,9 @@
     "serve": "docusaurus serve",
     "clear": "docusaurus clear"
   },
+  "engines": {
+    "node": ">=18"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/node-serialport/website.git"
@@ -23,8 +26,8 @@
     }
   ],
   "dependencies": {
-    "@docusaurus/core": "2.0.0-beta.15",
-    "@docusaurus/preset-classic": "2.0.0-beta.15",
+    "@docusaurus/core": "2.4.1",
+    "@docusaurus/preset-classic": "2.4.1",
     "@mdx-js/react": "1.6.22",
     "asciinema-player": "3.0.0-rc.1",
     "clsx": "1.1.1",
