@@ -39,7 +39,8 @@ globals { SerialPort, SerialPortMock, path, port }
     pnpId: undefined,
     locationId: '02100000',
     vendorId: '2341',
-    productId: '8036'
+    productId: '8036',
+    friendlyName: undefined
   }
 ]
 > port.open()

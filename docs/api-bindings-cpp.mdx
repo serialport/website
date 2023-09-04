@@ -61,6 +61,7 @@ interface PortInfo {
     locationId: string | undefined;
     productId: string | undefined;
     vendorId: string | undefined;
+    friendlyName: string | undefined;
 }
 
 function list(): Promise<PortInfo>
@@ -78,7 +79,8 @@ const ports = await LinuxBinding.list()
 //   pnpId: 'usb-Arduino__www.arduino.cc__0043_752303138333518011C1-if00',
 //   locationId: undefined,
 //   productId: '0043',
-//   vendorId: '2341'
+//   vendorId: '2341',
+//   friendlyName: undefined
 // }]
 ```
 
@@ -94,7 +96,8 @@ const ports = await WindowsBinding.list()
 //   pnpId: 'USB\\VID_2341&PID_0043\\752303138333518011C1',
 //   locationId: 'Port_#0003.Hub_#0001',
 //   productId: '0043',
-//   vendorId: '2341'
+//   vendorId: '2341',
+//   friendlyName: 'USB Serial Device (COM3)'
 // }]
 ```
 
@@ -110,7 +113,8 @@ const ports = await DarwinBinding.list()
 //   pnpId: undefined,
 //   locationId: '14500000',
 //   productId: '0043',
-//   vendorId: '2341'
+//   vendorId: '2341',
+//   friendlyName: undefined
 // }]
 ```
 
