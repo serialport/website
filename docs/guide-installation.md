@@ -5,7 +5,7 @@ title: Installing SerialPort
 
 ## Installation Instructions
 
-For most javascript enviornments you can run;
+For most javascript environments you can run;
 
 ```sh
 $ npm install serialport
