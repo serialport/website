@@ -3,6 +3,7 @@ module.exports = {
   tagline: 'Talk to your Serial devices with JavaScript',
   url: 'https://serialport.io',
   baseUrl: '/',
+  trailingSlash: true,
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
   favicon: 'img/serialport-logo.png',
