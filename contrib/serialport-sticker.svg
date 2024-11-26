@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="60mm"
+   height="60mm"
+   viewBox="0 0 226.77165 226.77165"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="serialport-sticker.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25)"
+   inkscape:export-filename="serialport-sticker.pdf"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showguides="true"
+     inkscape:zoom="2.224138"
+     inkscape:cx="73.961238"
+     inkscape:cy="119.8217"
+     inkscape:window-width="1344"
+     inkscape:window-height="862"
+     inkscape:window-x="1464"
+     inkscape:window-y="81"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg1"
+     inkscape:document-units="mm">
+    <sodipodi:guide
+       position="-18.897638,186.31553"
+       orientation="0,1"
+       id="guide8"
+       inkscape:locked="false"
+       inkscape:label=""
+       inkscape:color="rgb(0,134,229)" />
+  </sodipodi:namedview>
+  <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+  <title
+     id="title1">node-serialport-logo-small</title>
+  <desc
+     id="desc1">Created with Sketch.</desc>
+  <g
+     id="g4"
+     fill="#f7df1e"
+     fill-rule="nonzero"
+     style="stroke:none;stroke-width:1"
+     transform="scale(0.35995501)">
+    <rect
+       id="rect4"
+       x="0"
+       y="0"
+       width="630"
+       height="630" />
+  </g>
+  <defs
+     id="defs1" />
+  <g
+     id="g5"
+     transform="matrix(0.2999625,0,0,0.2999625,18.897638,18.897638)"
+     style="fill:none;stroke:#ff00ff;stroke-opacity:1;stroke-width:3.33375005;stroke-dasharray:none;vector-effect:non-scaling-stroke;-inkscape-stroke:hairline">
+    <g
+       id="logo"
+       fill="#f7df1e"
+       fill-rule="nonzero"
+       style="stroke:#ff00ff;stroke-width:3.33375005;fill:none;stroke-opacity:1;stroke-dasharray:none;vector-effect:non-scaling-stroke;-inkscape-stroke:hairline">
+      <rect
+         id="background"
+         x="0"
+         y="0"
+         width="630"
+         height="630"
+         style="vector-effect:non-scaling-stroke;fill:none;stroke:#ff00ff;stroke-width:3.33375;stroke-dasharray:none;stroke-opacity:1;-inkscape-stroke:hairline"
+         ry="71.870598" />
+    </g>
+  </g>
+  <g
+     id="g7"
+     transform="matrix(0.2999625,0,0,0.2999625,14.897987,12.897638)">
+    <g
+       id="g6">
+      <g
+         id="Your_Icon"
+         transform="translate(293,315)"
+         fill="#2e2e2c"
+         style="fill-rule:evenodd;stroke:none;stroke-width:1">
+        <g
+           id="g3453">
+          <g
+             id="g3355"
+             transform="translate(56,254)">
+            <g
+               id="g3357">
+              <g
+                 id="g3359">
+                <path
+                   d="m 9.27024,0 h 178.53929 c 5.12208,0 9.26724,4.2353334 9.26724,9.4596126 0,5.2272854 -4.14516,9.4626184 -9.26724,9.4626184 H 9.27024 C 4.1511678,18.922231 0,14.686898 0,9.4596126 0,4.2383393 4.1511678,0 9.27024,0 Z"
+                   id="path3361" />
+              </g>
+            </g>
+          </g>
+          <g
+             id="g3363"
+             transform="translate(86,281)">
+            <g
+               id="g3365">
+              <g
+                 id="g3367">
+                <path
+                   d="m 9.27024,0 h 119.75563 c 5.12208,0 9.27024,4.2383393 9.27024,9.4656245 0,5.2272855 -4.14816,9.4596125 -9.27024,9.4596125 H 9.27024 C 4.1511678,18.925237 0,14.69291 0,9.4656245 0,4.2383393 4.1511678,0 9.27024,0 Z"
+                   id="path3369" />
+              </g>
+            </g>
+          </g>
+          <g
+             id="g3371"
+             transform="translate(139)">
+            <g
+               id="g3373">
+              <g
+                 id="g3375">
+                <path
+                   d="M 36.705221,19.267911 C 36.705221,8.6269743 28.526128,0 18.098611,0 7.6801113,0 0,8.6269743 0,19.267911 0,25.883929 3.0029085,31.718409 9.0147373,35.187234 v 32.785508 c 0,5.618054 3.5199257,10.169009 9.0177427,10.169009 5.50383,0 9.017744,-4.550955 9.017744,-10.169009 V 35.73431 c 6.011828,-3.378647 9.654997,-9.477648 9.654997,-16.466399 z"
+                   id="path3377" />
+              </g>
+            </g>
+          </g>
+          <path
+             d="M 48.430393,241.27922 C 36.295907,236.60065 22.324686,223.9105 16.940762,212.67696 12.72632,203.88355 0,140.13281 0,127.81454 0,114.07877 8.9119951,99.773263 21.743883,92.911374 L 32.061413,89.333687 155.85781,89 h 124.46376 l 9.65016,3.911374 c 13.48575,5.466009 21.74387,21.167396 21.74387,34.903166 0,9.61355 -12.66857,75.7637 -15.94153,83.24033 -4.85097,11.08127 -20.58245,25.67471 -32.47247,30.12334 -9.55442,3.57476 -12.6298,3.67698 -107.95014,3.58782 -92.546845,-0.0865 -98.615305,-0.28445 -106.921067,-3.48681 z"
+             id="path5302"
+             fill-rule="nonzero" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="layer3"
+       transform="translate(342,428)"
+       fill="#f7df1e"
+       font-family="Futura-Medium, Futura"
+       font-size="80px"
+       font-weight="400"
+       style="fill-rule:evenodd;stroke:none;stroke-width:1">
+      <text
+         id="IOIOI"><tspan
+           x="0"
+           y="83"
+           id="tspan1">IOIOI</tspan></text>
+    </g>
+  </g>
+  <rect
+     style="fill:none"
+     id="rect1"
+     width="432.45764"
+     height="363.05084"
+     x="-384.40677"
+     y="-581.94916"
+     ry="72.076271" />
+  <rect
+     style="fill:none"
+     id="rect3"
+     width="266.94916"
+     height="282.96609"
+     x="-517.88135"
+     y="-253.6017"
+     ry="4.0042372" />
+  <metadata
+     id="metadata4">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>node-serialport-logo-small</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>
