@@ -16,8 +16,10 @@ A transform stream that emits data after a delimiter and number of bytes is rece
 
 ```ts
 interface PacketLengthOptions extends TransformOptions {
-  /** delimiter to use defaults to 0xaa */
-  delimiter?: number
+  /** delimiter(s) to use defaults to 0xaa */
+  delimiter?: number | number[]
+  /** delimiter length in bytes defaults to 1 */
+  delimiterBytes?: number
   /** overhead of packet (including length, delimiter and any checksum / packet footer) defaults to 2 */
   packetOverhead?: number
   /** number of bytes containing length defaults to 1 */
